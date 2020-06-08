@@ -16,6 +16,14 @@ class SignupVC: UIViewController {
         
     }
     
+    @IBAction func signUpClicked(_ sender: UIButton) {
+    }
+    
+    @IBAction func returnToSignClicked(_ sender: UIButton) {
+        //return to the root view controller
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
 }
 
 //MARK: - Helpers
