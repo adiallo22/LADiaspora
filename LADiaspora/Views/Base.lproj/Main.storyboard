@@ -117,7 +117,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="by4-82-cXw">
-                                <rect key="frame" x="40" y="278" width="334" height="250"/>
+                                <rect key="frame" x="40" y="266" width="334" height="250"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="05F-ix-hs7">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="30"/>
@@ -214,10 +214,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1A-pV-nHR">
-                                <rect key="frame" x="152" y="128" width="110" height="110"/>
+                                <rect key="frame" x="143" y="98" width="128" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="110" id="LEi-P0-K3Y"/>
-                                    <constraint firstAttribute="height" constant="110" id="XEy-WJ-Rvz"/>
+                                    <constraint firstAttribute="width" constant="128" id="LEi-P0-K3Y"/>
+                                    <constraint firstAttribute="height" constant="128" id="XEy-WJ-Rvz"/>
                                 </constraints>
                                 <connections>
                                     <action selector="profileImagePicked:" destination="5jo-DQ-cs4" eventType="touchUpInside" id="Jsf-7d-ZH0"/>
@@ -226,12 +226,11 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="e1A-pV-nHR" firstAttribute="top" secondItem="aJa-CN-Tpe" secondAttribute="top" constant="40" id="6xV-YE-rze"/>
+                            <constraint firstItem="e1A-pV-nHR" firstAttribute="top" secondItem="aJa-CN-Tpe" secondAttribute="top" constant="10" id="6xV-YE-rze"/>
                             <constraint firstItem="by4-82-cXw" firstAttribute="top" secondItem="e1A-pV-nHR" secondAttribute="bottom" constant="40" id="98O-2w-gf6"/>
                             <constraint firstItem="aJa-CN-Tpe" firstAttribute="trailing" secondItem="by4-82-cXw" secondAttribute="trailing" constant="40" id="DPG-Ia-3bA"/>
-                            <constraint firstItem="e1A-pV-nHR" firstAttribute="leading" secondItem="aJa-CN-Tpe" secondAttribute="leading" constant="152" id="Mtp-1i-ZQm"/>
+                            <constraint firstItem="e1A-pV-nHR" firstAttribute="centerX" secondItem="KVb-6z-CWp" secondAttribute="centerX" id="Rck-PQ-26d"/>
                             <constraint firstItem="EG2-cD-jxr" firstAttribute="bottom" secondItem="aJa-CN-Tpe" secondAttribute="bottom" constant="10" id="VBX-jF-VXu"/>
-                            <constraint firstItem="aJa-CN-Tpe" firstAttribute="trailing" secondItem="e1A-pV-nHR" secondAttribute="trailing" constant="152" id="knK-vW-Ihi"/>
                             <constraint firstItem="by4-82-cXw" firstAttribute="leading" secondItem="aJa-CN-Tpe" secondAttribute="leading" constant="40" id="nuF-jF-UK2"/>
                             <constraint firstItem="EG2-cD-jxr" firstAttribute="centerX" secondItem="KVb-6z-CWp" secondAttribute="centerX" id="th2-fW-JZp"/>
                         </constraints>

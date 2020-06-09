@@ -22,9 +22,14 @@
 		C0C1770D248D6DF200080FBC /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C1770C248D6DF200080FBC /* SignupVC.swift */; };
 		C0C17711248DCEFA00080FBC /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C17710248DCEFA00080FBC /* Util.swift */; };
 		C0C17713248ECD5000080FBC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C17712248ECD5000080FBC /* Constants.swift */; };
+		C0C17715248FE03C00080FBC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0C17714248FE03B00080FBC /* GoogleService-Info.plist */; };
+		C35B6CA06AA0674202F5415D /* Pods_LADiaspora.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1286CBE5112122A6120A8F /* Pods_LADiaspora.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E1286CBE5112122A6120A8F /* Pods_LADiaspora.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LADiaspora.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		46463617D7F79A93F573BDBC /* Pods-LADiaspora.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LADiaspora.debug.xcconfig"; path = "Target Support Files/Pods-LADiaspora/Pods-LADiaspora.debug.xcconfig"; sourceTree = "<group>"; };
+		9AE99391C27B3A37C84B1823 /* Pods-LADiaspora.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LADiaspora.release.xcconfig"; path = "Target Support Files/Pods-LADiaspora/Pods-LADiaspora.release.xcconfig"; sourceTree = "<group>"; };
 		C0C176DE248D3F7A00080FBC /* LADiaspora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LADiaspora.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C176E1248D3F7A00080FBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0C176E3248D3F7A00080FBC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +47,7 @@
 		C0C1770C248D6DF200080FBC /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
 		C0C17710248DCEFA00080FBC /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		C0C17712248ECD5000080FBC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C0C17714248FE03B00080FBC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,17 +55,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C35B6CA06AA0674202F5415D /* Pods_LADiaspora.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9652257E4DC5AF55BBC8303D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				46463617D7F79A93F573BDBC /* Pods-LADiaspora.debug.xcconfig */,
+				9AE99391C27B3A37C84B1823 /* Pods-LADiaspora.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C0C176D5248D3F7A00080FBC = {
 			isa = PBXGroup;
 			children = (
 				C0C176E0248D3F7A00080FBC /* LADiaspora */,
 				C0C176DF248D3F7A00080FBC /* Products */,
+				9652257E4DC5AF55BBC8303D /* Pods */,
+				C25FA77028DF1D712235A0AB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +103,7 @@
 				C0C176EA248D3F8000080FBC /* Assets.xcassets */,
 				C0C176EC248D3F8000080FBC /* LaunchScreen.storyboard */,
 				C0C176EF248D3F8000080FBC /* Info.plist */,
+				C0C17714248FE03B00080FBC /* GoogleService-Info.plist */,
 			);
 			path = LADiaspora;
 			sourceTree = "<group>";
@@ -142,6 +162,14 @@
 			path = Reigstrations;
 			sourceTree = "<group>";
 		};
+		C25FA77028DF1D712235A0AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E1286CBE5112122A6120A8F /* Pods_LADiaspora.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,9 +177,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C0C176F2248D3F8000080FBC /* Build configuration list for PBXNativeTarget "LADiaspora" */;
 			buildPhases = (
+				19343B38FC8CD372690A3F6F /* [CP] Check Pods Manifest.lock */,
 				C0C176DA248D3F7A00080FBC /* Sources */,
 				C0C176DB248D3F7A00080FBC /* Frameworks */,
 				C0C176DC248D3F7A00080FBC /* Resources */,
+				91B6BC8059CAFE394F917D6D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -201,12 +231,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0C176EE248D3F8000080FBC /* LaunchScreen.storyboard in Resources */,
+				C0C17715248FE03C00080FBC /* GoogleService-Info.plist in Resources */,
 				C0C176EB248D3F8000080FBC /* Assets.xcassets in Resources */,
 				C0C176E9248D3F7A00080FBC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		19343B38FC8CD372690A3F6F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LADiaspora-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91B6BC8059CAFE394F917D6D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LADiaspora/Pods-LADiaspora-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LADiaspora/Pods-LADiaspora-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LADiaspora/Pods-LADiaspora-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C0C176DA248D3F7A00080FBC /* Sources */ = {
@@ -366,6 +439,7 @@
 		};
 		C0C176F3248D3F8000080FBC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46463617D7F79A93F573BDBC /* Pods-LADiaspora.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -384,6 +458,7 @@
 		};
 		C0C176F4248D3F8000080FBC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AE99391C27B3A37C84B1823 /* Pods-LADiaspora.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
