@@ -116,8 +116,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="by4-82-cXw">
-                                <rect key="frame" x="40" y="271" width="334" height="250"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="by4-82-cXw">
+                                <rect key="frame" x="40" y="278" width="334" height="250"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="05F-ix-hs7">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="30"/>
@@ -213,17 +213,39 @@
                                     <action selector="signupClicked:" destination="60g-gG-b35" eventType="touchUpInside" id="Hru-eh-Qyo"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1A-pV-nHR">
+                                <rect key="frame" x="152" y="128" width="110" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="LEi-P0-K3Y"/>
+                                    <constraint firstAttribute="height" constant="110" id="XEy-WJ-Rvz"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="profileImagePicked:" destination="5jo-DQ-cs4" eventType="touchUpInside" id="Jsf-7d-ZH0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="e1A-pV-nHR" firstAttribute="top" secondItem="aJa-CN-Tpe" secondAttribute="top" constant="40" id="6xV-YE-rze"/>
+                            <constraint firstItem="by4-82-cXw" firstAttribute="top" secondItem="e1A-pV-nHR" secondAttribute="bottom" constant="40" id="98O-2w-gf6"/>
                             <constraint firstItem="aJa-CN-Tpe" firstAttribute="trailing" secondItem="by4-82-cXw" secondAttribute="trailing" constant="40" id="DPG-Ia-3bA"/>
+                            <constraint firstItem="e1A-pV-nHR" firstAttribute="leading" secondItem="aJa-CN-Tpe" secondAttribute="leading" constant="152" id="Mtp-1i-ZQm"/>
                             <constraint firstItem="EG2-cD-jxr" firstAttribute="bottom" secondItem="aJa-CN-Tpe" secondAttribute="bottom" constant="10" id="VBX-jF-VXu"/>
+                            <constraint firstItem="aJa-CN-Tpe" firstAttribute="trailing" secondItem="e1A-pV-nHR" secondAttribute="trailing" constant="152" id="knK-vW-Ihi"/>
                             <constraint firstItem="by4-82-cXw" firstAttribute="leading" secondItem="aJa-CN-Tpe" secondAttribute="leading" constant="40" id="nuF-jF-UK2"/>
                             <constraint firstItem="EG2-cD-jxr" firstAttribute="centerX" secondItem="KVb-6z-CWp" secondAttribute="centerX" id="th2-fW-JZp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aJa-CN-Tpe"/>
                     </view>
                     <navigationItem key="navigationItem" id="nVi-pt-cKA"/>
+                    <connections>
+                        <outlet property="emailtf" destination="kQX-nG-LU7" id="ReU-qC-pfO"/>
+                        <outlet property="fullnametf" destination="Hs8-IO-Zc4" id="W3L-hg-HmX"/>
+                        <outlet property="passwordtf" destination="D8j-gD-lUM" id="DtJ-DJ-VnE"/>
+                        <outlet property="profileImageButton" destination="e1A-pV-nHR" id="g6g-Yz-Z1e"/>
+                        <outlet property="signupButton" destination="Auf-WU-ZeV" id="JJW-sx-z4X"/>
+                        <outlet property="usernametf" destination="uOi-3W-hgI" id="T65-uT-cd2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FfJ-kO-MlP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
