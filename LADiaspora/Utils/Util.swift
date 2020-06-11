@@ -13,7 +13,7 @@ struct Util {
     func designThetextfield(withTextField textfield : UITextField) {
         let line = CALayer()
         line.backgroundColor = CGColor.init(srgbRed: 0, green: 0, blue: 0, alpha: 1.0)
-        line.frame = CGRect(x: 0, y: textfield.frame.size.height, width: textfield.frame.size.width - 50, height: 0.75)
+        line.frame = CGRect(x: 0, y: textfield.frame.size.height, width: textfield.frame.size.width - 20, height: 0.75)
         
         textfield.borderStyle = .none
         textfield.layer.addSublayer(line)

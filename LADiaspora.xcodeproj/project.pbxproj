@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -68,7 +68,6 @@
 				46463617D7F79A93F573BDBC /* Pods-LADiaspora.debug.xcconfig */,
 				9AE99391C27B3A37C84B1823 /* Pods-LADiaspora.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -112,11 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				C0C17709248D6DC500080FBC /* Reigstrations */,
-				C0C176FB248D428500080FBC /* MainTabBar.swift */,
-				C0C176FD248D483300080FBC /* FeedVC.swift */,
-				C0C176FF248D484300080FBC /* DiscoverVC.swift */,
-				C0C17701248D486400080FBC /* NotificationVC.swift */,
-				C0C17703248D487600080FBC /* MessageVC.swift */,
+				C0C1776624925AF900080FBC /* Main */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -160,6 +155,18 @@
 				C0C1770C248D6DF200080FBC /* SignupVC.swift */,
 			);
 			path = Reigstrations;
+			sourceTree = "<group>";
+		};
+		C0C1776624925AF900080FBC /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C0C176FB248D428500080FBC /* MainTabBar.swift */,
+				C0C176FD248D483300080FBC /* FeedVC.swift */,
+				C0C176FF248D484300080FBC /* DiscoverVC.swift */,
+				C0C17701248D486400080FBC /* NotificationVC.swift */,
+				C0C17703248D487600080FBC /* MessageVC.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		C25FA77028DF1D712235A0AB /* Frameworks */ = {

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 struct Constants {
     
@@ -16,6 +17,11 @@ struct Constants {
     
     struct Titles {
         
+    }
+    
+    struct References {
+        static let db = Database.database().reference()
+        static let imageDB = Storage.storage().reference()
     }
     
 }
