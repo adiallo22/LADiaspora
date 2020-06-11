@@ -10,7 +10,7 @@
         <!--LoginVC-->
         <scene sceneID="eDO-LY-KQX">
             <objects>
-                <viewController id="60g-gG-b35" customClass="LoginVC" customModule="LADiaspora" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="60g-gG-b35" customClass="LoginVC" customModule="LADiaspora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BFv-D1-NBq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -260,7 +260,7 @@
         <!--Main Tab Bar-->
         <scene sceneID="McL-Vq-70G">
             <objects>
-                <tabBarController id="zlM-T9-cj7" customClass="MainTabBar" customModule="LADiaspora" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="VC" id="zlM-T9-cj7" customClass="MainTabBar" customModule="LADiaspora" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Hzm-pt-e7k">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -23,6 +23,7 @@
 		C0C17711248DCEFA00080FBC /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C17710248DCEFA00080FBC /* Util.swift */; };
 		C0C17713248ECD5000080FBC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C17712248ECD5000080FBC /* Constants.swift */; };
 		C0C17715248FE03C00080FBC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0C17714248FE03B00080FBC /* GoogleService-Info.plist */; };
+		C0C17768249284DF00080FBC /* AuthCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C17767249284DF00080FBC /* AuthCredential.swift */; };
 		C35B6CA06AA0674202F5415D /* Pods_LADiaspora.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1286CBE5112122A6120A8F /* Pods_LADiaspora.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		C0C17710248DCEFA00080FBC /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		C0C17712248ECD5000080FBC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C0C17714248FE03B00080FBC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C0C17767249284DF00080FBC /* AuthCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCredential.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 		C0C176F8248D421F00080FBC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C0C17767249284DF00080FBC /* AuthCredential.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				C0C17702248D486400080FBC /* NotificationVC.swift in Sources */,
 				C0C17700248D484300080FBC /* DiscoverVC.swift in Sources */,
 				C0C176FC248D428500080FBC /* MainTabBar.swift in Sources */,
+				C0C17768249284DF00080FBC /* AuthCredential.swift in Sources */,
 				C0C17704248D487600080FBC /* MessageVC.swift in Sources */,
 				C0C1770B248D6DDD00080FBC /* LoginVC.swift in Sources */,
 				C0C1770D248D6DF200080FBC /* SignupVC.swift in Sources */,

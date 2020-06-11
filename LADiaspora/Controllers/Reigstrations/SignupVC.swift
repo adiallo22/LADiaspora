@@ -131,22 +131,23 @@ extension SignupVC {
                     let pwd = self.passwordtf.text,
                     let username = self.usernametf.text,
                     let fullname = self.fullnametf.text else { return }
+                let user = AuthCredential(fullname: fullname, username: username, email: email, password: pwd, profileURL: profileURL)
                 //upload textfields and image url to database
-                self.createNewUser(username: username, password: pwd, email: email, fullname: fullname, profileURL: profileURL)
+                self.createNewUser(withCredentials: user)
             }
         }
     }
     
-    func createNewUser(username: String, password: String, email: String, fullname: String, profileURL: String) {
-        Auth.auth().createUser(withEmail: email, password: password, completion: { (result, error) in
+    func createNewUser(withCredentials : AuthCredential) {
+        Auth.auth().createUser(withEmail: withCredentials.email, password: withCredentials.password, completion: { (result, error) in
             if error != nil {
                 self.setTheError(withError: error!.localizedDescription)
             } else {
                 let uid = result?.user.uid
-                let values = ["full name":fullname,
-                              "email":email,
-                              "username":username,
-                              "profileURL":profileURL]
+                let values = ["full name":withCredentials.fullname,
+                              "email":withCredentials.email,
+                              "username":withCredentials.username,
+                              "profileURL":withCredentials.profileURL]
                 //reference to database and upload values
                 let reference = Constants.References.db.child("users").child("\(uid!)")
                 reference.setValue(values)

@@ -7,16 +7,35 @@
 //
 
 import UIKit
+import Firebase
 
 class MainTabBar: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .systemRed
-        
+        //signOutUser()
+        checkUserLog()
     }
     
+    func checkUserLog() {
+        if Auth.auth().currentUser == nil {
+            DispatchQueue.main.async {
+                let main : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let viewController = main.instantiateViewController(withIdentifier: "Login") as! LoginVC
+                UIApplication.shared.keyWindow?.rootViewController = viewController
+            }
+        } else {
+            print("a user is logged in")
+        }
+    }
+    
+    func signOutUser() {
+        do {
+            try Auth.auth().signOut()
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
 
 }
 
