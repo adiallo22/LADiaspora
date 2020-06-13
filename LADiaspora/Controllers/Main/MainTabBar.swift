@@ -20,9 +20,7 @@ class MainTabBar: UITabBarController {
     func checkUserLog() {
         if Auth.auth().currentUser == nil {
             DispatchQueue.main.async {
-                let main : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let viewController = main.instantiateViewController(withIdentifier: "Login") as! LoginVC
-                UIApplication.shared.keyWindow?.rootViewController = viewController
+                self.changeRoot()
             }
         } else {
             print("a user is logged in")
@@ -35,6 +33,14 @@ class MainTabBar: UITabBarController {
         } catch let error {
             print(error.localizedDescription)
         }
+    }
+    
+    func changeRoot() {
+//        let main : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let viewController = main.instantiateViewController(withIdentifier: "Login") as! LoginVC
+//        UIApplication.shared.keyWindow?.rootViewController = viewController
+//        let nav = UINavigationController.init(rootViewController: LoginVC())
+//        present(nav, animated: true, completion: nil)
     }
 
 }

@@ -61,6 +61,7 @@ class SignupVC: UIViewController, UIPickerViewDelegate {
     @IBAction func returnToSignClicked(_ sender: UIButton) {
         //return to the root view controller
         navigationController?.popToRootViewController(animated: true)
+        navigationController?.modalPresentationStyle = .fullScreen
     }
     
 }
@@ -72,11 +73,11 @@ extension SignupVC {
     func configureUI() {
         // set profile image button
         profileImageButton.setImage(UIImage.init(named: "pickprofile"), for: .normal)
-        Util().designThetextfield(withTextField: fullnametf)
-        Util().designThetextfield(withTextField: usernametf)
-        Util().designThetextfield(withTextField: emailtf)
-        Util().designThetextfield(withTextField: passwordtf)
-        Util().roundButton(withButton: signupButton)
+        fullnametf.underlineText()
+        usernametf.underlineText()
+        emailtf.underlineText()
+        passwordtf.underlineText()
+        signupButton.roundButton()
     }
     
     func roundProfileImageButton() {

@@ -23,7 +23,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="P8g-uO-QSf">
-                                <rect key="frame" x="40" y="278" width="334" height="150"/>
+                                <rect key="frame" x="40" y="278" width="334" height="190.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="GuZ-gb-eTn">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="30"/>
@@ -71,6 +71,12 @@
                                             <action selector="loginPressed:" destination="60g-gG-b35" eventType="touchUpInside" id="SVy-wN-WRS"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nT-XZ-Xsn">
+                                        <rect key="frame" x="0.0" y="170" width="334" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMT-2R-Ubh">
@@ -99,9 +105,10 @@
                     <navigationItem key="navigationItem" id="fyH-8r-RI1"/>
                     <connections>
                         <outlet property="emailtf" destination="Gcp-zY-DvS" id="m1a-vb-YIN"/>
+                        <outlet property="errorLabel" destination="9nT-XZ-Xsn" id="LRP-fn-al5"/>
                         <outlet property="loginButton" destination="HkA-xg-cm7" id="86h-AV-t9A"/>
                         <outlet property="passwordtf" destination="Jce-9T-GLE" id="LXI-yf-MNH"/>
-                        <segue destination="5jo-DQ-cs4" kind="show" identifier="toSignUp" id="Bqm-2B-bmU"/>
+                        <segue destination="5jo-DQ-cs4" kind="show" identifier="toSignUp" id="JAM-yr-C45"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XC1-VD-5l6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -260,7 +267,7 @@
         <!--Main Tab Bar-->
         <scene sceneID="McL-Vq-70G">
             <objects>
-                <tabBarController storyboardIdentifier="VC" id="zlM-T9-cj7" customClass="MainTabBar" customModule="LADiaspora" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarVC" id="zlM-T9-cj7" customClass="MainTabBar" customModule="LADiaspora" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Hzm-pt-e7k">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -510,6 +517,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tnz-I3-eV6" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="amv-uw-ZoV"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qzw-8l-KOe">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
