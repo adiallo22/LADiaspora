@@ -29,8 +29,9 @@ class FeedVC: UIViewController {
 extension FeedVC {
     
     func configureUI() {
-        let navImage = UIImageView.init(image: UIImage(named: "diaspora"))
-        navigationItem.titleView = navImage
+//        let navImage = UIImageView.init(image: UIImage(named: "diaspora"))
+//        navigationItem.titleView = navImage
+        navigationItem.title = "Home"
         newPostButton.setNewPostButton()
     }
     

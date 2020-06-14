@@ -13,15 +13,26 @@ class MainTabBar: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //signOutUser()
-        checkUserLog()
+//        signOutUser()
+        checkUserLogStatus()
+    }
+
+}
+
+//MARK: - Helpers
+
+extension MainTabBar {
+    
+    func fetchUserFeed() {
+        UserService.shared.fetchUserFeed()
     }
     
-    func checkUserLog() {
+    func checkUserLogStatus() {
         if Auth.auth().currentUser == nil {
             DispatchQueue.main.async {
-                self.changeRoot()
+                self.changeRootToLogin()
             }
+            print("no current user")
         } else {
             print("a user is logged in")
         }
@@ -35,13 +46,16 @@ class MainTabBar: UITabBarController {
         }
     }
     
-    func changeRoot() {
-//        let main : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let viewController = main.instantiateViewController(withIdentifier: "Login") as! LoginVC
-//        UIApplication.shared.keyWindow?.rootViewController = viewController
-//        let nav = UINavigationController.init(rootViewController: LoginVC())
-//        present(nav, animated: true, completion: nil)
+    func changeRootToLogin() {
+        let backToLogin : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = backToLogin.instantiateViewController(withIdentifier: "Login") as! LoginVC
+        viewController.modalPresentationStyle = .fullScreen
+        present(viewController, animated: false, completion: nil)
+        //        guard let window = UIApplication.shared.windows.first(where: {$0.isKeyWindow}) else { return }
+        //        window.rootViewController = viewController
+        //        window.makeKeyAndVisible()
+        
     }
-
+    
 }
 

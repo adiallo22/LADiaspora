@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C03A48C424965A48005CA628 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A48C324965A48005CA628 /* UserService.swift */; };
 		C0C176E2248D3F7A00080FBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C176E1248D3F7A00080FBC /* AppDelegate.swift */; };
 		C0C176E4248D3F7A00080FBC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C176E3248D3F7A00080FBC /* SceneDelegate.swift */; };
 		C0C176E9248D3F7A00080FBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0C176E7248D3F7A00080FBC /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 		0E1286CBE5112122A6120A8F /* Pods_LADiaspora.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LADiaspora.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46463617D7F79A93F573BDBC /* Pods-LADiaspora.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LADiaspora.debug.xcconfig"; path = "Target Support Files/Pods-LADiaspora/Pods-LADiaspora.debug.xcconfig"; sourceTree = "<group>"; };
 		9AE99391C27B3A37C84B1823 /* Pods-LADiaspora.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LADiaspora.release.xcconfig"; path = "Target Support Files/Pods-LADiaspora/Pods-LADiaspora.release.xcconfig"; sourceTree = "<group>"; };
+		C03A48C324965A48005CA628 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		C0C176DE248D3F7A00080FBC /* LADiaspora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LADiaspora.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C176E1248D3F7A00080FBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0C176E3248D3F7A00080FBC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		C0C176F9248D422D00080FBC /* API */ = {
 			isa = PBXGroup;
 			children = (
+				C03A48C324965A48005CA628 /* UserService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C03A48C424965A48005CA628 /* UserService.swift in Sources */,
 				C0C17711248DCEFA00080FBC /* Util.swift in Sources */,
 				C0C176FE248D483300080FBC /* FeedVC.swift in Sources */,
 				C0C17702248D486400080FBC /* NotificationVC.swift in Sources */,

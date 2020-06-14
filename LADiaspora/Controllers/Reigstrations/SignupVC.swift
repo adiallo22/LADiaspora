@@ -54,6 +54,8 @@ class SignupVC: UIViewController, UIPickerViewDelegate {
                 guard let imageData = profileImg?.jpegData(compressionQuality: 0.5) else { return }
                 //upload profile image to the Storage
                 uploadProfileToStorageWith(reference: imageReference, imageData: imageData)
+                changeRoot()
+//                dismissCurrentControllerAndShowTab()
             }
         }
     }
@@ -96,10 +98,27 @@ extension SignupVC {
         }
         return nil
     }
+    
     //set the error if exist
     func setTheError(withError : String) {
         errorLabel.text = withError
         errorLabel.alpha = 1
+    }
+    
+    func changeRoot() {
+        let main : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = main.instantiateViewController(withIdentifier: "MainTabBarVC") as! MainTabBar
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    //since we have changed the root view controller to be the tab instead of login, we need to dismiss this controller
+    func dismissCurrentControllerAndShowTab() {
+        //hold the single window and have access to the root which is tab
+        guard let window = UIApplication.shared.windows.first(where: {$0.isKeyWindow}) else { return }
+        guard let mainTab = window.rootViewController as? MainTabBar else { return }
+        //recheck the status after user enter credentials.
+        mainTab.checkUserLogStatus()
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
