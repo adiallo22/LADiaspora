@@ -35,14 +35,7 @@ extension MainTabBar {
             print("no current user")
         } else {
             print("a user is logged in")
-        }
-    }
-    
-    func signOutUser() {
-        do {
-            try Auth.auth().signOut()
-        } catch let error {
-            print(error.localizedDescription)
+            fetchUserFeed()
         }
     }
     
@@ -55,6 +48,14 @@ extension MainTabBar {
         //        window.rootViewController = viewController
         //        window.makeKeyAndVisible()
         
+    }
+    
+    func signOutUser() {
+        do {
+            try Auth.auth().signOut()
+        } catch let error {
+            print(error.localizedDescription)
+        }
     }
     
 }
