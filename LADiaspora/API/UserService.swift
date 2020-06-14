@@ -16,9 +16,12 @@ struct UserService {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         Constants.References.db.child("users").child(uid).observeSingleEvent(of: .value) { (snapshot) in
             guard let values = snapshot.value as? [String:Any] else { return }
-            guard let fullname = values["full name"] as? String,
-                let username = values["username"] as? String,
-                let profileURL = values["profileURL"] as? String else { return }
+            let user = User.init(uid: uid, values: values)
+            print(user.email)
+            print(user.fullname)
+            print(user.profileURL)
+            print(user.uid)
+            print(user.username)
         }
     }
     
