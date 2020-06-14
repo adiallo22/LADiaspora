@@ -6,7 +6,7 @@
 //  Copyright © 2020 Abdul Diallo. All rights reserved.
 //
 
-import Foundation
+import Firebase
 
 struct AuthCredential {
     

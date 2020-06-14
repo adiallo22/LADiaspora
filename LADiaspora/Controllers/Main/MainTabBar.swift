@@ -10,6 +10,15 @@ import UIKit
 import Firebase
 
 class MainTabBar: UITabBarController {
+    
+    var user : User? {
+        didSet {
+            guard let nav = viewControllers?[0] as? UINavigationController else { return }
+            guard let feed = nav.viewControllers.first as? FeedVC else { return }
+            feed.user = user!
+            //print("user = \(user)")
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +32,11 @@ class MainTabBar: UITabBarController {
 
 extension MainTabBar {
     
-    func fetchUserFeed() {
-        UserService.shared.fetchUserFeed()
+    func fetchUserInfo() {
+        UserService.shared.fetchUserInfo { (user) in
+            self.user = user
+        }
+        
     }
     
     func checkUserLogStatus() {
@@ -35,7 +47,7 @@ extension MainTabBar {
             print("no current user")
         } else {
             print("a user is logged in")
-            fetchUserFeed()
+            fetchUserInfo()
         }
     }
     

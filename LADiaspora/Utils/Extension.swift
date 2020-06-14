@@ -17,13 +17,15 @@ extension UIButton {
         self.layer.masksToBounds = true
     }
     
-    func roundButton() {
+    func roundButton(withColor color : UIColor) {
         self.layer.cornerRadius = self.frame.height / 2.0
-        self.backgroundColor = .black
+        self.backgroundColor = color
         self.tintColor = .white
     }
     
 }
+
+//MARK: - <#section heading#>
 
 extension UITextField {
     
@@ -35,4 +37,5 @@ extension UITextField {
         self.layer.addSublayer(line)
     }
 }
+
 

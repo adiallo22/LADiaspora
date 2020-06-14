@@ -7,10 +7,19 @@
 //
 
 import UIKit
+import SDWebImage
 
 class FeedVC: UIViewController {
+    
+    var user : User? {
+        didSet {
+            print("got it")
+//            invokeUserProfileIMG()
+        }
+    }
 
     @IBOutlet weak var newPostButton: UIButton!
+    @IBOutlet weak var profileIMGButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +28,10 @@ class FeedVC: UIViewController {
     }
     
     @IBAction func newPostClicked(_ sender: UIButton) {
+//        let newPostNav = UINavigationController.init(rootViewController: NewPostVC())
+//        newPostNav.modalPresentationStyle = .fullScreen
+//        present(newPostNav, animated: false, completion: nil)
+        performSegue(withIdentifier: "toNewPost", sender: self)
     }
     
 
@@ -33,6 +46,18 @@ extension FeedVC {
 //        navigationItem.titleView = navImage
         navigationItem.title = "Home"
         newPostButton.setNewPostButton()
+        
+    }
+    
+    func invokeUserProfileIMG() {
+        guard let imageURL = user?.profileURL else { return }
+        guard let url = URL.init(string: imageURL) else { return }
+        let profileIMGView = UIImageView.init()
+        profileIMGView.frame = CGRect.init(x: 0, y: 0, width: 32, height: 32)
+        profileIMGView.layer.cornerRadius = profileIMGView.layer.frame.width / 2.0
+        profileIMGView.layer.masksToBounds = true
+        profileIMGView.sd_setImage(with: url, completed: nil)
+        navigationItem.leftBarButtonItem?.customView = profileIMGView
     }
     
 }

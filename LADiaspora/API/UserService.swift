@@ -11,17 +11,13 @@ import Firebase
 struct UserService {
     
     static let shared = UserService()
-    
-    func fetchUserFeed() {
+    //pass user to the controller calling this function
+    func fetchUserInfo(completion: @escaping(User)->Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         Constants.References.db.child("users").child(uid).observeSingleEvent(of: .value) { (snapshot) in
             guard let values = snapshot.value as? [String:Any] else { return }
             let user = User.init(uid: uid, values: values)
-            print(user.email)
-            print(user.fullname)
-            print(user.profileURL)
-            print(user.uid)
-            print(user.username)
+            completion(user)
         }
     }
     

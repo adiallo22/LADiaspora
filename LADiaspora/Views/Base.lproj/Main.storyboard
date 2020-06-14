@@ -389,14 +389,63 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="V4Z-g2-6I4"/>
                     </view>
-                    <navigationItem key="navigationItem" id="XUH-d3-LBJ"/>
+                    <navigationItem key="navigationItem" id="XUH-d3-LBJ">
+                        <barButtonItem key="leftBarButtonItem" id="74i-5H-DoZ"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="newPostButton" destination="3Tl-SQ-HEi" id="usP-PK-FnC"/>
+                        <outlet property="profileIMGButton" destination="74i-5H-DoZ" id="gPC-dw-IUb"/>
+                        <segue destination="pC6-c1-BQV" kind="presentation" identifier="toNewPost" id="cua-fu-Kzx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qfu-pV-qiw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="456.52173913043481" y="-1554.2410714285713"/>
+        </scene>
+        <!--New PostVC-->
+        <scene sceneID="IWv-hH-lEu">
+            <objects>
+                <viewController id="pC6-c1-BQV" customClass="NewPostVC" customModule="LADiaspora" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xvm-yB-2DY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="05W-ZB-I0L">
+                                <rect key="frame" x="330" y="20" width="64" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="A11-DQ-O7K"/>
+                                    <constraint firstAttribute="height" constant="32" id="OsI-3Z-hxo"/>
+                                </constraints>
+                                <state key="normal" title="Post"/>
+                                <connections>
+                                    <action selector="newPostClicked:" destination="pC6-c1-BQV" eventType="touchUpInside" id="a1f-Db-d2L"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pIP-OO-3E9">
+                                <rect key="frame" x="20" y="20" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="Y2R-YT-qOO"/>
+                                    <constraint firstAttribute="height" constant="32" id="pGE-xC-dlH"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="aWk-G3-XSR" firstAttribute="trailing" secondItem="05W-ZB-I0L" secondAttribute="trailing" constant="20" id="8aB-gV-gq1"/>
+                            <constraint firstItem="pIP-OO-3E9" firstAttribute="leading" secondItem="aWk-G3-XSR" secondAttribute="leading" constant="20" id="bxS-Z5-eq1"/>
+                            <constraint firstItem="05W-ZB-I0L" firstAttribute="top" secondItem="aWk-G3-XSR" secondAttribute="top" constant="20" id="iTx-8l-RxR"/>
+                            <constraint firstItem="pIP-OO-3E9" firstAttribute="top" secondItem="aWk-G3-XSR" secondAttribute="top" constant="20" id="sfB-uB-3wA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aWk-G3-XSR"/>
+                    </view>
+                    <connections>
+                        <outlet property="newPostBtn" destination="05W-ZB-I0L" id="Of6-F9-4FE"/>
+                        <outlet property="profileIMG" destination="pIP-OO-3E9" id="fVC-GR-Mui"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OCk-6b-gbj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1246.376811594203" y="-1554.2410714285713"/>
         </scene>
         <!--DiscoverVC-->
         <scene sceneID="Tkc-3N-CnP">

@@ -79,7 +79,7 @@ extension SignupVC {
         usernametf.underlineText()
         emailtf.underlineText()
         passwordtf.underlineText()
-        signupButton.roundButton()
+        signupButton.roundButton(withColor: .black)
     }
     
     func roundProfileImageButton() {
