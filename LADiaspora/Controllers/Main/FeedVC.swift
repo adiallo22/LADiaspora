@@ -28,10 +28,12 @@ class FeedVC: UIViewController {
     }
     
     @IBAction func newPostClicked(_ sender: UIButton) {
-//        let newPostNav = UINavigationController.init(rootViewController: NewPostVC())
-//        newPostNav.modalPresentationStyle = .fullScreen
-//        present(newPostNav, animated: false, completion: nil)
         performSegue(withIdentifier: "toNewPost", sender: self)
+        //segue programatically
+//        let storyborad = UIStoryboard(name: "Main", bundle: nil)
+//        if let vc = storyborad.instantiateViewController(withIdentifier: "NewPostVC") as? NewPostVC {
+//             self.navigationController?.pushViewController(vc, animated: true)
+//        }
     }
     
 
@@ -42,8 +44,6 @@ class FeedVC: UIViewController {
 extension FeedVC {
     
     func configureUI() {
-//        let navImage = UIImageView.init(image: UIImage(named: "diaspora"))
-//        navigationItem.titleView = navImage
         navigationItem.title = "Home"
         newPostButton.setNewPostButton()
         
@@ -58,6 +58,22 @@ extension FeedVC {
         profileIMGView.layer.masksToBounds = true
         profileIMGView.sd_setImage(with: url, completed: nil)
         navigationItem.leftBarButtonItem?.customView = profileIMGView
+    }
+    
+}
+
+//MARK: - segues
+
+extension FeedVC {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toNewPost" {
+            let destVC = segue.destination as! NewPostVC
+            guard let usr = user else { return }
+            destVC.user = usr
+        }
+        
     }
     
 }

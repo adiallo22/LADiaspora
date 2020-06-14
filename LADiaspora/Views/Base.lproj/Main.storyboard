@@ -395,7 +395,7 @@
                     <connections>
                         <outlet property="newPostButton" destination="3Tl-SQ-HEi" id="usP-PK-FnC"/>
                         <outlet property="profileIMGButton" destination="74i-5H-DoZ" id="gPC-dw-IUb"/>
-                        <segue destination="pC6-c1-BQV" kind="presentation" identifier="toNewPost" id="cua-fu-Kzx"/>
+                        <segue destination="pC6-c1-BQV" kind="presentation" identifier="toNewPost" id="w2O-ed-VNb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qfu-pV-qiw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -405,7 +405,7 @@
         <!--New PostVC-->
         <scene sceneID="IWv-hH-lEu">
             <objects>
-                <viewController id="pC6-c1-BQV" customClass="NewPostVC" customModule="LADiaspora" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewPostVC" id="pC6-c1-BQV" customClass="NewPostVC" customModule="LADiaspora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xvm-yB-2DY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

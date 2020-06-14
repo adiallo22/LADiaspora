@@ -9,10 +9,20 @@
 import UIKit
 
 class NewPostVC: UIViewController {
-
-
+    
     @IBOutlet weak var newPostBtn: UIButton!
     @IBOutlet weak var profileIMG: UIImageView!
+    
+    var user : User?
+    
+//    init(user: User) {
+//        self.user = user
+//        super.init(nibName: nil, bundle: nil)
+//        print(user.uid)
+//    }
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -38,4 +38,17 @@ extension UITextField {
     }
 }
 
+//MARK: - <#section heading#>
+
+extension UIBarButtonItem {
+    
+    func roundBarButton() {
+        self.customView?.frame = CGRect.init(x: 0, y: 0, width: 64, height: 32)
+        self.customView?.backgroundColor = .orange
+        self.customView?.layer.cornerRadius = 32 / 2
+        self.customView?.layer.masksToBounds = true
+    }
+    
+}
+
 
