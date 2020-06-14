@@ -12,7 +12,7 @@ import UIKit
 extension UIButton {
     
     func setNewPostButton () {
-        self.backgroundColor = .systemBlue
+        self.backgroundColor = .systemOrange
         self.layer.cornerRadius = self.layer.frame.height / 2.0
         self.layer.masksToBounds = true
     }
