@@ -368,6 +368,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FsQ-AK-kL2">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" rowHeight="142" id="aWO-YU-0dS" customClass="PostTVC" customModule="LADiaspora" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="142"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aWO-YU-0dS" id="Wzq-ie-aXd">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="142"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Tl-SQ-HEi">
                                 <rect key="frame" x="349" y="748" width="50" height="50"/>
                                 <constraints>
@@ -384,8 +398,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="FsQ-AK-kL2" firstAttribute="leading" secondItem="V4Z-g2-6I4" secondAttribute="leading" id="1Uz-Wf-D3Z"/>
+                            <constraint firstItem="V4Z-g2-6I4" firstAttribute="trailing" secondItem="FsQ-AK-kL2" secondAttribute="trailing" id="6kc-Lk-XwP"/>
                             <constraint firstItem="V4Z-g2-6I4" firstAttribute="trailing" secondItem="3Tl-SQ-HEi" secondAttribute="trailing" constant="15" id="KD0-Yu-vCy"/>
+                            <constraint firstItem="V4Z-g2-6I4" firstAttribute="bottom" secondItem="FsQ-AK-kL2" secondAttribute="bottom" id="Sqk-Yg-NXD"/>
                             <constraint firstItem="V4Z-g2-6I4" firstAttribute="bottom" secondItem="3Tl-SQ-HEi" secondAttribute="bottom" constant="15" id="tXe-Jn-RUq"/>
+                            <constraint firstItem="FsQ-AK-kL2" firstAttribute="top" secondItem="V4Z-g2-6I4" secondAttribute="top" id="vG3-dX-Y78"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="V4Z-g2-6I4"/>
                     </view>
@@ -395,6 +413,7 @@
                     <connections>
                         <outlet property="newPostButton" destination="3Tl-SQ-HEi" id="usP-PK-FnC"/>
                         <outlet property="profileIMGButton" destination="74i-5H-DoZ" id="gPC-dw-IUb"/>
+                        <outlet property="tableView" destination="FsQ-AK-kL2" id="LSu-Dp-Rgt"/>
                         <segue destination="pC6-c1-BQV" kind="presentation" identifier="toNewPost" id="w2O-ed-VNb"/>
                     </connections>
                 </viewController>

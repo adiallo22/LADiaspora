@@ -11,6 +11,8 @@ import SDWebImage
 
 class FeedVC: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+    
     var user : User? {
         didSet {
 //            invokeUserProfileIMG()
@@ -24,6 +26,10 @@ class FeedVC: UIViewController {
         super.viewDidLoad()
 
         configureUI()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = 200
+        
     }
     
     @IBAction func newPostClicked(_ sender: UIButton) {
@@ -73,6 +79,21 @@ extension FeedVC {
             destVC.user = usr
         }
         
+    }
+    
+}
+
+//MARK: - collection delegate and datasource
+
+extension FeedVC : UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostTVC
+        return cell
     }
     
 }
