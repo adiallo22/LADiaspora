@@ -17,8 +17,10 @@ struct Post {
     var timestamp : Date!
     let repost : Int
     let postID : String
+    let user : User
     
-    init(postID: String, values: [String:Any]) {
+    init(user: User, postID: String, values: [String:Any]) {
+        self.user = user
         self.postID = postID
         //self.fullname = values["fullname"] as? String ?? ""
         self.caption = values["caption"] as? String ?? ""

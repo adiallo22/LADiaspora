@@ -15,6 +15,10 @@ class PostTVC: UITableViewCell {
     @IBOutlet weak var timestamptf: UILabel!
     @IBOutlet weak var captiontf: UILabel!
     
+//    var post : Post? {
+//        didSet { config() }
+//    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         profileIMG.roundView()
@@ -25,6 +29,11 @@ class PostTVC: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func config() {
+        //guard let post = post else { return }
+        
     }
 
 }
