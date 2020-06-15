@@ -31,13 +31,6 @@ class MainTabBar: UITabBarController {
 
 extension MainTabBar {
     
-    func fetchUserInfo() {
-        UserService.shared.fetchUserInfo { (user) in
-            self.user = user
-        }
-        
-    }
-    
     func checkUserLogStatus() {
         if Auth.auth().currentUser == nil {
             DispatchQueue.main.async {
@@ -47,6 +40,7 @@ extension MainTabBar {
         } else {
             //print("a user is logged in")
             fetchUserInfo()
+            fetchPosts()
         }
     }
     
@@ -71,6 +65,25 @@ extension MainTabBar {
             try Auth.auth().signOut()
         } catch let error {
             print(error.localizedDescription)
+        }
+    }
+    
+}
+
+//MARK: - fetching...
+
+extension MainTabBar {
+    
+    func fetchUserInfo() {
+        UserService.shared.fetchUserInfo { (user) in
+            self.user = user
+        }
+        
+    }
+    
+    func fetchPosts() {
+        PostService.shared.fetchPost { (posts) in
+            print(posts)
         }
     }
     

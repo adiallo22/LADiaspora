@@ -24,4 +24,16 @@ struct PostService {
         Constants.References.db.child("posts").childByAutoId().setValue(values, withCompletionBlock: completion)
     }
     
+    func fetchPost(completion: @escaping([Post])->Void) {
+        var posts = [Post]()
+        Constants.References.db.child("posts").observe(.childAdded) { (snapshot) in
+            let postID = snapshot.key
+            let values = snapshot.value as! [String:Any]
+            let post = Post.init(postID: postID, values: values)
+            posts.insert(post, at: 0)
+            //allow the controller using this function to be able to access the array of posts
+            completion(posts)
+        }
+    }
+    
 }

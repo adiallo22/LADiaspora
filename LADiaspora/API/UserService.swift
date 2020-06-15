@@ -11,6 +11,7 @@ import Firebase
 struct UserService {
     
     static let shared = UserService()
+    
     //pass user to the controller calling this function
     func fetchUserInfo(completion: @escaping(User)->Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }

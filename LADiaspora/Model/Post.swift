@@ -17,12 +17,12 @@ struct Post {
     let repost : Int
     let postID : String
     
-    init(uid: String, values: [String:Any]) {
-        self.uid = uid
+    init(postID: String, values: [String:Any]) {
+        self.postID = postID
         self.caption = values["caption"] as? String ?? ""
         self.likes = values["likes"] as? Int ?? 0
         self.repost = values["repost"] as? Int ?? 0
-        self.postID = values["postID"] as? String ?? ""
+        self.uid = values["uid"] as? String ?? ""
         if let timestamp = values["timestamp"] as? Double {
             self.timestamp = Date.init(timeIntervalSince1970: timestamp)
         }
