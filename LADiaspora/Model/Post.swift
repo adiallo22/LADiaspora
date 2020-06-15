@@ -11,6 +11,7 @@ import Foundation
 struct Post {
     
     let caption : String
+    //let fullname : String
     let likes : Int
     let uid : String
     var timestamp : Date!
@@ -19,6 +20,7 @@ struct Post {
     
     init(postID: String, values: [String:Any]) {
         self.postID = postID
+        //self.fullname = values["fullname"] as? String ?? ""
         self.caption = values["caption"] as? String ?? ""
         self.likes = values["likes"] as? Int ?? 0
         self.repost = values["repost"] as? Int ?? 0

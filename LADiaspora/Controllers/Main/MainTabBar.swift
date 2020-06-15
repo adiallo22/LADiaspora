@@ -40,7 +40,6 @@ extension MainTabBar {
         } else {
             //print("a user is logged in")
             fetchUserInfo()
-            fetchPosts()
         }
     }
     
@@ -79,12 +78,6 @@ extension MainTabBar {
             self.user = user
         }
         
-    }
-    
-    func fetchPosts() {
-        PostService.shared.fetchPost { (posts) in
-            print(posts)
-        }
     }
     
 }

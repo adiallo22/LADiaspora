@@ -26,7 +26,7 @@ struct PostService {
     
     func fetchPost(completion: @escaping([Post])->Void) {
         var posts = [Post]()
-        Constants.References.db.child("posts").observeSingleEvent(of: .childAdded) { (snapshot) in
+        Constants.References.db.child("posts").observe(.childAdded) { (snapshot) in
             let postID = snapshot.key
             let values = snapshot.value as! [String:Any]
             let post = Post.init(postID: postID, values: values)

@@ -18,13 +18,21 @@ class FeedVC: UIViewController {
 //            invokeUserProfileIMG()
         }
     }
+    
+    var posts = [Post]() {
+        didSet { self.tableView.reloadData() }
+    }
 
     @IBOutlet weak var newPostButton: UIButton!
     @IBOutlet weak var profileIMGButton: UIBarButtonItem!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        fetchPosts()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         configureUI()
         tableView.delegate = self
         tableView.dataSource = self
@@ -66,6 +74,15 @@ extension FeedVC {
         navigationItem.leftBarButtonItem?.customView = profileIMGView
     }
     
+    func fetchPosts() {
+        PostService.shared.fetchPost { (posts) in
+            self.posts = posts
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+        }
+    }
+    
 }
 
 //MARK: - segues
@@ -89,13 +106,13 @@ extension FeedVC {
 extension FeedVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostTVC
-        cell.captiontf.text = "Hello there this is a test post Hello there this is a test post Hello there this is a test post Hello there this is a test post Hello there this is a test post"
-        cell.fullnametf.text = "abdul diallo @abduldiallo"
+        cell.captiontf.text = posts[indexPath.row].caption
+        cell.fullnametf.text = user?.fullname
         cell.profileIMG.backgroundColor = .orange
         cell.timestamptf.text = "15s"
         return cell
