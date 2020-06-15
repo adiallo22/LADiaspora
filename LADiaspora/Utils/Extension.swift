@@ -51,4 +51,14 @@ extension UIBarButtonItem {
     
 }
 
+//MARK: - <#section heading#>
+
+extension UIImageView {
+    
+    func roundView() {
+        self.layer.cornerRadius = self.layer.frame.height / 2.0
+        self.layer.masksToBounds = true
+    }
+}
+
 

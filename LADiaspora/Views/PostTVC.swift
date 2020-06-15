@@ -10,9 +10,15 @@ import UIKit
 
 class PostTVC: UITableViewCell {
 
+    @IBOutlet weak var profileIMG: UIImageView!
+    @IBOutlet weak var fullnametf: UILabel!
+    @IBOutlet weak var timestamptf: UILabel!
+    @IBOutlet weak var captiontf: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        profileIMG.roundView()
+        captiontf.numberOfLines = 0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

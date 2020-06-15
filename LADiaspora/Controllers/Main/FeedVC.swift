@@ -28,7 +28,8 @@ class FeedVC: UIViewController {
         configureUI()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 200
+        tableView.rowHeight = 130
+//        tableView.autoresizingMask = .flexibleHeight
         
     }
     
@@ -93,6 +94,10 @@ extension FeedVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostTVC
+        cell.captiontf.text = "Hello there this is a test post Hello there this is a test post Hello there this is a test post Hello there this is a test post Hello there this is a test post"
+        cell.fullnametf.text = "abdul diallo @abduldiallo"
+        cell.profileIMG.backgroundColor = .orange
+        cell.timestamptf.text = "15s"
         return cell
     }
     

@@ -65,8 +65,7 @@ extension NewPostVC {
         guard let profileURL = user?.profileURL else { return }
         guard let url = URL.init(string: profileURL) else { return }
         profileIMG.sd_setImage(with: url, completed: nil)
-        profileIMG.layer.cornerRadius = profileIMG.layer.frame.height / 2.0
-        profileIMG.layer.masksToBounds = true
+        profileIMG.roundView()
     }
     
 }
