@@ -74,7 +74,8 @@ extension MainTabBar {
 extension MainTabBar {
     
     func fetchUserInfo() {
-        UserService.shared.fetchUserInfo { (user) in
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        UserService.shared.fetchUserInfo(uid: uid) { (user) in
             self.user = user
         }
         

@@ -13,8 +13,8 @@ struct UserService {
     static let shared = UserService()
     
     //pass user to the controller calling this function
-    func fetchUserInfo(completion: @escaping(User)->Void) {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
+    func fetchUserInfo(uid: String, completion: @escaping(User)->Void) {
+        //guard let uid = Auth.auth().currentUser?.uid else { return }
         Constants.References.db.child("users").child(uid).observeSingleEvent(of: .value) { (snapshot) in
             guard let values = snapshot.value as? [String:Any] else { return }
             let user = User.init(uid: uid, values: values)

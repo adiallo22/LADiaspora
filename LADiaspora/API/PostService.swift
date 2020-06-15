@@ -28,11 +28,14 @@ struct PostService {
         var posts = [Post]()
         Constants.References.db.child("posts").observe(.childAdded) { (snapshot) in
             let postID = snapshot.key
-            let values = snapshot.value as! [String:Any]
-            let post = Post.init(postID: postID, values: values)
-            posts.insert(post, at: 0)
-            //allow the controller using this function to be able to access the array of posts
-            completion(posts)
+            guard let values = snapshot.value as? [String:Any] else { return }
+            guard let uid = values["uid"] as? String else { return }
+            UserService.shared.fetchUserInfo(uid: uid) { (user) in
+                let post = Post.init(user: user, postID: postID, values: values)
+                posts.insert(post, at: 0)
+                //allow the controller using this function to be able to access the array of posts
+                completion(posts)
+            }
         }
     }
     

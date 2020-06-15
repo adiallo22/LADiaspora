@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PostTVC: UITableViewCell {
 
@@ -15,9 +16,9 @@ class PostTVC: UITableViewCell {
     @IBOutlet weak var timestamptf: UILabel!
     @IBOutlet weak var captiontf: UILabel!
     
-//    var post : Post? {
-//        didSet { config() }
-//    }
+    var post : Post? {
+        didSet { config() }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,8 +33,12 @@ class PostTVC: UITableViewCell {
     }
     
     func config() {
-        //guard let post = post else { return }
-        
+        guard let post = post else { return }
+        fullnametf.text = "\(post.user.fullname) @\(post.user.username)"
+        captiontf.text = post.caption
+        guard let url = URL.init(string: post.user.profileURL) else { return }
+        profileIMG.sd_setImage(with: url, completed: nil)
+        timestamptf.text = "15s"
     }
 
 }
