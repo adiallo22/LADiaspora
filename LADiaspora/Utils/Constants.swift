@@ -13,10 +13,14 @@ struct Constants {
     
     struct Segues {
         static let toSignUp = "toSignUp"
+        static let toNewPost = "toNewPost"
     }
     
     struct Titles {
-        
+        static let home = "Home"
+        static let discover = "Discover"
+        static let notification = "Notifications"
+        static let message = "Messages"
     }
     
     struct References {

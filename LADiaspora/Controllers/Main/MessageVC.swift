@@ -28,7 +28,7 @@ class MessageVC: UIViewController {
 extension MessageVC {
     
     func configureUI() {
-        navigationItem.title = "Messages"
+        navigationItem.title = Constants.Titles.message
         newPostButton.setNewPostButton()
     }
     

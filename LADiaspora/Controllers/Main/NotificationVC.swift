@@ -30,7 +30,7 @@ class NotificationVC: UIViewController {
 extension NotificationVC {
     
     func configureUI() {
-        navigationItem.title = "Notification"
+        navigationItem.title = Constants.Titles.notification
         newPostButton.setNewPostButton()
     }
     

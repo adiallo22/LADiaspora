@@ -28,7 +28,7 @@ class DiscoverVC: UIViewController {
 extension DiscoverVC {
     
     func configureUI() {
-        navigationItem.title = "Discover"
+        navigationItem.title = Constants.Titles.discover
         newPostButton.setNewPostButton()
     }
     

@@ -13,7 +13,6 @@ class FeedVC: UIViewController {
     
     var user : User? {
         didSet {
-            print("got it")
 //            invokeUserProfileIMG()
         }
     }
@@ -28,7 +27,7 @@ class FeedVC: UIViewController {
     }
     
     @IBAction func newPostClicked(_ sender: UIButton) {
-        performSegue(withIdentifier: "toNewPost", sender: self)
+        performSegue(withIdentifier: Constants.Segues.toNewPost, sender: self)
         //segue programatically
 //        let storyborad = UIStoryboard(name: "Main", bundle: nil)
 //        if let vc = storyborad.instantiateViewController(withIdentifier: "NewPostVC") as? NewPostVC {
@@ -44,7 +43,7 @@ class FeedVC: UIViewController {
 extension FeedVC {
     
     func configureUI() {
-        navigationItem.title = "Home"
+        navigationItem.title = Constants.Titles.home
         newPostButton.setNewPostButton()
         
     }
@@ -68,7 +67,7 @@ extension FeedVC {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "toNewPost" {
+        if segue.identifier == Constants.Segues.toNewPost {
             let destVC = segue.destination as! NewPostVC
             guard let usr = user else { return }
             destVC.user = usr

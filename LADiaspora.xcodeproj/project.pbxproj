@@ -10,6 +10,8 @@
 		C03A48C424965A48005CA628 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A48C324965A48005CA628 /* UserService.swift */; };
 		C03A48C624966590005CA628 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A48C524966590005CA628 /* User.swift */; };
 		C03A48C8249689FA005CA628 /* NewPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A48C7249689FA005CA628 /* NewPostVC.swift */; };
+		C03A48CA2496CCE8005CA628 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A48C92496CCE8005CA628 /* PostService.swift */; };
+		C03A48CC2497B46F005CA628 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A48CB2497B46F005CA628 /* Post.swift */; };
 		C0C176E2248D3F7A00080FBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C176E1248D3F7A00080FBC /* AppDelegate.swift */; };
 		C0C176E4248D3F7A00080FBC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C176E3248D3F7A00080FBC /* SceneDelegate.swift */; };
 		C0C176E9248D3F7A00080FBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0C176E7248D3F7A00080FBC /* Main.storyboard */; };
@@ -37,6 +39,8 @@
 		C03A48C324965A48005CA628 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		C03A48C524966590005CA628 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C03A48C7249689FA005CA628 /* NewPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostVC.swift; sourceTree = "<group>"; };
+		C03A48C92496CCE8005CA628 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
+		C03A48CB2497B46F005CA628 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		C0C176DE248D3F7A00080FBC /* LADiaspora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LADiaspora.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C176E1248D3F7A00080FBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0C176E3248D3F7A00080FBC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +141,7 @@
 			children = (
 				C0C17767249284DF00080FBC /* AuthCredential.swift */,
 				C03A48C524966590005CA628 /* User.swift */,
+				C03A48CB2497B46F005CA628 /* Post.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				C03A48C324965A48005CA628 /* UserService.swift */,
+				C03A48C92496CCE8005CA628 /* PostService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -313,12 +319,14 @@
 				C0C17700248D484300080FBC /* DiscoverVC.swift in Sources */,
 				C03A48C624966590005CA628 /* User.swift in Sources */,
 				C0C176FC248D428500080FBC /* MainTabBar.swift in Sources */,
+				C03A48CA2496CCE8005CA628 /* PostService.swift in Sources */,
 				C0C17768249284DF00080FBC /* AuthCredential.swift in Sources */,
 				C0C17704248D487600080FBC /* MessageVC.swift in Sources */,
 				C0C1770B248D6DDD00080FBC /* LoginVC.swift in Sources */,
 				C0C1770D248D6DF200080FBC /* SignupVC.swift in Sources */,
 				C0C176E2248D3F7A00080FBC /* AppDelegate.swift in Sources */,
 				C0C176E4248D3F7A00080FBC /* SceneDelegate.swift in Sources */,
+				C03A48CC2497B46F005CA628 /* Post.swift in Sources */,
 				C0C17708248D6AFE00080FBC /* Extension.swift in Sources */,
 				C0C17713248ECD5000080FBC /* Constants.swift in Sources */,
 			);

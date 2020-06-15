@@ -39,7 +39,14 @@ class NewPostVC: UIViewController {
     }
     
     @IBAction func newPostClicked(_ sender: UIButton) {
-        print("posted...")
+        guard let caption = captiontf.text else { return }
+        PostService.shared.uploadPostToDB(caption: caption) { (error, db) in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
 }

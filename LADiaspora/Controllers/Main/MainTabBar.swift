@@ -16,7 +16,6 @@ class MainTabBar: UITabBarController {
             guard let nav = viewControllers?[0] as? UINavigationController else { return }
             guard let feed = nav.viewControllers.first as? FeedVC else { return }
             feed.user = user!
-            //print("user = \(user)")
         }
     }
 
@@ -44,9 +43,9 @@ extension MainTabBar {
             DispatchQueue.main.async {
                 self.changeRootToLogin()
             }
-            print("no current user")
+            //print("no current user")
         } else {
-            print("a user is logged in")
+            //print("a user is logged in")
             fetchUserInfo()
         }
     }
