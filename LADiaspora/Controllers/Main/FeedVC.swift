@@ -111,16 +111,12 @@ extension FeedVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostTVC
-//        cell.captiontf.text = posts[indexPath.row].caption
-//        if let url = URL.init(string: user?.profileURL ?? "") {
-//            cell.profileIMG.sd_setImage(with: url, completed: nil)
-//        } else {
-//            cell.profileIMG.backgroundColor = .orange
-//        }
-//        cell.fullnametf.text = "\(user?.fullname) @\(user?.username)"
-//        cell.timestamptf.text = "15s"
         cell.post = posts[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }

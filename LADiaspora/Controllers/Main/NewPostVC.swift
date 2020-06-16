@@ -56,6 +56,7 @@ class NewPostVC: UIViewController {
 extension NewPostVC {
     
     func configureUI() {
+        captiontf.becomeFirstResponder()
         newPostBtn.roundButton(withColor: .orange)
         cancelBtn.roundButton(withColor: .lightGray)
         setProfileImage()

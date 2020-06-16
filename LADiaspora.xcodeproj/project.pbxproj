@@ -13,6 +13,7 @@
 		C03A48CA2496CCE8005CA628 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A48C92496CCE8005CA628 /* PostService.swift */; };
 		C03A48CC2497B46F005CA628 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A48CB2497B46F005CA628 /* Post.swift */; };
 		C03A48D02497C985005CA628 /* PostTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A48CF2497C985005CA628 /* PostTVC.swift */; };
+		C06074F62498480300EE6242 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06074F52498480300EE6242 /* PostViewModel.swift */; };
 		C0C176E2248D3F7A00080FBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C176E1248D3F7A00080FBC /* AppDelegate.swift */; };
 		C0C176E4248D3F7A00080FBC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C176E3248D3F7A00080FBC /* SceneDelegate.swift */; };
 		C0C176E9248D3F7A00080FBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0C176E7248D3F7A00080FBC /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		C03A48C92496CCE8005CA628 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		C03A48CB2497B46F005CA628 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		C03A48CF2497C985005CA628 /* PostTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTVC.swift; sourceTree = "<group>"; };
+		C06074F52498480300EE6242 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		C0C176DE248D3F7A00080FBC /* LADiaspora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LADiaspora.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C176E1248D3F7A00080FBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0C176E3248D3F7A00080FBC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C06074F4249847C200EE6242 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C06074F52498480300EE6242 /* PostViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		C0C176D5248D3F7A00080FBC = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +122,7 @@
 				C0C176F9248D422D00080FBC /* API */,
 				C0C176F8248D421F00080FBC /* Model */,
 				C0C176F7248D421500080FBC /* Views */,
+				C06074F4249847C200EE6242 /* ViewModel */,
 				C0C176F5248D41BB00080FBC /* Controllers */,
 				C0C176EA248D3F8000080FBC /* Assets.xcassets */,
 				C0C176EC248D3F8000080FBC /* LaunchScreen.storyboard */,
@@ -314,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C06074F62498480300EE6242 /* PostViewModel.swift in Sources */,
 				C03A48D02497C985005CA628 /* PostTVC.swift in Sources */,
 				C03A48C424965A48005CA628 /* UserService.swift in Sources */,
 				C0C17711248DCEFA00080FBC /* Util.swift in Sources */,

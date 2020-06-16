@@ -166,7 +166,7 @@ extension SignupVC {
                 let uid = result?.user.uid
                 let values = ["full name":withCredentials.fullname,
                               "email":withCredentials.email,
-                              "username":withCredentials.username,
+                              "username":withCredentials.username.lowercased(),
                               "profileURL":withCredentials.profileURL]
                 //reference to database and upload values
                 let reference = Constants.References.db.child("users").child("\(uid!)")

@@ -15,6 +15,7 @@ class PostTVC: UITableViewCell {
     @IBOutlet weak var fullnametf: UILabel!
     @IBOutlet weak var timestamptf: UILabel!
     @IBOutlet weak var captiontf: UILabel!
+    @IBOutlet weak var usernametf: UILabel!
     
     var post : Post? {
         didSet { config() }
@@ -34,11 +35,13 @@ class PostTVC: UITableViewCell {
     
     func config() {
         guard let post = post else { return }
-        fullnametf.text = "\(post.user.fullname) @\(post.user.username)"
+        let postVM = PostViewModel.init(post: post)
+        fullnametf.text = postVM.fullname
+        usernametf.text = "@\(postVM.username)"
         captiontf.text = post.caption
-        guard let url = URL.init(string: post.user.profileURL) else { return }
+        guard let url = URL.init(string: postVM.profileURL) else { return }
         profileIMG.sd_setImage(with: url, completed: nil)
-        timestamptf.text = "15s"
+        timestamptf.text = "\(postVM.timestamp) ago"
     }
 
 }
