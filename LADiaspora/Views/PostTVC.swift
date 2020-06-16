@@ -24,7 +24,7 @@ class PostTVC: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         profileIMG.roundView()
-        captiontf.numberOfLines = 0
+        makeProfileIMGTappable()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -32,6 +32,12 @@ class PostTVC: UITableViewCell {
 
         // Configure the view for the selected state
     }
+
+}
+
+//MARK: - helpers
+
+extension PostTVC {
     
     func config() {
         guard let post = post else { return }
@@ -43,5 +49,15 @@ class PostTVC: UITableViewCell {
         profileIMG.sd_setImage(with: url, completed: nil)
         timestamptf.text = "\(postVM.timestamp) ago"
     }
-
+    
+    func makeProfileIMGTappable() {
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(profileTapped))
+        profileIMG.addGestureRecognizer(tap)
+        profileIMG.isUserInteractionEnabled = true
+    }
+    
+    @objc func profileTapped() {
+        print("profile tapped...")
+    }
+    
 }
