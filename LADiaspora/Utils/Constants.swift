@@ -14,6 +14,7 @@ struct Constants {
     struct Segues {
         static let toSignUp = "toSignUp"
         static let toNewPost = "toNewPost"
+        static let toProfile = "toProfile"
     }
     
     struct Titles {

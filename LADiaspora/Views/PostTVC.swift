@@ -9,6 +9,10 @@
 import UIKit
 import SDWebImage
 
+protocol HandPostDelegate {
+    func profileImageTapped(atCell cell: UITableViewCell)
+}
+
 class PostTVC: UITableViewCell {
 
     @IBOutlet weak var profileIMG: UIImageView!
@@ -20,6 +24,8 @@ class PostTVC: UITableViewCell {
     var post : Post? {
         didSet { config() }
     }
+    
+    var tappedProfileDelegate : HandPostDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -57,7 +63,7 @@ extension PostTVC {
     }
     
     @objc func profileTapped() {
-        print("profile tapped...")
+        tappedProfileDelegate?.profileImageTapped(atCell: self)
     }
     
 }

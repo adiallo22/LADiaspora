@@ -360,6 +360,22 @@
             </objects>
             <point key="canvasLocation" x="2933.3333333333335" y="-1.3392857142857142"/>
         </scene>
+        <!--Profile-->
+        <scene sceneID="hVv-lR-RqJ">
+            <objects>
+                <viewController id="V9v-BH-nhM" customClass="Profile" customModule="LADiaspora" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OV2-Ok-gQS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="fIw-OZ-B0x"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="x1N-SL-alL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1JX-q2-5ez" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="440" y="-2223"/>
+        </scene>
         <!--FeedVC-->
         <scene sceneID="Od1-ge-wtN">
             <objects>
@@ -505,6 +521,7 @@
                         <outlet property="profileIMGButton" destination="74i-5H-DoZ" id="gPC-dw-IUb"/>
                         <outlet property="tableView" destination="FsQ-AK-kL2" id="LSu-Dp-Rgt"/>
                         <segue destination="pC6-c1-BQV" kind="presentation" identifier="toNewPost" id="w2O-ed-VNb"/>
+                        <segue destination="V9v-BH-nhM" kind="show" identifier="toProfile" id="oRS-di-HCf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qfu-pV-qiw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

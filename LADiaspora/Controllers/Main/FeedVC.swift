@@ -112,11 +112,22 @@ extension FeedVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostTVC
         cell.post = posts[indexPath.row]
+        cell.tappedProfileDelegate = self
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+}
+
+//MARK: - HandPostDelegate
+
+extension FeedVC : HandPostDelegate {
+    
+    func profileImageTapped(atCell cell: UITableViewCell) {
+        performSegue(withIdentifier: Constants.Segues.toProfile, sender: self)
     }
     
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C01BF9E424A27A020096F2F3 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BF9E324A27A020096F2F3 /* Profile.swift */; };
 		C03A48C424965A48005CA628 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A48C324965A48005CA628 /* UserService.swift */; };
 		C03A48C624966590005CA628 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A48C524966590005CA628 /* User.swift */; };
 		C03A48C8249689FA005CA628 /* NewPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A48C7249689FA005CA628 /* NewPostVC.swift */; };
@@ -38,6 +39,7 @@
 		0E1286CBE5112122A6120A8F /* Pods_LADiaspora.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LADiaspora.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46463617D7F79A93F573BDBC /* Pods-LADiaspora.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LADiaspora.debug.xcconfig"; path = "Target Support Files/Pods-LADiaspora/Pods-LADiaspora.debug.xcconfig"; sourceTree = "<group>"; };
 		9AE99391C27B3A37C84B1823 /* Pods-LADiaspora.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LADiaspora.release.xcconfig"; path = "Target Support Files/Pods-LADiaspora/Pods-LADiaspora.release.xcconfig"; sourceTree = "<group>"; };
+		C01BF9E324A27A020096F2F3 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		C03A48C324965A48005CA628 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		C03A48C524966590005CA628 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C03A48C7249689FA005CA628 /* NewPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostVC.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				C0C176FD248D483300080FBC /* FeedVC.swift */,
 				C03A48C7249689FA005CA628 /* NewPostVC.swift */,
 				C0C176FF248D484300080FBC /* DiscoverVC.swift */,
+				C01BF9E324A27A020096F2F3 /* Profile.swift */,
 				C0C17701248D486400080FBC /* NotificationVC.swift */,
 				C0C17703248D487600080FBC /* MessageVC.swift */,
 			);
@@ -335,6 +338,7 @@
 				C0C17700248D484300080FBC /* DiscoverVC.swift in Sources */,
 				C03A48C624966590005CA628 /* User.swift in Sources */,
 				C0C176FC248D428500080FBC /* MainTabBar.swift in Sources */,
+				C01BF9E424A27A020096F2F3 /* Profile.swift in Sources */,
 				C03A48CA2496CCE8005CA628 /* PostService.swift in Sources */,
 				C0C17768249284DF00080FBC /* AuthCredential.swift in Sources */,
 				C0C17704248D487600080FBC /* MessageVC.swift in Sources */,
