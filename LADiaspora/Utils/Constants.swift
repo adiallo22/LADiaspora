@@ -29,4 +29,9 @@ struct Constants {
         static let imageDB = Storage.storage().reference()
     }
     
+    struct Cells {
+        static let postCell = "PostCell"
+        static let profileHeaderCell = "ProfileHeaderCell"
+    }
+    
 }
