@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C01BF9E424A27A020096F2F3 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BF9E324A27A020096F2F3 /* Profile.swift */; };
 		C01BF9E624A3B3440096F2F3 /* ProfileHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BF9E524A3B3440096F2F3 /* ProfileHeaderCell.swift */; };
+		C01BF9EC24A4D9030096F2F3 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BF9EB24A4D9030096F2F3 /* FilterCell.swift */; };
 		C03A48C424965A48005CA628 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A48C324965A48005CA628 /* UserService.swift */; };
 		C03A48C624966590005CA628 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A48C524966590005CA628 /* User.swift */; };
 		C03A48C8249689FA005CA628 /* NewPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A48C7249689FA005CA628 /* NewPostVC.swift */; };
@@ -42,6 +43,7 @@
 		9AE99391C27B3A37C84B1823 /* Pods-LADiaspora.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LADiaspora.release.xcconfig"; path = "Target Support Files/Pods-LADiaspora/Pods-LADiaspora.release.xcconfig"; sourceTree = "<group>"; };
 		C01BF9E324A27A020096F2F3 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		C01BF9E524A3B3440096F2F3 /* ProfileHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCell.swift; sourceTree = "<group>"; };
+		C01BF9EB24A4D9030096F2F3 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		C03A48C324965A48005CA628 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		C03A48C524966590005CA628 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C03A48C7249689FA005CA628 /* NewPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostVC.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				C0C176E7248D3F7A00080FBC /* Main.storyboard */,
 				C03A48CF2497C985005CA628 /* PostTVC.swift */,
 				C01BF9E524A3B3440096F2F3 /* ProfileHeaderCell.swift */,
+				C01BF9EB24A4D9030096F2F3 /* FilterCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				C03A48CA2496CCE8005CA628 /* PostService.swift in Sources */,
 				C0C17768249284DF00080FBC /* AuthCredential.swift in Sources */,
 				C0C17704248D487600080FBC /* MessageVC.swift in Sources */,
+				C01BF9EC24A4D9030096F2F3 /* FilterCell.swift in Sources */,
 				C0C1770B248D6DDD00080FBC /* LoginVC.swift in Sources */,
 				C0C1770D248D6DF200080FBC /* SignupVC.swift in Sources */,
 				C0C176E2248D3F7A00080FBC /* AppDelegate.swift in Sources */,

@@ -32,6 +32,7 @@ struct Constants {
     struct Cells {
         static let postCell = "PostCell"
         static let profileHeaderCell = "ProfileHeaderCell"
+        static let filterCell = "filterCell"
     }
     
 }

@@ -20,13 +20,17 @@ class Profile: UIViewController {
     
     var test = ["1", "2", "3"]
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //delegation
         tableView.dataSource = self
         tableView.delegate = self
         //height of the header cell
-        tableView.sectionHeaderHeight = 200
+        tableView.sectionHeaderHeight = 250
     
     }
 
@@ -41,7 +45,6 @@ extension Profile : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.profileHeaderCell) as! ProfileHeaderCell
-        cell.backgroundColor = .red
         return cell
     }
     
