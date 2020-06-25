@@ -18,6 +18,12 @@ class Profile: UIViewController {
         }
     }
     
+    var tappedUser : User? {
+        didSet {
+            print("user picked is \(tappedUser?.fullname)")
+        }
+    }
+    
     var test = ["1", "2", "3"]
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +51,7 @@ extension Profile : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.profileHeaderCell) as! ProfileHeaderCell
+        cell.user = tappedUser
         return cell
     }
     
@@ -54,3 +61,4 @@ extension Profile : UITableViewDataSource, UITableViewDelegate {
         return cell!
     }
 }
+

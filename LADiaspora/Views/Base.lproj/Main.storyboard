@@ -421,6 +421,26 @@
                                                         <constraint firstAttribute="height" constant="100" id="XkB-40-bzg"/>
                                                     </constraints>
                                                 </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="LXn-PF-LFY">
+                                                    <rect key="frame" x="20" y="186" width="91" height="20"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUM-BN-sLn">
+                                                            <rect key="frame" x="0.0" y="0.0" width="35.5" height="20"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7O-rg-psq">
+                                                            <rect key="frame" x="55.5" y="0.0" width="35.5" height="20"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="awj-vB-m9Y"/>
+                                                    </constraints>
+                                                </stackView>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lhs-rJ-djE">
                                                     <rect key="frame" x="0.0" y="210" width="414" height="36"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -472,6 +492,7 @@
                                                 </collectionView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="lhs-rJ-djE" firstAttribute="top" secondItem="LXn-PF-LFY" secondAttribute="bottom" constant="4" id="2Sf-Qc-OJC"/>
                                                 <constraint firstItem="vmc-rr-Jsr" firstAttribute="top" secondItem="99o-Pq-pXr" secondAttribute="top" constant="20" id="622-zT-zzU"/>
                                                 <constraint firstItem="Vtv-0T-mel" firstAttribute="top" secondItem="99o-Pq-pXr" secondAttribute="top" constant="42" id="6BS-c0-vyN"/>
                                                 <constraint firstItem="gCi-Ci-d5q" firstAttribute="leading" secondItem="99o-Pq-pXr" secondAttribute="leading" constant="20" id="FtF-08-erg"/>
@@ -482,12 +503,15 @@
                                                 <constraint firstItem="gCi-Ci-d5q" firstAttribute="top" secondItem="vmc-rr-Jsr" secondAttribute="bottom" constant="10" id="Z1P-wU-uLe"/>
                                                 <constraint firstAttribute="trailing" secondItem="lhs-rJ-djE" secondAttribute="trailing" id="hVz-ZZ-C7b"/>
                                                 <constraint firstAttribute="trailing" secondItem="Vtv-0T-mel" secondAttribute="trailing" constant="20" id="jxR-vy-NCe"/>
+                                                <constraint firstItem="LXn-PF-LFY" firstAttribute="leading" secondItem="99o-Pq-pXr" secondAttribute="leading" constant="20" id="tPP-yM-8Ky"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="biotf" destination="sT0-Nq-z0p" id="exc-Xt-pSI"/>
                                             <outlet property="collectionView" destination="lhs-rJ-djE" id="W5P-3o-iUt"/>
                                             <outlet property="followBtn" destination="Vtv-0T-mel" id="tKV-4g-WA9"/>
+                                            <outlet property="followers" destination="xUM-BN-sLn" id="zvK-X4-HLs"/>
+                                            <outlet property="following" destination="t7O-rg-psq" id="Tnu-wc-Wmq"/>
                                             <outlet property="fullnametf" destination="YPM-8F-ie8" id="foG-LF-w8r"/>
                                             <outlet property="profileIMG" destination="vmc-rr-Jsr" id="ve5-Zw-uu9"/>
                                             <outlet property="usernametf" destination="BGK-KU-ofA" id="0ui-rI-eea"/>

@@ -10,6 +10,10 @@ import UIKit
 
 class ProfileHeaderCell: UITableViewCell {
     
+    var user : User? {
+        didSet { configUser() }
+    }
+    
     @IBOutlet weak var profileIMG: UIImageView!
     @IBOutlet weak var fullnametf: UILabel!
     @IBOutlet weak var usernametf: UILabel!
@@ -17,6 +21,9 @@ class ProfileHeaderCell: UITableViewCell {
     @IBOutlet weak var followBtn: UIButton!
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var followers: UILabel!
+    @IBOutlet weak var following: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -48,6 +55,13 @@ class ProfileHeaderCell: UITableViewCell {
         followBtn.roundButton(withColor: .orange)
         followBtn.layer.borderWidth = 1
         followBtn.layer.borderColor = .init(srgbRed: 0, green: 0, blue: 0, alpha: 1)
+    }
+    
+    func configUser() {
+        guard let user = user else { return }
+        let viewModel = ProfileHeaderVM.init(user: user)
+        followers.text = viewModel.followers
+        following.text = viewModel.following
     }
 
 }

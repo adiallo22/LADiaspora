@@ -19,6 +19,8 @@ class FeedVC: UIViewController {
         }
     }
     
+    var profileUser : User?
+    
     var posts = [Post]() {
         didSet { self.tableView.reloadData() }
     }
@@ -96,6 +98,10 @@ extension FeedVC {
             guard let usr = user else { return }
             destVC.user = usr
         }
+        if segue.identifier == Constants.Segues.toProfile {
+            let destVC = segue.destination as! Profile
+            destVC.tappedUser = profileUser
+        }
         
     }
     
@@ -126,7 +132,9 @@ extension FeedVC : UITableViewDelegate, UITableViewDataSource {
 
 extension FeedVC : HandPostDelegate {
     
-    func profileImageTapped(atCell cell: UITableViewCell) {
+    func profileImageTapped(_ cell: PostTVC) {
+        guard let user = cell.post?.user else { return }
+        profileUser = user
         performSegue(withIdentifier: Constants.Segues.toProfile, sender: self)
     }
     

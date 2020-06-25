@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 
 protocol HandPostDelegate {
-    func profileImageTapped(atCell cell: UITableViewCell)
+    func profileImageTapped(_ cell: PostTVC)
 }
 
 class PostTVC: UITableViewCell {
@@ -63,7 +63,7 @@ extension PostTVC {
     }
     
     @objc func profileTapped() {
-        tappedProfileDelegate?.profileImageTapped(atCell: self)
+        tappedProfileDelegate?.profileImageTapped(self)
     }
     
 }

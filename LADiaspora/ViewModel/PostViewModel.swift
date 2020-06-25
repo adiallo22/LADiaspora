@@ -10,8 +10,8 @@ import Foundation
 
 struct PostViewModel {
     
-    var post : Post
-    var user : User
+    private var post : Post
+    private var user : User
     
     var profileURL : String {
         return user.profileURL

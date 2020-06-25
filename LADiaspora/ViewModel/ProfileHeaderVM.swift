@@ -26,3 +26,25 @@ enum FilterOptions: Int, CaseIterable {
     }
     
 }
+
+
+//MARK: - <#section heading#>
+
+
+struct ProfileHeaderVM {
+    
+    private var user : User
+    
+    var followers : String {
+        return "10 followers"
+    }
+    
+    var following : String {
+        return "10 following"
+    }
+    
+    init(user: User) {
+        self.user = user
+    }
+    
+}
