@@ -24,6 +24,9 @@ class ProfileHeaderCell: UITableViewCell {
         collectionView.dataSource = self
         //
         configUI()
+        //
+        let selectedItem = IndexPath.init(row: 0, section: 0)
+        collectionView.selectItem(at: selectedItem, animated: true, scrollPosition: .left)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -55,11 +58,13 @@ class ProfileHeaderCell: UITableViewCell {
 extension ProfileHeaderCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return FilterOptions.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Cells.filterCell, for: indexPath) as! FilterCell
+        let option = FilterOptions.init(rawValue: indexPath.row)
+        cell.option = option
         return cell
     }
     

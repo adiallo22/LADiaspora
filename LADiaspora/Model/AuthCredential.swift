@@ -14,6 +14,6 @@ struct AuthCredential {
     var username : String
     var email : String
     var password : String
-    var profileURL : String
+    var profileIMG : UIImage
     
 }

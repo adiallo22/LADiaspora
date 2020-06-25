@@ -10,6 +10,8 @@
 		C01BF9E424A27A020096F2F3 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BF9E324A27A020096F2F3 /* Profile.swift */; };
 		C01BF9E624A3B3440096F2F3 /* ProfileHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BF9E524A3B3440096F2F3 /* ProfileHeaderCell.swift */; };
 		C01BF9EC24A4D9030096F2F3 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BF9EB24A4D9030096F2F3 /* FilterCell.swift */; };
+		C01BF9EE24A4F0E20096F2F3 /* ProfileHeaderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BF9ED24A4F0E20096F2F3 /* ProfileHeaderVM.swift */; };
+		C01BF9F024A523F30096F2F3 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BF9EF24A523F30096F2F3 /* AuthService.swift */; };
 		C03A48C424965A48005CA628 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A48C324965A48005CA628 /* UserService.swift */; };
 		C03A48C624966590005CA628 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A48C524966590005CA628 /* User.swift */; };
 		C03A48C8249689FA005CA628 /* NewPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A48C7249689FA005CA628 /* NewPostVC.swift */; };
@@ -44,6 +46,8 @@
 		C01BF9E324A27A020096F2F3 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		C01BF9E524A3B3440096F2F3 /* ProfileHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCell.swift; sourceTree = "<group>"; };
 		C01BF9EB24A4D9030096F2F3 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		C01BF9ED24A4F0E20096F2F3 /* ProfileHeaderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderVM.swift; sourceTree = "<group>"; };
+		C01BF9EF24A523F30096F2F3 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		C03A48C324965A48005CA628 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		C03A48C524966590005CA628 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C03A48C7249689FA005CA628 /* NewPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostVC.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				C06074F52498480300EE6242 /* PostViewModel.swift */,
+				C01BF9ED24A4F0E20096F2F3 /* ProfileHeaderVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -125,8 +130,8 @@
 				C0C176E1248D3F7A00080FBC /* AppDelegate.swift */,
 				C0C176E3248D3F7A00080FBC /* SceneDelegate.swift */,
 				C0C176FA248D423800080FBC /* Utils */,
-				C0C176F9248D422D00080FBC /* API */,
 				C0C176F8248D421F00080FBC /* Model */,
+				C0C176F9248D422D00080FBC /* API */,
 				C0C176F7248D421500080FBC /* Views */,
 				C06074F4249847C200EE6242 /* ViewModel */,
 				C0C176F5248D41BB00080FBC /* Controllers */,
@@ -173,6 +178,7 @@
 			children = (
 				C03A48C324965A48005CA628 /* UserService.swift */,
 				C03A48C92496CCE8005CA628 /* PostService.swift */,
+				C01BF9EF24A523F30096F2F3 /* AuthService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -341,6 +347,7 @@
 				C0C176FE248D483300080FBC /* FeedVC.swift in Sources */,
 				C03A48C8249689FA005CA628 /* NewPostVC.swift in Sources */,
 				C0C17702248D486400080FBC /* NotificationVC.swift in Sources */,
+				C01BF9F024A523F30096F2F3 /* AuthService.swift in Sources */,
 				C0C17700248D484300080FBC /* DiscoverVC.swift in Sources */,
 				C01BF9E624A3B3440096F2F3 /* ProfileHeaderCell.swift in Sources */,
 				C03A48C624966590005CA628 /* User.swift in Sources */,
@@ -355,6 +362,7 @@
 				C0C176E2248D3F7A00080FBC /* AppDelegate.swift in Sources */,
 				C0C176E4248D3F7A00080FBC /* SceneDelegate.swift in Sources */,
 				C03A48CC2497B46F005CA628 /* Post.swift in Sources */,
+				C01BF9EE24A4F0E20096F2F3 /* ProfileHeaderVM.swift in Sources */,
 				C0C17708248D6AFE00080FBC /* Extension.swift in Sources */,
 				C0C17713248ECD5000080FBC /* Constants.swift in Sources */,
 			);

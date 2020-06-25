@@ -13,6 +13,12 @@ class FilterCell: UICollectionViewCell {
     @IBOutlet weak var filterTitle: UILabel!
     @IBOutlet weak var underLine: UIView!
     
+    var option : FilterOptions! {
+        didSet {
+            filterTitle.text = option.Description
+        }
+    }
+    
     override var isSelected: Bool {
         didSet {
             filterTitle.font = isSelected ? UIFont.boldSystemFont(ofSize: 16) : UIFont.systemFont(ofSize: 14)

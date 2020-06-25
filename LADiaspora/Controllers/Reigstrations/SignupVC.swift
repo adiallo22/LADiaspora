@@ -49,13 +49,19 @@ class SignupVC: UIViewController, UIPickerViewDelegate {
                 setTheError(withError: error!)
             } else {
                 //all textfields are filled by the user
-                let imageReference = Constants.References.imageDB.child("profile_images").child(NSUUID().uuidString)
-                //compress profile image to be uploaded on Storage
-                guard let imageData = profileImg?.jpegData(compressionQuality: 0.5) else { return }
-                //upload profile image to the Storage
-                uploadProfileToStorageWith(reference: imageReference, imageData: imageData)
-                changeRoot()
-//                dismissCurrentControllerAndShowTab()
+                guard let fullname = fullnametf.text,
+                        let username = usernametf.text,
+                        let email = emailtf.text,
+                        let pwd = passwordtf.text else { return }
+                let authCredential = AuthCredential.init(fullname: fullname, username: username, email: email, password: pwd, profileIMG: profileImg!)
+                AuthService.shared.registerUserWith(authCredential: authCredential) { (error, ref) in
+                    if error != nil {
+                        self.setTheError(withError: error!.localizedDescription)
+                    } else {
+                        self.changeRoot()
+                        //                dismissCurrentControllerAndShowTab()
+                    }
+                }
             }
         }
     }
@@ -68,7 +74,9 @@ class SignupVC: UIViewController, UIPickerViewDelegate {
     
 }
 
+
 //MARK: - Helpers
+
 
 extension SignupVC {
     
@@ -133,46 +141,6 @@ extension SignupVC: UIImagePickerControllerDelegate, UINavigationControllerDeleg
         profileImageButton.setImage(image, for: .normal)
         roundProfileImageButton()
         dismiss(animated: true, completion: nil)
-    }
-    
-}
-
-//MARK: - database handling
-
-extension SignupVC {
-    
-    func uploadProfileToStorageWith(reference: StorageReference, imageData: Data) {
-        reference.putData(imageData, metadata: nil) { (meta, error) in
-            reference.downloadURL { (url, error) in
-                //hold the url of the profile image saved in Storage
-                guard let profileURL = url?.absoluteString else { return }
-                print(profileURL)
-                guard let email = self.emailtf.text,
-                    let pwd = self.passwordtf.text,
-                    let username = self.usernametf.text,
-                    let fullname = self.fullnametf.text else { return }
-                let user = AuthCredential(fullname: fullname, username: username, email: email, password: pwd, profileURL: profileURL)
-                //upload textfields and image url to database
-                self.createNewUser(withCredentials: user)
-            }
-        }
-    }
-    
-    func createNewUser(withCredentials : AuthCredential) {
-        Auth.auth().createUser(withEmail: withCredentials.email, password: withCredentials.password, completion: { (result, error) in
-            if error != nil {
-                self.setTheError(withError: error!.localizedDescription)
-            } else {
-                let uid = result?.user.uid
-                let values = ["full name":withCredentials.fullname,
-                              "email":withCredentials.email,
-                              "username":withCredentials.username.lowercased(),
-                              "profileURL":withCredentials.profileURL]
-                //reference to database and upload values
-                let reference = Constants.References.db.child("users").child("\(uid!)")
-                reference.setValue(values)
-            }
-        })
     }
     
 }
