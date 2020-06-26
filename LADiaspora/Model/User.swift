@@ -6,7 +6,7 @@
 //  Copyright © 2020 Abdul Diallo. All rights reserved.
 //
 
-import Foundation
+import Firebase
 
 struct User {
     
@@ -15,6 +15,9 @@ struct User {
     var email : String
     var profileURL : String
     var uid : String
+    var isCurrentUser : Bool {
+        return Auth.auth().currentUser?.uid == uid
+    }
     
     init(uid: String, values: [String:Any]) {
         self.uid = uid

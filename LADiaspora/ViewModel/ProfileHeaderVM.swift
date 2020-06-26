@@ -43,6 +43,26 @@ struct ProfileHeaderVM {
         return "10 following"
     }
     
+    var profileBtnTitle : String {
+        if user.isCurrentUser {
+            return "Edit Profile"
+        } else {
+            return "Follow"
+        }
+    }
+    
+    var fullname : String {
+        return user.fullname
+    }
+    
+    var username : String {
+        return "@"+user.username
+    }
+    
+    var url : URL {
+        return URL.init(string: user.profileURL)!
+    }
+    
     init(user: User) {
         self.user = user
     }

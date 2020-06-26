@@ -48,8 +48,6 @@ class ProfileHeaderCell: UITableViewCell {
         profileIMG.layer.borderColor = .init(srgbRed: 0, green: 0, blue: 0, alpha: 1)
         profileIMG.layer.borderWidth = 1
         //
-        fullnametf.text = "Abdul Diallo"
-        usernametf.text = "@"+"abduldiallo196"
         biotf.text = "I am Abdul and I am an iOS Developer and investor. I am extremely motivated to succeed for my family, my wife and my self"
         //
         followBtn.roundButton(withColor: .orange)
@@ -62,6 +60,10 @@ class ProfileHeaderCell: UITableViewCell {
         let viewModel = ProfileHeaderVM.init(user: user)
         followers.text = viewModel.followers
         following.text = viewModel.following
+        followBtn.setTitle(viewModel.profileBtnTitle, for: .normal)
+        profileIMG.sd_setImage(with: viewModel.url, completed: nil)
+        fullnametf.text = viewModel.fullname
+        usernametf.text = viewModel.username
     }
 
 }

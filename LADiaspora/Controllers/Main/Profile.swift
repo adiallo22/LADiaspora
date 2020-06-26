@@ -36,7 +36,7 @@ class Profile: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         //height of the header cell
-        tableView.sectionHeaderHeight = 250
+        tableView.sectionHeaderHeight = 260
     
     }
 

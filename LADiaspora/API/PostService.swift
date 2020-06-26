@@ -21,7 +21,11 @@ struct PostService {
             "timestamp": Int(Date().timeIntervalSince1970),
             "caption": caption
             ] as [String : Any]
-        Constants.References.db.child("posts").childByAutoId().setValue(values, withCompletionBlock: completion)
+        let ref = Constants.References.db.child("posts").childByAutoId()
+        guard let key = ref.key else { return }
+        ref.updateChildValues(values) { (err, dataref) in
+            Constants.References.db.child("user_posts").child(uid).updateChildValues([key:1], withCompletionBlock: completion)
+        }
     }
     
     func fetchPost(completion: @escaping([Post])->Void) {
