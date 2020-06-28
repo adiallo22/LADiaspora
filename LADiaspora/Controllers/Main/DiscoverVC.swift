@@ -8,6 +8,8 @@
 
 import UIKit
 
+private let profileID = "profile"
+
 class DiscoverVC: UIViewController {
 
     @IBOutlet weak var newPostButton: UIButton!
@@ -19,6 +21,18 @@ class DiscoverVC: UIViewController {
         }
     }
     
+    private var usersFiltered = [User]() {
+        didSet {
+            tableview.reloadData()
+        }
+    }
+    
+    private var inSearchMode : Bool {
+        return searchController.isActive && !searchController.searchBar.text!.isEmpty
+    }
+    
+    private let searchController = UISearchController.init(searchResultsController: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +42,7 @@ class DiscoverVC: UIViewController {
 
         configureUI()
         fetchUser()
+        configSearchController()
     }
     
     @IBAction func newPostClicked(_ sender: UIButton) {
@@ -50,6 +65,16 @@ extension DiscoverVC {
         }
     }
     
+    func configSearchController() {
+        navigationItem.searchController = searchController
+        searchController.searchResultsUpdater = self
+        //
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.placeholder = "Search users"
+        definesPresentationContext = false
+    }
+    
 }
 
 //MARK: - delegate and data source
@@ -57,18 +82,35 @@ extension DiscoverVC {
 extension DiscoverVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableview.deselectRow(at: indexPath, animated: true)
+        let user = inSearchMode ? usersFiltered[indexPath.row] : users[indexPath.row]
+        let main = UIStoryboard.init(name: "Main", bundle: nil)
+        let profile = main.instantiateViewController(withIdentifier: profileID) as! Profile
+        profile.tappedUser = user
+        navigationController?.pushViewController(profile, animated: true)
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
+        return inSearchMode ? usersFiltered.count : users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.discoverUserCell) as! DiscoverUserCell
-        cell.user = users[indexPath.row]
+        let user = inSearchMode ? usersFiltered[indexPath.row] : users[indexPath.row]
+        cell.user = user
         return cell
+    }
+}
+
+//MARK: - search updater
+
+extension DiscoverVC : UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searched = searchController.searchBar.text?.lowercased() else { return }
+        usersFiltered = users.filter({ (user) -> Bool in
+            return user.username.contains(searched) || user.fullname.contains(searched)
+        })
     }
 }
 

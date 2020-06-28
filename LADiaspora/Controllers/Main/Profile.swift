@@ -9,12 +9,11 @@
 import UIKit
 
 class Profile: UIViewController {
-        
+    
     @IBOutlet weak var tableView: UITableView!
     
     var posts : [Post] = [] {
         didSet {
-            print(posts)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -24,8 +23,6 @@ class Profile: UIViewController {
     var x =  ["1", "2", "3"]
     
     var tappedUser : User?
-    
-    var test = ["1", "2", "3"]
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)

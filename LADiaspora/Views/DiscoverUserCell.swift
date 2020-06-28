@@ -32,7 +32,6 @@ class DiscoverUserCell: UITableViewCell {
     
     func configUI() {
         profileImage.roundView()
-        profileImage.backgroundColor = .orange
     }
     
     func configUser() {
