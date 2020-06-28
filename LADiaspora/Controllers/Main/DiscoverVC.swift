@@ -18,6 +18,7 @@ class DiscoverVC: UIViewController {
         
         tableview.delegate = self
         tableview.dataSource = self
+        tableview.rowHeight = 60
 
         configureUI()
     }

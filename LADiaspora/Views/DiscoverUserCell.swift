@@ -10,15 +10,22 @@ import UIKit
 
 class DiscoverUserCell: UITableViewCell {
 
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var fulllname: UILabel!
+    @IBOutlet weak var username: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        configUI()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        self.backgroundColor = .orange
+    }
+    
+    func configUI() {
+        profileImage.roundView()
+        profileImage.backgroundColor = .orange
     }
 
 }
