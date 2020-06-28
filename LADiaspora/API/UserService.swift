@@ -8,6 +8,8 @@
 
 import Firebase
 
+private let ref = Constants.References.db.child("users")
+
 struct UserService {
     
     static let shared = UserService()
@@ -15,10 +17,16 @@ struct UserService {
     //pass user to the controller calling this function
     func fetchUserInfo(uid: String, completion: @escaping(User)->Void) {
         //guard let uid = Auth.auth().currentUser?.uid else { return }
-        Constants.References.db.child("users").child(uid).observeSingleEvent(of: .value) { (snapshot) in
+        ref.child(uid).observeSingleEvent(of: .value) { (snapshot) in
             guard let values = snapshot.value as? [String:Any] else { return }
             let user = User.init(uid: uid, values: values)
             completion(user)
+        }
+    }
+    
+    func fetchUsers(completion: @escaping([User]) -> Void) {
+        ref.observe(.childAdded) { (snapshot) in
+            print(snapshot)
         }
     }
     

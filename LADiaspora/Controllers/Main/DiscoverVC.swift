@@ -21,6 +21,7 @@ class DiscoverVC: UIViewController {
         tableview.rowHeight = 60
 
         configureUI()
+        fetchUser()
     }
     
     @IBAction func newPostClicked(_ sender: UIButton) {
@@ -35,6 +36,12 @@ extension DiscoverVC {
     func configureUI() {
         navigationItem.title = Constants.Titles.discover
         newPostButton.setNewPostButton()
+    }
+    
+    func fetchUser() {
+        UserService.shared.fetchUsers { (users) in
+            print("okay")
+        }
     }
     
 }
