@@ -58,8 +58,9 @@ class SignupVC: UIViewController, UIPickerViewDelegate {
                     if error != nil {
                         self.setTheError(withError: error!.localizedDescription)
                     } else {
-                        self.changeRoot()
-                        //                dismissCurrentControllerAndShowTab()
+                        self.presentingViewController?.dismiss(animated: true, completion: nil)
+//                        self.changeRoot()
+//                        dismissCurrentControllerAndShowTab()
                     }
                 }
             }

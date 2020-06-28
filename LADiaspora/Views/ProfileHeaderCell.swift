@@ -44,7 +44,6 @@ class ProfileHeaderCell: UITableViewCell {
     
     func configUI() {
         profileIMG.roundView()
-        profileIMG.backgroundColor = .orange
         profileIMG.layer.borderColor = .init(srgbRed: 0, green: 0, blue: 0, alpha: 1)
         profileIMG.layer.borderWidth = 1
         //

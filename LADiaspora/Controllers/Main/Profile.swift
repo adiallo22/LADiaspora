@@ -14,15 +14,16 @@ class Profile: UIViewController {
     
     var posts : [Post] = [] {
         didSet {
-            print("posts data is received..")
+            print(posts)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     
-    var tappedUser : User? {
-        didSet {
-            print("user picked is \(tappedUser?.fullname)")
-        }
-    }
+    var x =  ["1", "2", "3"]
+    
+    var tappedUser : User?
     
     var test = ["1", "2", "3"]
     
@@ -32,12 +33,22 @@ class Profile: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = 130
         //delegation
         tableView.dataSource = self
         tableView.delegate = self
         //height of the header cell
         tableView.sectionHeaderHeight = 260
+        //
+        fetchUserPost()
     
+    }
+    
+    func fetchUserPost() {
+        guard let user = tappedUser else { return }
+        PostService.shared.fetchUserPost(withUser: user) { [weak self] (posts) in
+            self?.posts = posts
+        }
     }
 
 }
@@ -46,7 +57,7 @@ class Profile: UIViewController {
 
 extension Profile : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return test.count
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -57,7 +68,8 @@ extension Profile : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-        cell?.textLabel?.text = test[indexPath.row]
+        //cell.post = posts[indexPath.row]
+        cell?.textLabel?.text = x[indexPath.row]
         return cell!
     }
 }

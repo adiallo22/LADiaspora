@@ -11,9 +11,13 @@ import UIKit
 class DiscoverVC: UIViewController {
 
     @IBOutlet weak var newPostButton: UIButton!
+    @IBOutlet weak var tableview: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableview.delegate = self
+        tableview.dataSource = self
 
         configureUI()
     }
@@ -32,5 +36,24 @@ extension DiscoverVC {
         newPostButton.setNewPostButton()
     }
     
+}
+
+//MARK: - delegate and data source
+
+extension DiscoverVC : UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("selected..")
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.discoverUserCell) as! DiscoverUserCell
+        return cell
+    }
 }
 
