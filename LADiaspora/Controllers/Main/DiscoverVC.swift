@@ -13,6 +13,12 @@ class DiscoverVC: UIViewController {
     @IBOutlet weak var newPostButton: UIButton!
     @IBOutlet weak var tableview: UITableView!
     
+    private var users = [User]() {
+        didSet{
+            tableview.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,8 +45,8 @@ extension DiscoverVC {
     }
     
     func fetchUser() {
-        UserService.shared.fetchUsers { (users) in
-            print("okay")
+        UserService.shared.fetchUsers { [weak self] (users) in
+            self?.users = users
         }
     }
     
@@ -51,16 +57,17 @@ extension DiscoverVC {
 extension DiscoverVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected..")
+        tableview.deselectRow(at: indexPath, animated: true)
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.discoverUserCell) as! DiscoverUserCell
+        cell.user = users[indexPath.row]
         return cell
     }
 }
