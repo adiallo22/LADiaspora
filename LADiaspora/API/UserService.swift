@@ -64,13 +64,13 @@ struct UserService {
         }
     }
     
-    func fetchUserStats(uid: String, completion: @escaping() -> Void) {
+    func fetchUserStats(uid: String, completion: @escaping(UserFollowStats) -> Void) {
         followersRef.child(uid).observeSingleEvent(of: .value) { (snapshot) in
             let followers = snapshot.children.allObjects.count
-            print("\(followers) followers")
             followingsRef.child(uid).observeSingleEvent(of: .value) { (snapshot) in
                 let following = snapshot.children.allObjects.count
-                print("\(following) following")
+                let stats = UserFollowStats.init(following: following, followers: followers)
+                completion(stats)
             }
         }
     }

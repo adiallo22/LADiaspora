@@ -13,6 +13,8 @@
 		C01BF9EE24A4F0E20096F2F3 /* ProfileHeaderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BF9ED24A4F0E20096F2F3 /* ProfileHeaderVM.swift */; };
 		C01BF9F024A523F30096F2F3 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BF9EF24A523F30096F2F3 /* AuthService.swift */; };
 		C01BF9F624A939C50096F2F3 /* DiscoverUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BF9F524A939C40096F2F3 /* DiscoverUserCell.swift */; };
+		C01BF9FA24AA4DAF0096F2F3 /* PostDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BF9F924AA4DAF0096F2F3 /* PostDetails.swift */; };
+		C01BF9FC24AA692B0096F2F3 /* PostDetailsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BF9FB24AA692B0096F2F3 /* PostDetailsHeaderCell.swift */; };
 		C03A48C424965A48005CA628 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A48C324965A48005CA628 /* UserService.swift */; };
 		C03A48C624966590005CA628 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A48C524966590005CA628 /* User.swift */; };
 		C03A48C8249689FA005CA628 /* NewPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A48C7249689FA005CA628 /* NewPostVC.swift */; };
@@ -50,6 +52,8 @@
 		C01BF9ED24A4F0E20096F2F3 /* ProfileHeaderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderVM.swift; sourceTree = "<group>"; };
 		C01BF9EF24A523F30096F2F3 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		C01BF9F524A939C40096F2F3 /* DiscoverUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverUserCell.swift; sourceTree = "<group>"; };
+		C01BF9F924AA4DAF0096F2F3 /* PostDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetails.swift; sourceTree = "<group>"; };
+		C01BF9FB24AA692B0096F2F3 /* PostDetailsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsHeaderCell.swift; sourceTree = "<group>"; };
 		C03A48C324965A48005CA628 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		C03A48C524966590005CA628 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C03A48C7249689FA005CA628 /* NewPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostVC.swift; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 			children = (
 				C0C176E7248D3F7A00080FBC /* Main.storyboard */,
 				C03A48CF2497C985005CA628 /* PostTVC.swift */,
+				C01BF9FB24AA692B0096F2F3 /* PostDetailsHeaderCell.swift */,
 				C01BF9E524A3B3440096F2F3 /* ProfileHeaderCell.swift */,
 				C01BF9EB24A4D9030096F2F3 /* FilterCell.swift */,
 				C01BF9F524A939C40096F2F3 /* DiscoverUserCell.swift */,
@@ -212,6 +217,7 @@
 				C0C176FD248D483300080FBC /* FeedVC.swift */,
 				C03A48C7249689FA005CA628 /* NewPostVC.swift */,
 				C0C176FF248D484300080FBC /* DiscoverVC.swift */,
+				C01BF9F924AA4DAF0096F2F3 /* PostDetails.swift */,
 				C01BF9E324A27A020096F2F3 /* Profile.swift */,
 				C0C17701248D486400080FBC /* NotificationVC.swift */,
 				C0C17703248D487600080FBC /* MessageVC.swift */,
@@ -343,6 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C01BF9FA24AA4DAF0096F2F3 /* PostDetails.swift in Sources */,
 				C06074F62498480300EE6242 /* PostViewModel.swift in Sources */,
 				C03A48D02497C985005CA628 /* PostTVC.swift in Sources */,
 				C03A48C424965A48005CA628 /* UserService.swift in Sources */,
@@ -365,6 +372,7 @@
 				C0C1770D248D6DF200080FBC /* SignupVC.swift in Sources */,
 				C0C176E2248D3F7A00080FBC /* AppDelegate.swift in Sources */,
 				C0C176E4248D3F7A00080FBC /* SceneDelegate.swift in Sources */,
+				C01BF9FC24AA692B0096F2F3 /* PostDetailsHeaderCell.swift in Sources */,
 				C03A48CC2497B46F005CA628 /* Post.swift in Sources */,
 				C01BF9EE24A4F0E20096F2F3 /* ProfileHeaderVM.swift in Sources */,
 				C0C17708248D6AFE00080FBC /* Extension.swift in Sources */,

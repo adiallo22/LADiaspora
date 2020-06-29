@@ -15,10 +15,11 @@ struct User {
     var email : String
     var profileURL : String
     var uid : String
+    var isFollowed : Bool = false
+    var stats : UserFollowStats?
     var isCurrentUser : Bool {
         return Auth.auth().currentUser?.uid == uid
     }
-    var isFollowed : Bool = false
     
     init(uid: String, values: [String:Any]) {
         self.uid = uid
@@ -27,5 +28,14 @@ struct User {
         self.profileURL = values["profileURL"] as? String ?? ""
         self.username = values["username"] as? String ?? ""
     }
+    
+}
+
+//MARK: - <#section heading#>
+
+struct UserFollowStats {
+    
+    var following : Int
+    var followers : Int
     
 }

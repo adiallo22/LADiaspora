@@ -69,8 +69,9 @@ extension Profile {
     
     func fetchUserStats() {
         guard let user = tappedUser else { return }
-        UserService.shared.fetchUserStats(uid: user.uid) {
-            print("")
+        UserService.shared.fetchUserStats(uid: user.uid) { [weak self] stats in
+            self?.tappedUser?.stats = stats
+            self?.tableView.reloadData()
         }
     }
 

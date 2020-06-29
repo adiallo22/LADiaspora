@@ -36,11 +36,11 @@ struct ProfileHeaderVM {
     private var user : User
     
     var followers : String {
-        return "10 followers"
+        return "\(user.stats?.followers ?? 0) followers"
     }
     
     var following : String {
-        return "10 following"
+        return "\(user.stats?.following ?? 0) following"
     }
     
     var profileBtnTitle : String {

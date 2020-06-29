@@ -9,6 +9,8 @@
 import UIKit
 import SDWebImage
 
+private let postDetailsID = "PostDetails"
+
 class FeedVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -123,6 +125,10 @@ extension FeedVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let main = UIStoryboard.init(name: "Main", bundle: nil)
+        let detailsPost = main.instantiateViewController(identifier: postDetailsID) as! PostDetails
+        detailsPost.post = posts[indexPath.row]
+        navigationController?.pushViewController(detailsPost, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
