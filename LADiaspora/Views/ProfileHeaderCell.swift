@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol HandleFollowUser {
+    func followBtnTapped(_ to: ProfileHeaderCell)
+}
+
 class ProfileHeaderCell: UITableViewCell {
     
     var user : User? {
@@ -25,6 +29,8 @@ class ProfileHeaderCell: UITableViewCell {
     @IBOutlet weak var followers: UILabel!
     @IBOutlet weak var following: UILabel!
     
+    var followDelegate : HandleFollowUser?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         collectionView.delegate = self
@@ -41,6 +47,16 @@ class ProfileHeaderCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBAction func followTapped(_ sender: UIButton) {
+        followDelegate?.followBtnTapped(self)
+    }
+
+}
+
+//MARK: - helpers
+
+extension ProfileHeaderCell {
     
     func configUI() {
         profileIMG.roundView()
@@ -64,7 +80,7 @@ class ProfileHeaderCell: UITableViewCell {
         fullnametf.text = viewModel.fullname
         usernametf.text = viewModel.username
     }
-
+    
 }
 
 

@@ -393,6 +393,9 @@
                                                         <constraint firstAttribute="height" constant="36" id="N53-Hq-ytn"/>
                                                         <constraint firstAttribute="width" constant="100" id="jvT-e6-yVa"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <action selector="followTapped:" destination="lBg-lX-giw" eventType="touchUpInside" id="jyC-SB-51b"/>
+                                                    </connections>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="gCi-Ci-d5q">
                                                     <rect key="frame" x="20" y="92" width="374" height="100"/>

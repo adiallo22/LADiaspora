@@ -29,6 +29,12 @@ class DiscoverUserCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+
+}
+
+//MARK: - helpers
+
+extension DiscoverUserCell {
     
     func configUI() {
         profileImage.roundView()
@@ -41,5 +47,5 @@ class DiscoverUserCell: UITableViewCell {
         fulllname.text = user.fullname
         username.text = user.username
     }
-
+    
 }

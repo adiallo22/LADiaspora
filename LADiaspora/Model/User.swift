@@ -18,6 +18,7 @@ struct User {
     var isCurrentUser : Bool {
         return Auth.auth().currentUser?.uid == uid
     }
+    var isFollowed : Bool = false
     
     init(uid: String, values: [String:Any]) {
         self.uid = uid

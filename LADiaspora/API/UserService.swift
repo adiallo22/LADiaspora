@@ -9,8 +9,12 @@
 import Firebase
 
 private let ref = Constants.References.db.child("users")
+private let followersRef = Constants.References.db.child("followers")
+private let followingsRef = Constants.References.db.child("following")
 
 struct UserService {
+    
+    typealias completionHandler = (Error?, DatabaseReference) -> Void
     
     static let shared = UserService()
     
@@ -32,6 +36,24 @@ struct UserService {
             let user = User.init(uid: key, values: value)
             users.append(user)
             completion(users)
+        }
+    }
+    
+    func followUser(uid: String, completion: @escaping(completionHandler)) {
+        guard let currentUid = Auth.auth().currentUser?.uid else { return }
+        followingsRef.child(uid).updateChildValues([currentUid:1]) { (err, ref) in
+            followersRef.child(currentUid).updateChildValues([uid:1]) { (err, ref) in
+                completion(err, ref)
+            }
+        }
+    }
+    
+    func unfollowUser(uid: String, completion: @escaping(completionHandler)) {
+        guard let currenUid = Auth.auth().currentUser?.uid else { return }
+        followingsRef.child(uid).child(currenUid).removeValue { (err, dataref) in
+            followersRef.child(currenUid).child(uid).removeValue { (err, dataref) in
+                completion(err, dataref)
+            }
         }
     }
     

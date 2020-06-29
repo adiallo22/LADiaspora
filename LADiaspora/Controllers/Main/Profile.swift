@@ -40,6 +40,13 @@ class Profile: UIViewController {
         fetchUserPost()
     
     }
+
+}
+
+
+//MARK: - helpers
+
+extension Profile {
     
     func fetchUserPost() {
         guard let user = tappedUser else { return }
@@ -49,6 +56,7 @@ class Profile: UIViewController {
     }
 
 }
+
 
 //MARK: - delegate and data source
 
@@ -60,6 +68,7 @@ extension Profile : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.profileHeaderCell) as! ProfileHeaderCell
         cell.user = tappedUser
+        cell.followDelegate = self
         return cell
     }
     
@@ -69,5 +78,22 @@ extension Profile : UITableViewDataSource, UITableViewDelegate {
         cell?.textLabel?.text = x[indexPath.row]
         return cell!
     }
+}
+
+extension Profile : HandleFollowUser {
+    
+    func followBtnTapped(_ to: ProfileHeaderCell) {
+        guard let user = tappedUser else { return }
+        if user.isFollowed == false {
+            UserService.shared.followUser(uid: user.uid) { [weak self] (error, ref) in
+                self?.tappedUser?.isFollowed = true
+            }
+        } else {
+            UserService.shared.unfollowUser(uid: user.uid) { [weak self] (error, ref) in
+                self?.tappedUser?.isFollowed = false
+            }
+        }
+    }
+    
 }
 
