@@ -57,4 +57,22 @@ struct UserService {
         }
     }
     
+    func isUserFollowedOrNot(uid: String, completion: @escaping(Bool) -> Void) {
+        guard let currentUid = Auth.auth().currentUser?.uid else { return }
+        followingsRef.child(currentUid).child(uid).observeSingleEvent(of: .value) { (snapshot) in
+            completion(snapshot.exists())
+        }
+    }
+    
+    func fetchUserStats(uid: String, completion: @escaping() -> Void) {
+        followersRef.child(uid).observeSingleEvent(of: .value) { (snapshot) in
+            let followers = snapshot.children.allObjects.count
+            print("\(followers) followers")
+            followingsRef.child(uid).observeSingleEvent(of: .value) { (snapshot) in
+                let following = snapshot.children.allObjects.count
+                print("\(following) following")
+            }
+        }
+    }
+    
 }

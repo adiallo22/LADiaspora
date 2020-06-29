@@ -36,15 +36,17 @@ class Profile: UIViewController {
         tableView.delegate = self
         //height of the header cell
         tableView.sectionHeaderHeight = 260
-        //
+        // call apis
         fetchUserPost()
+        checkIfUserIsFollwed()
+        fetchUserStats()
     
     }
 
 }
 
 
-//MARK: - helpers
+//MARK: - api calls
 
 extension Profile {
     
@@ -52,6 +54,23 @@ extension Profile {
         guard let user = tappedUser else { return }
         PostService.shared.fetchUserPost(withUser: user) { [weak self] (posts) in
             self?.posts = posts
+        }
+    }
+    
+    func checkIfUserIsFollwed() {
+        guard let user = tappedUser else { return }
+        UserService.shared.isUserFollowedOrNot(uid: user.uid) { [weak self] (isFollow) in
+            self?.tappedUser?.isFollowed = isFollow
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
+    }
+    
+    func fetchUserStats() {
+        guard let user = tappedUser else { return }
+        UserService.shared.fetchUserStats(uid: user.uid) {
+            print("")
         }
     }
 
@@ -84,13 +103,18 @@ extension Profile : HandleFollowUser {
     
     func followBtnTapped(_ to: ProfileHeaderCell) {
         guard let user = tappedUser else { return }
+        if user.isCurrentUser {
+            return 
+        }
         if user.isFollowed == false {
             UserService.shared.followUser(uid: user.uid) { [weak self] (error, ref) in
                 self?.tappedUser?.isFollowed = true
+                self?.tableView.reloadData()
             }
         } else {
             UserService.shared.unfollowUser(uid: user.uid) { [weak self] (error, ref) in
                 self?.tappedUser?.isFollowed = false
+                self?.tableView.reloadData()
             }
         }
     }

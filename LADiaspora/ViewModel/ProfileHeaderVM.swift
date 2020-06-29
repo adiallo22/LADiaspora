@@ -47,7 +47,11 @@ struct ProfileHeaderVM {
         if user.isCurrentUser {
             return "Edit Profile"
         } else {
-            return "Follow"
+            if user.isFollowed == false {
+                return "Follow"
+            } else {
+                return "Unfollow"
+            }
         }
     }
     
