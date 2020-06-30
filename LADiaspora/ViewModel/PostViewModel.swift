@@ -38,6 +38,20 @@ struct PostViewModel {
         return formatter.string(from: post.timestamp, to: current)!
     }
     
+    var secondTimestamp : String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mm a  -  MM/dd/yyyy"
+        return formatter.string(from: post.timestamp)
+    }
+    
+    var numberOfLikes : String {
+        return "\(post.likes) Likes"
+    }
+    
+    var numberOfRepost : String {
+        return "\(post.repost) Reposts"
+    }
+    
     init(post: Post) {
         self.post = post
         self.user = post.user

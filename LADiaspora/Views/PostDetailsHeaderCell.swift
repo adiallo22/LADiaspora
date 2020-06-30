@@ -23,6 +23,9 @@ class PostDetailsHeaderCell: UITableViewCell {
     @IBOutlet weak var postLabel: UILabel!
     @IBOutlet weak var timestamp: UILabel!
     
+    @IBOutlet weak var likesCount: UILabel!
+    @IBOutlet weak var repostCount: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         configUI()
@@ -47,7 +50,6 @@ extension PostDetailsHeaderCell {
     
     func configUI() {
         profileImage.roundView()
-        profileImage.backgroundColor = .orange
     }
     
     func makeProfileIMGTappable() {
@@ -65,10 +67,12 @@ extension PostDetailsHeaderCell {
         let viewModel = PostViewModel.init(post: post)
         fullname.text = viewModel.fullname
         username.text = viewModel.username
-        timestamp.text = viewModel.timestamp
+        timestamp.text = viewModel.secondTimestamp
         postLabel.text = viewModel.caption
         guard let url = URL.init(string: viewModel.profileURL) else { return }
         profileImage.sd_setImage(with: url, completed: nil)
+        likesCount.text = viewModel.numberOfLikes
+        repostCount.text = viewModel.numberOfRepost
     }
     
 }

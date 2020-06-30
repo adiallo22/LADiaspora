@@ -40,7 +40,8 @@ class FeedVC: UIViewController {
         configureUI()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 130
+        tableView.estimatedRowHeight = 130
+        tableView.rowHeight = UITableView.automaticDimension
 //        tableView.autoresizingMask = .flexibleHeight
         
     }

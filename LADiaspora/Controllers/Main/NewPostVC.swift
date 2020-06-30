@@ -15,6 +15,7 @@ class NewPostVC: UIViewController {
     @IBOutlet weak var profileIMG: UIImageView!
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var captiontf: UITextField!
+    @IBOutlet weak var stack: UIStackView!
     
     var user : User?
     
@@ -57,9 +58,11 @@ extension NewPostVC {
     
     func configureUI() {
         captiontf.becomeFirstResponder()
+//        captiontf.scroll
         newPostBtn.roundButton(withColor: .orange)
         cancelBtn.roundButton(withColor: .lightGray)
         setProfileImage()
+        stack.alignment = .leading
     }
     
     func setProfileImage() {

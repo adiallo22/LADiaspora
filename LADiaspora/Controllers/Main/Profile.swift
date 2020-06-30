@@ -30,12 +30,14 @@ class Profile: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 130
+        tableView.estimatedRowHeight = 130
+        tableView.rowHeight = UITableView.automaticDimension
         //delegation
         tableView.dataSource = self
         tableView.delegate = self
         //height of the header cell
-        tableView.sectionHeaderHeight = 260
+//        tableView.sectionHeaderHeight = UITableView.automaticDimension
+        tableView.sectionHeaderHeight = 250
         // call apis
         fetchUserPost()
         checkIfUserIsFollwed()
