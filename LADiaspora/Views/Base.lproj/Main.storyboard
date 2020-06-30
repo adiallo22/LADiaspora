@@ -1046,7 +1046,7 @@
                                                         <constraint firstAttribute="width" constant="32" id="AWa-Os-DYl"/>
                                                         <constraint firstAttribute="height" constant="32" id="zdu-UG-e3d"/>
                                                     </constraints>
-                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" image="arrow.down" catalog="system"/>
                                                     <connections>
                                                         <action selector="actionButtonPressed:" destination="Aii-uC-WEo" eventType="touchUpInside" id="gGQ-vj-r3r"/>

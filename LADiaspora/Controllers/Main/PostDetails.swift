@@ -37,6 +37,7 @@ extension PostDetails : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.postCellHeader) as! PostDetailsHeaderCell
+        cell.post = post
         return cell
     }
     

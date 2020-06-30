@@ -25,6 +25,10 @@ struct PostViewModel {
         return post.user.fullname
     }
     
+    var caption : String {
+        return post.caption
+    }
+    
     var timestamp : String {
         let formatter = DateComponentsFormatter.init()
         formatter.unitsStyle = .abbreviated

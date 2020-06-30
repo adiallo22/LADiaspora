@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PostDetailsHeaderCell: UITableViewCell {
+    
+    var post : Post? {
+        didSet {
+            configPost()
+        }
+    }
 
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var fullname: UILabel!
@@ -51,6 +58,17 @@ extension PostDetailsHeaderCell {
     
     @objc func profileTapped() {
         print("profile tapped..")
+    }
+    
+    func configPost() {
+        guard let post = post else { return }
+        let viewModel = PostViewModel.init(post: post)
+        fullname.text = viewModel.fullname
+        username.text = viewModel.username
+        timestamp.text = viewModel.timestamp
+        postLabel.text = viewModel.caption
+        guard let url = URL.init(string: viewModel.profileURL) else { return }
+        profileImage.sd_setImage(with: url, completed: nil)
     }
     
 }
