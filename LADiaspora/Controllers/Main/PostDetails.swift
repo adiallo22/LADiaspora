@@ -20,7 +20,7 @@ class PostDetails: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.sectionHeaderHeight = 150
+        tableView.sectionHeaderHeight = 250
         tableView.rowHeight = 80
         
     }
@@ -36,8 +36,7 @@ extension PostDetails : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCellHeader")
-        cell?.backgroundColor = .black
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.postCellHeader) as! PostDetailsHeaderCell
         return cell
     }
     

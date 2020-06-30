@@ -34,6 +34,7 @@ struct Constants {
         static let profileHeaderCell = "ProfileHeaderCell"
         static let filterCell = "filterCell"
         static let discoverUserCell = "DiscoverUserCell"
+        static let postCellHeader = "PostCellHeader"
     }
     
 }
