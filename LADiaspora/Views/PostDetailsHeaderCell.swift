@@ -66,7 +66,7 @@ extension PostDetailsHeaderCell {
         guard let post = post else { return }
         let viewModel = PostViewModel.init(post: post)
         fullname.text = viewModel.fullname
-        username.text = viewModel.username
+        username.text = "@\(viewModel.username)"
         timestamp.text = viewModel.secondTimestamp
         postLabel.text = viewModel.caption
         guard let url = URL.init(string: viewModel.profileURL) else { return }

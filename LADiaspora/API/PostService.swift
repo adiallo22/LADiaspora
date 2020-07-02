@@ -69,6 +69,19 @@ struct PostService {
         }
     }
     
-    
+    func fetchPostReplies(fromPost post: Post, completion: @escaping([Post]) -> Void) {
+        var posts = [Post]()
+        postReplies.child(post.postID).observe(.childAdded) { (snapshot) in
+            let key = snapshot.key
+            guard let values = snapshot.value as? [String:Any] else { return }
+            guard let uid = values["uid"] as? String else { return }
+            UserService.shared.fetchUserInfo(uid: uid) { (user) in
+                let post = Post.init(user: user, postID: key, values: values)
+                posts.insert(post, at: 0)
+                //allow the controller using this function to be able to access the array of posts
+                completion(posts)
+            }
+        }
+    }
     
 }

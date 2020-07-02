@@ -14,27 +14,49 @@ class PostDetails: UIViewController {
     
     var post : Post!
     
+    private var replies = [Post]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.delegate = self
         tableView.dataSource = self
-        
+        //
         tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.estimatedSectionHeaderHeight = 250
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableView.automaticDimension
+        //
+        fetchReplies()
         
     }
 
 }
+
+
+//MARK: - helpers
+
+extension PostDetails {
+    
+    func fetchReplies() {
+        PostService.shared.fetchPostReplies(fromPost: post) { [weak self] (posts) in
+            self?.replies = posts
+        }
+    }
+    
+}
+
 
 //MARK: - delegate and data source
 
 extension PostDetails : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return replies.count
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -44,8 +66,8 @@ extension PostDetails : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        cell?.textLabel?.text = "1"
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.postCell) as! PostTVC
+        cell.post = replies[indexPath.row]
+        return cell
     }
 }

@@ -60,7 +60,7 @@ struct ProfileHeaderVM {
     }
     
     var username : String {
-        return "@"+user.username
+        return "@\(user.username)"
     }
     
     var url : URL {
