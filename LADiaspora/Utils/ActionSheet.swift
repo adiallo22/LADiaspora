@@ -15,6 +15,8 @@ class ActionSheet : NSObject {
     private let user : User
     private let tableView = UITableView()
     
+    var window : UIWindow?
+    
     init(user: User) {
         self.user = user
         super.init()
@@ -29,6 +31,10 @@ class ActionSheet : NSObject {
 extension ActionSheet {
     
     func presentActionSheet() {
+        guard let window = UIApplication.shared.windows.first(where: {$0.isKeyWindow}) else { return }
+        self.window = window
+        tableView.frame = CGRect.init(x: 0, y: window.frame.height - 300, width: window.frame.width, height: 300)
+        window.addSubview(tableView)
         print("actionsheet presented..")
     }
     
