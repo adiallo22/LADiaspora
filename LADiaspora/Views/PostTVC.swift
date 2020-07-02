@@ -11,6 +11,7 @@ import SDWebImage
 
 protocol HandPostDelegate {
     func profileImageTapped(_ cell: PostTVC)
+    func handleReplyPost(_ cell: PostTVC)
 }
 
 class PostTVC: UITableViewCell {
@@ -37,6 +38,22 @@ class PostTVC: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    @IBAction func likeButtonPressed(_ sender: UIButton) {
+        print("liked..")
+    }
+    
+    @IBAction func replyButtonPressed(_ sender: UIButton) {
+        tappedProfileDelegate?.handleReplyPost(self)
+    }
+    
+    @IBAction func repostButtonPressed(_ sender: UIButton) {
+        print("reposted..")
+    }
+    
+    @IBAction func shareButtonPressed(_ sender: UIButton) {
+        print("shared..")
     }
 
 }

@@ -10,6 +10,7 @@ import UIKit
 import SDWebImage
 
 private let postDetailsID = "PostDetails"
+private let newPostVC = "NewPostVC"
 
 class FeedVC: UIViewController {
     
@@ -48,11 +49,6 @@ class FeedVC: UIViewController {
     
     @IBAction func newPostClicked(_ sender: UIButton) {
         performSegue(withIdentifier: Constants.Segues.toNewPost, sender: self)
-        //segue programatically
-//        let storyborad = UIStoryboard(name: "Main", bundle: nil)
-//        if let vc = storyborad.instantiateViewController(withIdentifier: "NewPostVC") as? NewPostVC {
-//             self.navigationController?.pushViewController(vc, animated: true)
-//        }
     }
     
 
@@ -100,6 +96,7 @@ extension FeedVC {
             let destVC = segue.destination as! NewPostVC
             guard let usr = user else { return }
             destVC.user = usr
+            destVC.config = .post
         }
         if segue.identifier == Constants.Segues.toProfile {
             let destVC = segue.destination as! Profile
@@ -138,6 +135,14 @@ extension FeedVC : UITableViewDelegate, UITableViewDataSource {
 //MARK: - HandPostDelegate
 
 extension FeedVC : HandPostDelegate {
+    
+    func handleReplyPost(_ cell: PostTVC) {
+        let main = UIStoryboard.init(name: "Main", bundle: nil)
+        let newPost = main.instantiateViewController(identifier: newPostVC) as! NewPostVC
+        guard let post = cell.post else { return }
+        newPost.config = .reply(post)
+        navigationController?.pushViewController(newPost, animated: true)
+    }
     
     func profileImageTapped(_ cell: PostTVC) {
         guard let user = cell.post?.user else { return }

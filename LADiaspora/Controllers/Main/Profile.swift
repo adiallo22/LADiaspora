@@ -36,8 +36,8 @@ class Profile: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         //height of the header cell
-//        tableView.sectionHeaderHeight = UITableView.automaticDimension
-        tableView.sectionHeaderHeight = 250
+        tableView.sectionHeaderHeight = UITableView.automaticDimension
+        tableView.estimatedSectionHeaderHeight = 250
         // call apis
         fetchUserPost()
         checkIfUserIsFollwed()
