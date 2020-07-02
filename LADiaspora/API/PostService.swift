@@ -10,24 +10,30 @@ import Firebase
 
 private let userPostRef = Constants.References.db.child("user_posts")
 private let postRef = Constants.References.db.child("posts")
+private let postReplies = Constants.References.db.child("post_replies")
 
 struct PostService {
     
     static let shared = PostService()
     
-    func uploadPostToDB(caption : String, completion: @escaping(Error?, DatabaseReference)->Void) {
+    func uploadPostToDB(withConfig config: uploadPostCongig, caption : String, completion: @escaping(Error?, DatabaseReference)->Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let values = [
-            "uid": uid,
-            "likes": 0,
-            "repost": 0,
-            "timestamp": Int(Date().timeIntervalSince1970),
-            "caption": caption
+                "uid": uid,
+                "likes": 0,
+                "repost": 0,
+                "timestamp": Int(Date().timeIntervalSince1970),
+                "caption": caption
             ] as [String : Any]
-        let ref = postRef.childByAutoId()
-        guard let key = ref.key else { return }
-        ref.updateChildValues(values) { (err, dataref) in
-            userPostRef.child(uid).updateChildValues([key:1], withCompletionBlock: completion)
+        switch config {
+        case .post:
+            let ref = postRef.childByAutoId()
+            guard let key = ref.key else { return }
+            ref.updateChildValues(values) { (err, dataref) in
+                userPostRef.child(uid).updateChildValues([key:1], withCompletionBlock: completion)
+            }
+        case .reply(let post):
+            postReplies.child(post.postID).childByAutoId().updateChildValues(values, withCompletionBlock: completion)
         }
     }
     
@@ -62,5 +68,7 @@ struct PostService {
             }
         }
     }
+    
+    
     
 }

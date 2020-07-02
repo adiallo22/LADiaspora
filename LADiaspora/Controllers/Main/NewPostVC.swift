@@ -25,30 +25,10 @@ class NewPostVC: UIViewController {
     
     var user : User?
     
-//    init(user: User) {
-//        self.user = user
-//        super.init(nibName: nil, bundle: nil)
-//        print(user.uid)
-//    }
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-    //    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureUI()
-        
-//        switch config {
-//        case .post:
-//            captiontf.placeholder = "what's on your mind?"
-//            newPostBtn.setTitle("\(viewModel.actionButton)", for: .normal)
-//        case .reply(let post):
-//            captiontf.placeholder = "replying to post @\(post.user.username)"
-//            newPostBtn.setTitle("Reply", for: .normal)
-//        case .none:
-//            print("config has not been set up yet")
-//        }
         
     }
     
@@ -58,7 +38,8 @@ class NewPostVC: UIViewController {
     
     @IBAction func newPostClicked(_ sender: UIButton) {
         guard let caption = captiontf.text else { return }
-        PostService.shared.uploadPostToDB(caption: caption) { (error, db) in
+        guard let config = config else { return }
+        PostService.shared.uploadPostToDB(withConfig: config, caption: caption) { (error, db) in
             if error != nil {
                 print(error!.localizedDescription)
             } else {

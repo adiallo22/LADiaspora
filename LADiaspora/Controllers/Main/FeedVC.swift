@@ -141,7 +141,8 @@ extension FeedVC : HandPostDelegate {
         let newPost = main.instantiateViewController(identifier: newPostVC) as! NewPostVC
         guard let post = cell.post else { return }
         newPost.config = .reply(post)
-        navigationController?.pushViewController(newPost, animated: true)
+        present(newPost, animated: true, completion: nil)
+//        navigationController?.pushViewController(newPost, animated: true)
     }
     
     func profileImageTapped(_ cell: PostTVC) {
