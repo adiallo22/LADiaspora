@@ -20,6 +20,8 @@ class PostDetails: UIViewController {
         }
     }
     
+    var actionSheet : ActionSheet!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -62,6 +64,7 @@ extension PostDetails : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.postCellHeader) as! PostDetailsHeaderCell
         cell.post = post
+        cell.actionDelegate = self
         return cell
     }
     
@@ -69,5 +72,15 @@ extension PostDetails : UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.postCell) as! PostTVC
         cell.post = replies[indexPath.row]
         return cell
+    }
+}
+
+
+//MARK: - ActionSheetHandler
+
+
+extension PostDetails : ActionSheetHandler {
+    func actionSheetTapped() {
+        actionSheet.presentActionSheet()
     }
 }

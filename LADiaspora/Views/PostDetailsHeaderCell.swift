@@ -9,6 +9,10 @@
 import UIKit
 import SDWebImage
 
+protocol ActionSheetHandler: class {
+    func actionSheetTapped()
+}
+
 class PostDetailsHeaderCell: UITableViewCell {
     
     var post : Post? {
@@ -16,6 +20,8 @@ class PostDetailsHeaderCell: UITableViewCell {
             configPost()
         }
     }
+    
+    weak var actionDelegate : ActionSheetHandler?
 
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var fullname: UILabel!
@@ -39,7 +45,7 @@ class PostDetailsHeaderCell: UITableViewCell {
     }
     
     @IBAction func actionButtonPressed(_ sender: UIButton) {
-        print("action button pressed..")
+        actionDelegate?.actionSheetTapped()
     }
     
 }

@@ -125,7 +125,9 @@ extension FeedVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let main = UIStoryboard.init(name: "Main", bundle: nil)
         let detailsPost = main.instantiateViewController(identifier: postDetailsID) as! PostDetails
-        detailsPost.post = posts[indexPath.row]
+        let post = posts[indexPath.row]
+        detailsPost.post = post
+        detailsPost.actionSheet = ActionSheet.init(user: post.user)
         navigationController?.pushViewController(detailsPost, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
