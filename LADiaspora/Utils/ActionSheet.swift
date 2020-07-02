@@ -24,6 +24,18 @@ class ActionSheet : NSObject {
         configTableView()
     }
     
+    //MARK: - <#section heading#>
+    
+    private lazy var fadedView : UIView = {
+        let view = UIView()
+        view.alpha = 0
+        view.backgroundColor = UIColor.init(white: 0, alpha: 0.5)
+        //
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(handleDismiss))
+        view.addGestureRecognizer(tap)
+        return view
+    }()
+    
 }
 
 //MARK: - helpers
@@ -33,9 +45,14 @@ extension ActionSheet {
     func presentActionSheet() {
         guard let window = UIApplication.shared.windows.first(where: {$0.isKeyWindow}) else { return }
         self.window = window
-        tableView.frame = CGRect.init(x: 0, y: window.frame.height - 300, width: window.frame.width, height: 300)
+        tableView.frame = CGRect.init(x: 0, y: window.frame.height, width: window.frame.width, height: 300)
+        fadedView.frame = window.frame
+        window.addSubview(fadedView)
         window.addSubview(tableView)
-        print("actionsheet presented..")
+        UIView.animate(withDuration: 0.5) {
+            self.fadedView.alpha = 1
+            self.tableView.frame.origin.y -= 300
+        }
     }
     
     func configTableView() {
@@ -47,9 +64,13 @@ extension ActionSheet {
         tableView.backgroundColor = .orange
         tableView.separatorStyle = .none
         tableView.layer.cornerRadius = 8
+        tableView.layer.masksToBounds = true
         tableView.isScrollEnabled = false
     }
     
+    @objc func handleDismiss() {
+        
+    }
 }
 
 
@@ -63,7 +84,6 @@ extension ActionSheet : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
-        cell?.textLabel?.text = "test"
         return cell!
     }
     
