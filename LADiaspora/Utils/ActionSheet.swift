@@ -69,7 +69,10 @@ extension ActionSheet {
     }
     
     @objc func handleDismiss() {
-        
+        UIView.animate(withDuration: 0.5) {
+            self.tableView.frame.origin.y += 300
+            self.fadedView.alpha = 0
+        }
     }
 }
 
