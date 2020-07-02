@@ -13,7 +13,6 @@ private let cellIdentifier = "actionCell"
 class ActionSheet : NSObject {
     
     private let user : User
-    private var uiwindow : UIWindow?
     private let tableView = UITableView()
     
     init(user: User) {
@@ -37,7 +36,7 @@ extension ActionSheet {
         tableView.delegate = self
         tableView.dataSource = self
         //
-        tableView.register(UITableView.self, forCellReuseIdentifier: cellIdentifier)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         tableView.rowHeight = 60
         tableView.backgroundColor = .orange
         tableView.separatorStyle = .none
