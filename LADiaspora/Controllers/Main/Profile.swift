@@ -97,7 +97,7 @@ extension Profile : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
         //cell.post = posts[indexPath.row]
-        cell?.textLabel?.text = x[indexPath.row]
+//        cell?.textLabel?.text = x[indexPath.row]
         return cell!
     }
 }

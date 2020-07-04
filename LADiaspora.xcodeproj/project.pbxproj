@@ -17,6 +17,7 @@
 		C01BF9FC24AA692B0096F2F3 /* PostDetailsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BF9FB24AA692B0096F2F3 /* PostDetailsHeaderCell.swift */; };
 		C01BF9FE24ABABD70096F2F3 /* UploadPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BF9FD24ABABD70096F2F3 /* UploadPostViewModel.swift */; };
 		C01BFA0124AE1D950096F2F3 /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFA0024AE1D940096F2F3 /* ActionSheet.swift */; };
+		C01BFA0324AE61F30096F2F3 /* ActionSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFA0224AE61F30096F2F3 /* ActionSheetCell.swift */; };
 		C03A48C424965A48005CA628 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A48C324965A48005CA628 /* UserService.swift */; };
 		C03A48C624966590005CA628 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A48C524966590005CA628 /* User.swift */; };
 		C03A48C8249689FA005CA628 /* NewPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A48C7249689FA005CA628 /* NewPostVC.swift */; };
@@ -58,6 +59,7 @@
 		C01BF9FB24AA692B0096F2F3 /* PostDetailsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsHeaderCell.swift; sourceTree = "<group>"; };
 		C01BF9FD24ABABD70096F2F3 /* UploadPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostViewModel.swift; sourceTree = "<group>"; };
 		C01BFA0024AE1D940096F2F3 /* ActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheet.swift; sourceTree = "<group>"; };
+		C01BFA0224AE61F30096F2F3 /* ActionSheetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCell.swift; sourceTree = "<group>"; };
 		C03A48C324965A48005CA628 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		C03A48C524966590005CA628 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C03A48C7249689FA005CA628 /* NewPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostVC.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				C01BF9FB24AA692B0096F2F3 /* PostDetailsHeaderCell.swift */,
 				C01BF9E524A3B3440096F2F3 /* ProfileHeaderCell.swift */,
 				C01BF9EB24A4D9030096F2F3 /* FilterCell.swift */,
+				C01BFA0224AE61F30096F2F3 /* ActionSheetCell.swift */,
 				C01BF9F524A939C40096F2F3 /* DiscoverUserCell.swift */,
 			);
 			path = Views;
@@ -367,6 +370,7 @@
 				C0C17700248D484300080FBC /* DiscoverVC.swift in Sources */,
 				C01BF9E624A3B3440096F2F3 /* ProfileHeaderCell.swift in Sources */,
 				C03A48C624966590005CA628 /* User.swift in Sources */,
+				C01BFA0324AE61F30096F2F3 /* ActionSheetCell.swift in Sources */,
 				C0C176FC248D428500080FBC /* MainTabBar.swift in Sources */,
 				C01BFA0124AE1D950096F2F3 /* ActionSheet.swift in Sources */,
 				C01BF9E424A27A020096F2F3 /* Profile.swift in Sources */,
