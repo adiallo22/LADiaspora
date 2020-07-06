@@ -13,6 +13,7 @@ protocol HandPostDelegate {
     func profileImageTapped(_ cell: PostTVC)
     func handleReplyPost(_ cell: PostTVC)
     func handleSharedPost(_ cell: PostTVC)
+    func handleLikepost(_ cell: PostTVC)
 }
 
 class PostTVC: UITableViewCell {
@@ -42,7 +43,7 @@ class PostTVC: UITableViewCell {
     }
     
     @IBAction func likeButtonPressed(_ sender: UIButton) {
-        print("liked..")
+        tappedDelegate?.handleLikepost(self)
     }
     
     @IBAction func replyButtonPressed(_ sender: UIButton) {

@@ -139,10 +139,34 @@ extension FeedVC : UITableViewDelegate, UITableViewDataSource {
 
 extension FeedVC : HandPostDelegate {
     
+    func handleLikepost(_ cell: PostTVC) {
+        print("like..")
+    }
+    
     func handleSharedPost(_ cell: PostTVC) {
         guard let caption = cell.post?.caption else { return }
         let activity = UIActivityViewController(activityItems: [caption], applicationActivities: nil)
         present(activity, animated: true, completion: nil)
+        /*
+         let alert = UIAlertController.init(title: "Sharing", message: "Pick a social platform to share @\(user.username) post", preferredStyle: .actionSheet)
+         let facebook = UIAlertAction(title: "Facebook", style: .default) { [weak self] fb in
+             if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook) {
+                 guard let post = SLComposeViewController(forServiceType: SLServiceTypeFacebook) else { return }
+                 post.setInitialText(cell.post?.caption ?? "")
+                 self?.present(post, animated: true, completion: nil)
+             }
+         }
+         let twitter = UIAlertAction(title: "Twitter", style: .default) { [weak self] tw in
+             if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter) {
+                 guard let post = SLComposeViewController(forServiceType: SLServiceTypeTwitter) else { return }
+                 post.setInitialText(cell.post?.caption ?? "")
+                 self?.present(post, animated: true, completion: nil)
+             }
+         }
+         alert.addAction(facebook)
+         alert.addAction(twitter)
+         present(alert, animated: true, completion: nil)
+         */
     }
     
     
