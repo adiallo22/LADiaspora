@@ -10,6 +10,12 @@ import UIKit
 
 class ActionSheetCell: UITableViewCell {
     
+    var option : ActionSheetOption? {
+        didSet {
+            config()
+        }
+    }
+    
     private var optionImage : UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
@@ -30,8 +36,8 @@ class ActionSheetCell: UITableViewCell {
         addSubview(optionImage)
         optionImage.frame.size.width = 36
         optionImage.frame.size.height = 36
-        title.textColor = .orange
         addSubview(title)
+        title.leftAnchor.constraint(equalTo: optionImage.rightAnchor, constant: 5)
     }
     
     required init?(coder: NSCoder) {
@@ -44,6 +50,8 @@ class ActionSheetCell: UITableViewCell {
 
 extension ActionSheetCell {
     
-    
+    func config() {
+        title.text = option?.description
+    }
     
 }

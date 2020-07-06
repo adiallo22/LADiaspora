@@ -14,6 +14,7 @@ class ActionSheet : NSObject {
     
     private let user : User
     private let tableView = UITableView()
+    private lazy var viewModel = ActionSheetViewModel(user: user)
     
     var window : UIWindow?
     
@@ -48,7 +49,7 @@ class ActionSheet : NSObject {
     
     private let footer : UIView = {
         let view = UIView()
-        view.addSubview(cancelButton)
+//        view.addSubview(cancelButton)
         view.layer.cornerRadius = view.frame.size.width / 2.0
 //        view.centerYAnchor = view.constraints
         return view
@@ -75,7 +76,7 @@ extension ActionSheet {
     func presentActionSheet() {
         guard let window = UIApplication.shared.windows.first(where: {$0.isKeyWindow}) else { return }
         self.window = window
-        let height = tableView.rowHeight * 3
+        let height = tableView.rowHeight * CGFloat(viewModel.options.count) + 100
         tableView.frame = CGRect.init(x: 0, y: window.frame.height, width: window.frame.width, height: height)
         fadedView.frame = window.frame
         window.addSubview(fadedView)
@@ -100,16 +101,17 @@ extension ActionSheet {
 extension ActionSheet : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return viewModel.options.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! ActionSheetCell
+        cell.option = viewModel.options[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected")
+        print(viewModel.options[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

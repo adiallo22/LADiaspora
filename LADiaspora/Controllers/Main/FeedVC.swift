@@ -118,7 +118,7 @@ extension FeedVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.postCell) as! PostTVC
         cell.post = posts[indexPath.row]
-        cell.tappedProfileDelegate = self
+        cell.tappedDelegate = self
         return cell
     }
     
@@ -137,6 +137,11 @@ extension FeedVC : UITableViewDelegate, UITableViewDataSource {
 //MARK: - HandPostDelegate
 
 extension FeedVC : HandPostDelegate {
+    
+    func handleSharedPost() {
+        print("shared..")
+    }
+    
     
     func handleReplyPost(_ cell: PostTVC) {
         let main = UIStoryboard.init(name: "Main", bundle: nil)
