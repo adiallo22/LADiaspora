@@ -18,6 +18,7 @@ struct Post {
     let repost : Int
     let postID : String
     let user : User
+    var isLiked : Bool = false
     
     init(user: User, postID: String, values: [String:Any]) {
         self.user = user

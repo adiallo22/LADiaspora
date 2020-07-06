@@ -140,7 +140,7 @@ extension FeedVC : UITableViewDelegate, UITableViewDataSource {
 extension FeedVC : HandPostDelegate {
     
     func handleLikepost(_ cell: PostTVC) {
-        print("like..")
+        
     }
     
     func handleSharedPost(_ cell: PostTVC) {

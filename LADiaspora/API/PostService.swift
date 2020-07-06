@@ -11,6 +11,8 @@ import Firebase
 private let userPostRef = Constants.References.db.child("user_posts")
 private let postRef = Constants.References.db.child("posts")
 private let postReplies = Constants.References.db.child("post_replies")
+private let postLikes = Constants.References.db.child("post_replies")
+private let userLikes = Constants.References.db.child("user_likes")
 
 struct PostService {
     
@@ -81,6 +83,15 @@ struct PostService {
                 //allow the controller using this function to be able to access the array of posts
                 completion(posts)
             }
+        }
+    }
+    
+    func likePost(of post: Post, completion: @escaping(Error?, DatabaseReference)->Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let likes = post.isLiked ? post.likes - 1 : post.likes + 1
+        postRef.child(post.postID).child("likes").setValue(likes)
+        userLikes.child(uid).updateChildValues([post.postID:1]) { err, ref in
+            postLikes.child(post.postID).updateChildValues([uid:1], withCompletionBlock: completion)
         }
     }
     
