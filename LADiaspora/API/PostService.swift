@@ -101,4 +101,11 @@ struct PostService {
         }
     }
     
+    func checkIfUserLiked(post: Post, completion: @escaping(Bool) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        userLikes.child(uid).child(post.postID).observeSingleEvent(of: .value) { snapshot in
+            completion(snapshot.exists())
+        }
+    }
+    
 }

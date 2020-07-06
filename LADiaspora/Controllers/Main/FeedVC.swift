@@ -77,11 +77,19 @@ extension FeedVC {
     }
     
     func fetchPosts() {
-        PostService.shared.fetchPost { (posts) in
-            self.posts = posts
-//            DispatchQueue.main.async {
-//                self.tableView.reloadData()
-//            }
+        PostService.shared.fetchPost { [weak self] posts in
+            self?.posts = posts
+            self?.persistLikeImage(withPost: posts)
+        }
+    }
+    
+    func persistLikeImage(withPost posts: [Post]) {
+        for (i, post) in posts.enumerated() {
+            PostService.shared.checkIfUserLiked(post: post) { [weak self] isLiked in
+                if isLiked == true {
+                    self?.posts[i].isLiked = true
+                }
+            }
         }
     }
     
