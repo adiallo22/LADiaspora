@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import Social
 
 private let postDetailsID = "PostDetails"
 private let newPostVC = "NewPostVC"
@@ -138,8 +139,10 @@ extension FeedVC : UITableViewDelegate, UITableViewDataSource {
 
 extension FeedVC : HandPostDelegate {
     
-    func handleSharedPost() {
-        print("shared..")
+    func handleSharedPost(_ cell: PostTVC) {
+        guard let caption = cell.post?.caption else { return }
+        let activity = UIActivityViewController(activityItems: [caption], applicationActivities: nil)
+        present(activity, animated: true, completion: nil)
     }
     
     

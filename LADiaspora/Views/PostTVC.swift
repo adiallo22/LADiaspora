@@ -12,7 +12,7 @@ import SDWebImage
 protocol HandPostDelegate {
     func profileImageTapped(_ cell: PostTVC)
     func handleReplyPost(_ cell: PostTVC)
-    func handleSharedPost()
+    func handleSharedPost(_ cell: PostTVC)
 }
 
 class PostTVC: UITableViewCell {
@@ -54,7 +54,7 @@ class PostTVC: UITableViewCell {
     }
     
     @IBAction func shareButtonPressed(_ sender: UIButton) {
-        tappedDelegate?.handleSharedPost()
+        tappedDelegate?.handleSharedPost(self)
     }
 
 }
