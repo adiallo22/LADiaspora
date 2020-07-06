@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit.UIImage
+import UIKit.UIColor
 
 struct PostViewModel {
     
@@ -27,6 +29,15 @@ struct PostViewModel {
     
     var caption : String {
         return post.caption
+    }
+    
+    var likeImage : UIImage {
+        let imageName = post.isLiked ? "heart.fill" : "heart"
+        return UIImage.init(systemName: imageName)!
+    }
+    
+    var likeColor : UIColor {
+        return post.isLiked ? .red : .black
     }
     
     var timestamp : String {

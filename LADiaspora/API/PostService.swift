@@ -11,7 +11,7 @@ import Firebase
 private let userPostRef = Constants.References.db.child("user_posts")
 private let postRef = Constants.References.db.child("posts")
 private let postReplies = Constants.References.db.child("post_replies")
-private let postLikes = Constants.References.db.child("post_replies")
+private let postLikes = Constants.References.db.child("post_likes")
 private let userLikes = Constants.References.db.child("user_likes")
 
 struct PostService {
@@ -90,8 +90,14 @@ struct PostService {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let likes = post.isLiked ? post.likes - 1 : post.likes + 1
         postRef.child(post.postID).child("likes").setValue(likes)
-        userLikes.child(uid).updateChildValues([post.postID:1]) { err, ref in
-            postLikes.child(post.postID).updateChildValues([uid:1], withCompletionBlock: completion)
+        if post.isLiked {
+            userLikes.child(uid).child(post.postID).removeValue() { err, ref in
+                postLikes.child(post.postID).removeValue(completionBlock: completion)
+            }
+        } else {
+            userLikes.child(uid).updateChildValues([post.postID:1]) { err, ref in
+                postLikes.child(post.postID).updateChildValues([uid:1], withCompletionBlock: completion)
+            }
         }
     }
     

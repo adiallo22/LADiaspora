@@ -24,6 +24,8 @@ class PostTVC: UITableViewCell {
     @IBOutlet weak var captiontf: UILabel!
     @IBOutlet weak var usernametf: UILabel!
     
+    @IBOutlet weak var likeButton: UIButton!
+    
     var post : Post? {
         didSet { config() }
     }
@@ -73,6 +75,8 @@ extension PostTVC {
         guard let url = URL.init(string: postVM.profileURL) else { return }
         profileIMG.sd_setImage(with: url, completed: nil)
         timestamptf.text = "\(postVM.timestamp) ago"
+        likeButton.imageView?.image = postVM.likeImage
+        likeButton.tintColor = postVM.likeColor
     }
     
     func makeProfileIMGTappable() {

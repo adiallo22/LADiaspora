@@ -12,7 +12,7 @@ struct Post {
     
     let caption : String
     //let fullname : String
-    let likes : Int
+    var likes : Int
     let uid : String
     var timestamp : Date!
     let repost : Int

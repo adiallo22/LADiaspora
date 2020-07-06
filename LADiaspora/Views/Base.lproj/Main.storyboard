@@ -669,6 +669,7 @@
                                         <connections>
                                             <outlet property="captiontf" destination="QVm-zh-vjE" id="VJK-VR-McO"/>
                                             <outlet property="fullnametf" destination="YbL-aV-Kab" id="bji-PK-J6s"/>
+                                            <outlet property="likeButton" destination="14G-hY-OU4" id="Rqy-RU-i9s"/>
                                             <outlet property="profileIMG" destination="iyq-j7-jz6" id="VHG-yz-6ih"/>
                                             <outlet property="timestamptf" destination="6su-hl-EIS" id="H2o-Z1-1OP"/>
                                             <outlet property="usernametf" destination="abQ-dQ-tiC" id="fHI-az-pMh"/>
