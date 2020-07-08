@@ -162,6 +162,9 @@ extension FeedVC : HandPostDelegate {
                 cell.post?.isLiked.toggle()
                 let likes = post.isLiked ? post.likes - 1 : post.likes + 1
                 cell.post?.likes = likes
+                if cell.post?.isLiked ?? false {
+                    NotificationService.shared.uploadNotification(withType: .like, post: post)
+                }
             }
         }
     }
