@@ -112,6 +112,7 @@ extension Profile : HandleFollowUser {
         if user.isFollowed == false {
             UserService.shared.followUser(uid: user.uid) { [weak self] (error, ref) in
                 self?.tappedUser?.isFollowed = true
+                NotificationService.shared.uploadNotification(withType: .follow, user: self?.tappedUser)
                 self?.tableView.reloadData()
             }
         } else {

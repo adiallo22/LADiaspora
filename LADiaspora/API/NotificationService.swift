@@ -13,7 +13,7 @@ struct NotificationService {
     
     static let shared = NotificationService()
     
-    func uploadNotification(withType type: NotificationType, post: Post?) {
+    func uploadNotification(withType type: NotificationType, post: Post?=nil, user: User?=nil) {
         print("post type is \(type)")
         guard let uid = Auth.auth().currentUser?.uid else { return }
         var value : [String:Any] = [
@@ -21,9 +21,13 @@ struct NotificationService {
             "timestamp": Int(NSDate().timeIntervalSince1970),
             "type": type.rawValue
         ]
-        guard let post = post else { return }
-        value["postID"] = post.postID
-        notificationRef.child(post.uid).childByAutoId().updateChildValues(value)
+        if let post = post {
+            value["postID"] = post.postID
+            notificationRef.child(post.uid).childByAutoId().updateChildValues(value)
+        } else if let user = user {
+            notificationRef.child(user.uid).childByAutoId().updateChildValues(value)
+        }
+        
     }
     
 }
