@@ -32,6 +32,8 @@ class PostDetailsHeaderCell: UITableViewCell {
     @IBOutlet weak var likesCount: UILabel!
     @IBOutlet weak var repostCount: UILabel!
     
+    @IBOutlet weak var likeButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         configUI()
@@ -47,6 +49,11 @@ class PostDetailsHeaderCell: UITableViewCell {
     @IBAction func actionButtonPressed(_ sender: UIButton) {
         actionDelegate?.actionSheetTapped()
     }
+    
+    @IBAction func likeButtonPressed(_ sender: UIButton) {
+        print("like button pressed..")
+    }
+    
     
 }
 
@@ -79,6 +86,8 @@ extension PostDetailsHeaderCell {
         profileImage.sd_setImage(with: url, completed: nil)
         likesCount.text = viewModel.numberOfLikes
         repostCount.text = viewModel.numberOfRepost
+        likeButton.imageView?.image = viewModel.likeImage
+        likeButton.tintColor = viewModel.likeColor
     }
     
 }

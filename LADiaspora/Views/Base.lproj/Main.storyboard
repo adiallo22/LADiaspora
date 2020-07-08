@@ -1121,6 +1121,9 @@
                                                             <state key="normal" image="heart" catalog="system">
                                                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="likeButtonPressed:" destination="Aii-uC-WEo" eventType="touchUpInside" id="VGL-cX-vIs"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZeS-fu-o6T">
                                                             <rect key="frame" x="70.5" y="0.0" width="22.5" height="25"/>
@@ -1172,6 +1175,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="fullname" destination="erZ-PI-dBU" id="Non-am-Wza"/>
+                                            <outlet property="likeButton" destination="Qsb-iH-LWe" id="Fad-h2-qPB"/>
                                             <outlet property="likesCount" destination="dmo-Xl-s3d" id="P1r-E1-RTI"/>
                                             <outlet property="postLabel" destination="Izg-7h-r7l" id="AIu-2Q-3OV"/>
                                             <outlet property="profileImage" destination="uPd-nE-tnu" id="gT6-sD-OB5"/>
