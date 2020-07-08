@@ -43,6 +43,12 @@ class NewPostVC: UIViewController {
             if error != nil {
                 print(error!.localizedDescription)
             } else {
+                switch config {
+                case .post:
+                    print("")
+                case .reply(let post):
+                    NotificationService.shared.uploadNotification(withType: .repost, post: post)
+                }
                 self.dismiss(animated: true, completion: nil)
             }
         }

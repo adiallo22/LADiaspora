@@ -14,6 +14,7 @@ struct NotificationService {
     static let shared = NotificationService()
     
     func uploadNotification(withType type: NotificationType, post: Post?) {
+        print("post type is \(type)")
         guard let uid = Auth.auth().currentUser?.uid else { return }
         var value : [String:Any] = [
             "uid":uid,
