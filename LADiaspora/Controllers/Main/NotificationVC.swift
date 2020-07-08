@@ -13,14 +13,22 @@ class NotificationVC: UIViewController {
 
     @IBOutlet weak var newPostButton: UIButton!
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    var notifications = [Notification]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configureUI()
         
+        tableView.dataSource = self
+        tableView.delegate = self
+        
     }
 
     @IBAction func newPostClicked(_ sender: UIButton) {
+        print("new post clicked..")
     }
     
 }
@@ -35,5 +43,23 @@ extension NotificationVC {
     }
     
     
+}
+
+//MARK: - datasource and delegate
+
+extension NotificationVC : UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("selected..")
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.notificationCell)
+        return cell!
+    }
 }
 
