@@ -25,6 +25,8 @@ class NotificationVC: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
+        tableView.rowHeight = 60
+        
     }
 
     @IBAction func newPostClicked(_ sender: UIButton) {

@@ -10,9 +10,11 @@ import UIKit
 
 class NotificationCell: UITableViewCell {
 
+    @IBOutlet weak var profileImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        profileImage.roundView()
+        profileImage.backgroundColor = .orange
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
