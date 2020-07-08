@@ -89,6 +89,7 @@ struct PostService {
     func likePost(of post: Post, completion: @escaping(Error?, DatabaseReference)->Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let likes = post.isLiked ? post.likes - 1 : post.likes + 1
+        //updates likes count on database
         postRef.child(post.postID).child("likes").setValue(likes)
         if post.isLiked {
             userLikes.child(uid).child(post.postID).removeValue() { err, ref in

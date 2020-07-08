@@ -79,16 +79,22 @@ extension FeedVC {
     func fetchPosts() {
         PostService.shared.fetchPost { [weak self] posts in
             self?.posts = posts
-            self?.persistLikeImage(withPost: posts)
+            self?.persistLikePost(withPost: posts)
         }
     }
     
-    func persistLikeImage(withPost posts: [Post]) {
+    func persistLikePost(withPost posts: [Post]) {
+        persistLikes(withPosts: posts)
+    }
+    
+    func persistLikes(withPosts posts: [Post]) {
+        //retrieve every post with their indexes
         for (i, post) in posts.enumerated() {
             PostService.shared.checkIfUserLiked(post: post) { [weak self] isLiked in
-                if isLiked == true {
-                    self?.posts[i].isLiked = true
-                }
+                //if post is not liked, return and move to the next post
+                guard isLiked == true else { return }
+                //else post is liked, persist like
+                self?.posts[i].isLiked = true
             }
         }
     }
