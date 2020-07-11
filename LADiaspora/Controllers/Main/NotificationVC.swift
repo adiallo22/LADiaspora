@@ -17,7 +17,7 @@ class NotificationVC: UIViewController {
     
     var notifications = [Notification]() {
         didSet {
-            print(notifications)
+            tableView.reloadData()
         }
     }
     
@@ -67,11 +67,12 @@ extension NotificationVC : UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return notifications.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.notificationCell) as! NotificationCell
+        cell.notification = notifications[indexPath.row]
         return cell
     }
     

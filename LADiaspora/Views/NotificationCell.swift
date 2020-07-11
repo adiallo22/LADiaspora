@@ -17,6 +17,12 @@ class NotificationCell: UITableViewCell {
         super.awakeFromNib()
         configUI()
     }
+    
+    var notification : Notification? {
+        didSet {
+            configNotification()
+        }
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -33,6 +39,10 @@ extension NotificationCell {
     func configUI() {
         profileImage.roundView()
         profileImage.backgroundColor = .orange
+    }
+    
+    func configNotification() {
+        print("notification received..")
     }
     
 }
