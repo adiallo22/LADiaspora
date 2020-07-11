@@ -15,7 +15,11 @@ class NotificationVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var notifications = [Notification]()
+    var notifications = [Notification]() {
+        didSet {
+            print(notifications)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +32,18 @@ class NotificationVC: UIViewController {
         tableView.rowHeight = 60
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        fetchNotifications()
+    }
 
     @IBAction func newPostClicked(_ sender: UIButton) {
         print("new post clicked..")
     }
     
 }
+
 
 //MARK: - Helpers
 
@@ -46,6 +56,7 @@ extension NotificationVC {
     
     
 }
+
 
 //MARK: - datasource and delegate
 
@@ -63,5 +74,20 @@ extension NotificationVC : UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.notificationCell) as! NotificationCell
         return cell
     }
+    
+}
+    
+    
+//MARK: - api
+
+extension NotificationVC {
+    
+    func fetchNotifications() {
+        NotificationService.shared.fetchNotifications { [weak self] notifications in
+            guard let self = self else { return }
+            self.notifications = notifications
+        }
+    }
+    
 }
 

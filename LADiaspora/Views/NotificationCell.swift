@@ -11,10 +11,11 @@ import UIKit
 class NotificationCell: UITableViewCell {
 
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var message: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        profileImage.roundView()
-        profileImage.backgroundColor = .orange
+        configUI()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -23,4 +24,15 @@ class NotificationCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+}
+
+//MARK: - helpers
+
+extension NotificationCell {
+    
+    func configUI() {
+        profileImage.roundView()
+        profileImage.backgroundColor = .orange
+    }
+    
 }
