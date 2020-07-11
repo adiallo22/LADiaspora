@@ -41,6 +41,10 @@ struct NotificationViewModel {
         return user.profileURL
     }
     
+    var username : String {
+        return user.username
+    }
+    
     init(notification: Notification) {
         self.notification = notification
         self.type = notification.type

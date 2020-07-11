@@ -42,7 +42,11 @@ extension NotificationCell {
     }
     
     func configNotification() {
-        print("notification received..")
+        guard let notification = notification else { return }
+        let viewModel = NotificationViewModel.init(notification: notification)
+        guard let url = URL.init(string: viewModel.imageURL) else { return }
+        profileImage.sd_setImage(with: url, completed: nil)
+        message.text = "\(viewModel.username) \(viewModel.message) \(viewModel.timestamp)ago"
     }
     
 }
