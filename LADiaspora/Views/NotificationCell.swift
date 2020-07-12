@@ -12,6 +12,8 @@ class NotificationCell: UITableViewCell {
 
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var message: UILabel!
+    @IBOutlet weak var types: UILabel!
+    @IBOutlet weak var time: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,7 +40,6 @@ extension NotificationCell {
     
     func configUI() {
         profileImage.roundView()
-        profileImage.backgroundColor = .orange
     }
     
     func configNotification() {
@@ -46,7 +47,9 @@ extension NotificationCell {
         let viewModel = NotificationViewModel.init(notification: notification)
         guard let url = URL.init(string: viewModel.imageURL) else { return }
         profileImage.sd_setImage(with: url, completed: nil)
-        message.text = "\(viewModel.username) \(viewModel.message) \(viewModel.timestamp)ago"
+        message.text = viewModel.username
+        types.text = viewModel.message
+        time.text = "\(viewModel.timestamp) ago"
     }
     
 }

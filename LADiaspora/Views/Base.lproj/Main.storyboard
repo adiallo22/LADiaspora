@@ -349,32 +349,45 @@
                                                         <constraint firstAttribute="height" constant="40" id="Ncb-a0-CTQ"/>
                                                     </constraints>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="L2j-iS-owX">
-                                                    <rect key="frame" x="60" y="17.5" width="344" height="40"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ecf-uM-Qmk">
+                                                    <rect key="frame" x="58" y="17.5" width="116.5" height="40"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTA-B5-oBE">
-                                                            <rect key="frame" x="0.0" y="0.0" width="344" height="40"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                             <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGl-3R-OSW">
+                                                            <rect key="frame" x="45" y="0.0" width="35.5" height="40"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICt-TB-fXu">
+                                                            <rect key="frame" x="85.5" y="0.0" width="31" height="40"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="sxD-mf-fWd"/>
+                                                        <constraint firstAttribute="height" constant="40" id="MGV-hD-0TN"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="KoK-k3-8x5" firstAttribute="leading" secondItem="6D8-EV-jme" secondAttribute="leading" constant="10" id="2ev-eb-Oie"/>
-                                                <constraint firstAttribute="trailing" secondItem="L2j-iS-owX" secondAttribute="trailing" constant="10" id="Q2o-yY-dxP"/>
-                                                <constraint firstItem="L2j-iS-owX" firstAttribute="centerY" secondItem="6D8-EV-jme" secondAttribute="centerY" id="jac-9q-XzY"/>
+                                                <constraint firstItem="ecf-uM-Qmk" firstAttribute="centerY" secondItem="6D8-EV-jme" secondAttribute="centerY" id="Kfl-ir-aw3"/>
+                                                <constraint firstItem="ecf-uM-Qmk" firstAttribute="leading" secondItem="KoK-k3-8x5" secondAttribute="trailing" constant="8" id="dUa-55-3rd"/>
                                                 <constraint firstItem="KoK-k3-8x5" firstAttribute="centerY" secondItem="6D8-EV-jme" secondAttribute="centerY" id="wyC-SX-YoG"/>
-                                                <constraint firstItem="L2j-iS-owX" firstAttribute="leading" secondItem="KoK-k3-8x5" secondAttribute="trailing" constant="10" id="yTT-EQ-QwM"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="message" destination="iTA-B5-oBE" id="cnB-3O-wL2"/>
                                             <outlet property="profileImage" destination="KoK-k3-8x5" id="mrn-Fh-hGC"/>
+                                            <outlet property="time" destination="ICt-TB-fXu" id="eyK-6C-9ee"/>
+                                            <outlet property="types" destination="bGl-3R-OSW" id="Hra-cL-0ZF"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
