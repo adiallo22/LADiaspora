@@ -10,6 +10,7 @@ import UIKit
 
 protocol NotificationCellDelegate : class {
     func handleProfileTaped(_ cell: NotificationCell)
+    func handleFollowTapped(_ cell: NotificationCell)
 }
 
 class NotificationCell: UITableViewCell {
@@ -41,7 +42,7 @@ class NotificationCell: UITableViewCell {
     }
     
     @IBAction func followClicked(_ sender: UIButton) {
-        print("followed..")
+        delegate?.handleFollowTapped(self)
     }
     
 }

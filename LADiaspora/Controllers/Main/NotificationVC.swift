@@ -119,6 +119,10 @@ extension NotificationVC {
 
 extension NotificationVC : NotificationCellDelegate {
     
+    func handleFollowTapped(_ cell: NotificationCell) {
+        print("followed..")
+    }
+    
     func handleProfileTaped(_ cell: NotificationCell) {
         guard let user = cell.notification?.user else { return }
         openUserProfile(withUser: user)
