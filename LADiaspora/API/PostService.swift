@@ -109,4 +109,16 @@ struct PostService {
         }
     }
     
+    func fetchNotifiedPost(withPostID postID: String, completion: @escaping(Post) -> Void) {
+        postRef.child(postID).observeSingleEvent(of: .value) { (snapshot) in
+            guard let values = snapshot.value as? [String:Any] else { return }
+            guard let uid = values["uid"] as? String else { return }
+            UserService.shared.fetchUserInfo(uid: uid) { (user) in
+                let post = Post.init(user: user, postID: postID, values: values)
+                completion(post)
+            }
+        }
+
+    }
+    
 }

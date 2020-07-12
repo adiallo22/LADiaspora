@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 
 private let profileSB = "profile"
+private let postDetailsSB = "PostDetails"
 
 class NotificationVC: UIViewController {
 
@@ -63,6 +64,13 @@ extension NotificationVC {
         navigationController?.pushViewController(profile, animated: true)
     }
     
+    func openPostDetails(withPost post: Post) {
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let details = main.instantiateViewController(identifier: postDetailsSB) as! PostDetails
+        details.post = post
+        navigationController?.pushViewController(details, animated: true)
+    }
+    
 }
 
 
@@ -71,8 +79,13 @@ extension NotificationVC {
 extension NotificationVC : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected..")
         tableView.deselectRow(at: indexPath, animated: true)
+        let notification = notifications[indexPath.row]
+        guard let postID = notification.postID else { return }
+        PostService.shared.fetchNotifiedPost(withPostID: postID) { [weak self] post in
+            guard let self = self else { return }
+            self.openPostDetails(withPost: post)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

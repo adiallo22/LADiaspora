@@ -18,6 +18,7 @@ class NotificationCell: UITableViewCell {
     @IBOutlet weak var message: UILabel!
     @IBOutlet weak var types: UILabel!
     @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var followButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,7 +39,11 @@ class NotificationCell: UITableViewCell {
         // Configure the view for the selected state
         makeGestureRecognizer()
     }
-
+    
+    @IBAction func followClicked(_ sender: UIButton) {
+        print("followed..")
+    }
+    
 }
 
 //MARK: - helpers
@@ -47,6 +52,7 @@ extension NotificationCell {
     
     func configUI() {
         profileImage.roundView()
+        followButton.roundButton(withColor: .orange)
     }
     
     func configNotification() {

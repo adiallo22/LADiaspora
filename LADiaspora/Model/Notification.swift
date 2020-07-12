@@ -10,7 +10,7 @@ import Foundation
 
 struct Notification {
     
-    let postID : String?
+    var postID : String?
     let post : Post?
     var timestamp : Date!
     let user : User
@@ -19,7 +19,9 @@ struct Notification {
     init(user: User, post: Post?, value: [String:Any]) {
         self.user = user
         self.post = post
-        self.postID = value["postID"] as? String ?? ""
+        if let postID = value["postID"] as? String {
+            self.postID = postID
+        }
         if let timestamp = value["timestamp"] as? Double {
             self.timestamp = Date.init(timeIntervalSince1970: timestamp)
         }
