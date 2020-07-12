@@ -67,7 +67,7 @@ extension NotificationVC {
     }
     
     @objc func handleRefresh() {
-        refresh?.endRefreshing()
+        fetchNotifications()
     }
     
     func openUserProfile(withUser user: User) {
@@ -120,8 +120,10 @@ extension NotificationVC : UITableViewDataSource, UITableViewDelegate {
 extension NotificationVC {
     
     func fetchNotifications() {
+        refresh?.beginRefreshing()
         NotificationService.shared.fetchNotifications { [weak self] notifications in
             guard let self = self else { return }
+            self.refresh?.endRefreshing()
             self.notifications = notifications
             self.checkFollowStatus(withNotifications: notifications)
         }
