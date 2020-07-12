@@ -26,6 +26,10 @@ class Profile: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        // call apis
+        fetchUserPost()
+        checkIfUserIsFollwed()
+        fetchUserStats()
     }
     
     override func viewDidLoad() {
@@ -38,10 +42,6 @@ class Profile: UIViewController {
         //height of the header cell
         tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.estimatedSectionHeaderHeight = 250
-        // call apis
-        fetchUserPost()
-        checkIfUserIsFollwed()
-        fetchUserStats()
     
     }
 
@@ -61,10 +61,10 @@ extension Profile {
     
     func checkIfUserIsFollwed() {
         guard let user = tappedUser else { return }
-        UserService.shared.isUserFollowedOrNot(uid: user.uid) { [weak self] (isFollow) in
-            self?.tappedUser?.isFollowed = isFollow
+        UserService.shared.isUserFollowedOrNot(uid: user.uid) { [weak self] isFollow in
+            guard let self = self else { return }
             DispatchQueue.main.async {
-                self?.tableView.reloadData()
+                self.tappedUser?.isFollowed = isFollow
             }
         }
     }
