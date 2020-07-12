@@ -37,6 +37,8 @@ class FeedVC: UIViewController {
         fetchPosts()
     }
     
+    private var refresh : UIRefreshControl?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -62,7 +64,7 @@ extension FeedVC {
     func configureUI() {
         navigationItem.title = Constants.Titles.home
         newPostButton.setNewPostButton()
-        
+        refreshTable()
     }
     
     func invokeUserProfileIMG() {
@@ -77,9 +79,12 @@ extension FeedVC {
     }
     
     func fetchPosts() {
+        refresh?.beginRefreshing()
         PostService.shared.fetchPost { [weak self] posts in
-            self?.posts = posts
-            self?.persistLikePost(withPost: posts)
+            guard let self = self else { return }
+            self.refresh?.endRefreshing()
+            self.posts = posts
+            self.persistLikePost(withPost: posts)
         }
     }
     
@@ -97,6 +102,16 @@ extension FeedVC {
                 self?.posts[i].isLiked = true
             }
         }
+    }
+    
+    func refreshTable() {
+        refresh = UIRefreshControl()
+        refresh?.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        tableView.refreshControl = refresh
+    }
+    
+    @objc func handleRefresh() {
+        fetchPosts()
     }
     
 }
@@ -173,26 +188,6 @@ extension FeedVC : HandPostDelegate {
         guard let caption = cell.post?.caption else { return }
         let activity = UIActivityViewController(activityItems: [caption], applicationActivities: nil)
         present(activity, animated: true, completion: nil)
-        /*
-         let alert = UIAlertController.init(title: "Sharing", message: "Pick a social platform to share @\(user.username) post", preferredStyle: .actionSheet)
-         let facebook = UIAlertAction(title: "Facebook", style: .default) { [weak self] fb in
-             if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook) {
-                 guard let post = SLComposeViewController(forServiceType: SLServiceTypeFacebook) else { return }
-                 post.setInitialText(cell.post?.caption ?? "")
-                 self?.present(post, animated: true, completion: nil)
-             }
-         }
-         let twitter = UIAlertAction(title: "Twitter", style: .default) { [weak self] tw in
-             if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter) {
-                 guard let post = SLComposeViewController(forServiceType: SLServiceTypeTwitter) else { return }
-                 post.setInitialText(cell.post?.caption ?? "")
-                 self?.present(post, animated: true, completion: nil)
-             }
-         }
-         alert.addAction(facebook)
-         alert.addAction(twitter)
-         present(alert, animated: true, completion: nil)
-         */
     }
     
     
