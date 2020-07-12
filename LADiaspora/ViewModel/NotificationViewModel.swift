@@ -45,6 +45,10 @@ struct NotificationViewModel {
         return user.username
     }
     
+    var hideFollowButton : Bool {
+        return type  != .follow
+    }
+    
     init(notification: Notification) {
         self.notification = notification
         self.type = notification.type

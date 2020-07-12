@@ -123,10 +123,10 @@
 			isa = PBXGroup;
 			children = (
 				C06074F52498480300EE6242 /* PostViewModel.swift */,
-				C0F7D5B924BA8386004F9B6D /* NotificationViewModel.swift */,
 				C01BF9ED24A4F0E20096F2F3 /* ProfileHeaderVM.swift */,
 				C01BF9FD24ABABD70096F2F3 /* UploadPostViewModel.swift */,
 				C0694D8924B1198200534F89 /* ActionSheetViewModel.swift */,
+				C0F7D5B924BA8386004F9B6D /* NotificationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -184,10 +184,10 @@
 				C03A48CF2497C985005CA628 /* PostTVC.swift */,
 				C01BF9FB24AA692B0096F2F3 /* PostDetailsHeaderCell.swift */,
 				C01BF9E524A3B3440096F2F3 /* ProfileHeaderCell.swift */,
-				C0B545B024B6514D0098B073 /* NotificationCell.swift */,
 				C01BF9EB24A4D9030096F2F3 /* FilterCell.swift */,
 				C01BFA0224AE61F30096F2F3 /* ActionSheetCell.swift */,
 				C01BF9F524A939C40096F2F3 /* DiscoverUserCell.swift */,
+				C0B545B024B6514D0098B073 /* NotificationCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

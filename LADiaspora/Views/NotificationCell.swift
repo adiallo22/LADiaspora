@@ -63,6 +63,7 @@ extension NotificationCell {
         message.text = viewModel.username
         types.text = viewModel.message
         time.text = "\(viewModel.timestamp) ago"
+        followButton.isHidden = viewModel.hideFollowButton
     }
     
     func makeGestureRecognizer() {
