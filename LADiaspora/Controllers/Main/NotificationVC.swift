@@ -24,6 +24,8 @@ class NotificationVC: UIViewController {
         }
     }
     
+    private var refresh : UIRefreshControl?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -55,6 +57,17 @@ extension NotificationVC {
     func configureUI() {
         navigationItem.title = Constants.Titles.notification
         newPostButton.setNewPostButton()
+        refreshTable()
+    }
+    
+    func refreshTable() {
+        refresh = UIRefreshControl()
+        refresh?.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        tableView.refreshControl = refresh
+    }
+    
+    @objc func handleRefresh() {
+        refresh?.endRefreshing()
     }
     
     func openUserProfile(withUser user: User) {
