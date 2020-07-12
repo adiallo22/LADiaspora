@@ -132,7 +132,16 @@ extension NotificationVC {
 extension NotificationVC : NotificationCellDelegate {
     
     func handleFollowTapped(_ cell: NotificationCell) {
-        print("followed..")
+        guard let user = cell.notification?.user else { return }
+        if user.isFollowed {
+            UserService.shared.unfollowUser(uid: user.uid) { (err, ref) in
+                cell.notification?.user.isFollowed = false
+            }
+        } else {
+            UserService.shared.followUser(uid: user.uid) { (err, ref) in
+                cell.notification?.user.isFollowed = true
+            }
+        }
     }
     
     func handleProfileTaped(_ cell: NotificationCell) {
