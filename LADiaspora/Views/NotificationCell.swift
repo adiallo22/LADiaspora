@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol NotificationCellDelegate : class {
+    func handleProfileTaped(_ cell: NotificationCell)
+}
+
 class NotificationCell: UITableViewCell {
 
     @IBOutlet weak var profileImage: UIImageView!
@@ -25,6 +29,8 @@ class NotificationCell: UITableViewCell {
             configNotification()
         }
     }
+    
+    weak var delegate : NotificationCellDelegate?
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -50,6 +56,16 @@ extension NotificationCell {
         message.text = viewModel.username
         types.text = viewModel.message
         time.text = "\(viewModel.timestamp) ago"
+    }
+    
+    func makeGestureRecognizer() {
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(profileTaped))
+        profileImage.addGestureRecognizer(tap)
+        profileImage.isUserInteractionEnabled = true
+    }
+    
+    @objc func profileTaped() {
+        delegate?.handleProfileTaped(self)
     }
     
 }

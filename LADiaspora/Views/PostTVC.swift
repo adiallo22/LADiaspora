@@ -26,8 +26,12 @@ class PostTVC: UITableViewCell {
     
     @IBOutlet weak var likeButton: UIButton!
     
-    var post : Post? {
-        didSet { config() }
+    var post : Post! {
+        
+        didSet {
+            print(post.caption)
+            config()
+        }
     }
     
     var tappedDelegate : HandPostDelegate?
@@ -67,7 +71,7 @@ class PostTVC: UITableViewCell {
 extension PostTVC {
     
     func config() {
-        guard let post = post else { return }
+//        guard let post = post else { return }
         let postVM = PostViewModel.init(post: post)
         fullnametf.text = postVM.fullname
         usernametf.text = "@\(postVM.username)"

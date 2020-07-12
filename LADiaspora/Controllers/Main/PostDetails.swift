@@ -32,9 +32,12 @@ class PostDetails: UIViewController {
         tableView.estimatedSectionHeaderHeight = 250
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableView.automaticDimension
-        //
-        fetchReplies()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        fetchReplies()
     }
 
 }
@@ -46,7 +49,8 @@ extension PostDetails {
     
     func fetchReplies() {
         PostService.shared.fetchPostReplies(fromPost: post) { [weak self] (posts) in
-            self?.replies = posts
+            guard let self = self else { return }
+            self.replies = posts
         }
     }
     
