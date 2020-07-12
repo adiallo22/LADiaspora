@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 
+private let profileSB = "profile"
+
 class NotificationVC: UIViewController {
 
     @IBOutlet weak var newPostButton: UIButton!
@@ -54,6 +56,12 @@ extension NotificationVC {
         newPostButton.setNewPostButton()
     }
     
+    func openUserProfile(withUser user: User) {
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let profile = main.instantiateViewController(identifier: profileSB) as! Profile
+        profile.tappedUser = user
+        navigationController?.pushViewController(profile, animated: true)
+    }
     
 }
 
@@ -64,6 +72,7 @@ extension NotificationVC : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected..")
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -73,6 +82,7 @@ extension NotificationVC : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.notificationCell) as! NotificationCell
         cell.notification = notifications[indexPath.row]
+        cell.delegate = self
         return cell
     }
     
@@ -88,6 +98,17 @@ extension NotificationVC {
             guard let self = self else { return }
             self.notifications = notifications
         }
+    }
+    
+}
+
+//MARK: - NotificationCellDelegate
+
+extension NotificationVC : NotificationCellDelegate {
+    
+    func handleProfileTaped(_ cell: NotificationCell) {
+        guard let user = cell.notification?.user else { return }
+        openUserProfile(withUser: user)
     }
     
 }

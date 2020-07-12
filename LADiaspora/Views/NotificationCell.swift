@@ -36,6 +36,7 @@ class NotificationCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        makeGestureRecognizer()
     }
 
 }
@@ -66,6 +67,7 @@ extension NotificationCell {
     
     @objc func profileTaped() {
         delegate?.handleProfileTaped(self)
+        print("profile tapped..")
     }
     
 }

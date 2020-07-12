@@ -28,10 +28,7 @@ class PostTVC: UITableViewCell {
     
     var post : Post! {
         
-        didSet {
-            print(post.caption)
-            config()
-        }
+        didSet { config() }
     }
     
     var tappedDelegate : HandPostDelegate?
