@@ -113,7 +113,9 @@ extension NotificationVC {
             for (i, notification) in notifications.enumerated() {
                 let user = notification.user
                 UserService.shared.isUserFollowedOrNot(uid: user.uid) { isFollowed in
-                    print("\(user.username) == \(isFollowed)")
+                    print("===\(isFollowed)")
+                    self.notifications[i].user.isFollowed = isFollowed
+                    print("\(self.notifications[i].user.isFollowed)")
                 }
             }
         }

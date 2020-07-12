@@ -10,7 +10,7 @@ import Foundation
 
 struct ActionSheetViewModel {
     
-    private let user : User
+    private var user : User
     
     var options : [ActionSheetOption] {
         var result = [ActionSheetOption]()

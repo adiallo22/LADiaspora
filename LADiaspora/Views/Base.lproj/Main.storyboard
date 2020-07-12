@@ -381,7 +381,10 @@
                                                         <constraint firstAttribute="height" constant="30" id="HlJ-ji-tHL"/>
                                                         <constraint firstAttribute="width" constant="60" id="g7z-TQ-8SE"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="followClicked:" destination="RXi-E2-dhZ" eventType="touchUpInside" id="OKa-9Q-wfR"/>
                                                     </connections>

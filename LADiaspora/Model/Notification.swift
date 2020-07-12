@@ -13,7 +13,7 @@ struct Notification {
     var postID : String?
     let post : Post?
     var timestamp : Date!
-    let user : User
+    var user : User
     var type : NotificationType!
     
     init(user: User, post: Post?, value: [String:Any]) {

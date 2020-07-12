@@ -65,6 +65,7 @@ extension NotificationCell {
         types.text = viewModel.message
         time.text = "\(viewModel.timestamp) ago"
         followButton.isHidden = viewModel.hideFollowButton
+        followButton.setTitle(viewModel.followText, for: .normal)
     }
     
     func makeGestureRecognizer() {
@@ -75,7 +76,6 @@ extension NotificationCell {
     
     @objc func profileTaped() {
         delegate?.handleProfileTaped(self)
-        print("profile tapped..")
     }
     
 }
