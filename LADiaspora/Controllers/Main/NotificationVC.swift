@@ -110,6 +110,12 @@ extension NotificationVC {
         NotificationService.shared.fetchNotifications { [weak self] notifications in
             guard let self = self else { return }
             self.notifications = notifications
+            for (i, notification) in notifications.enumerated() {
+                let user = notification.user
+                UserService.shared.isUserFollowedOrNot(uid: user.uid) { isFollowed in
+                    print("\(user.username) == \(isFollowed)")
+                }
+            }
         }
     }
     
