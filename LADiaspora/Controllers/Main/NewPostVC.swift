@@ -18,9 +18,7 @@ class NewPostVC: UIViewController {
     @IBOutlet weak var stack: UIStackView!
     @IBOutlet weak var replyLabel: UILabel!
     
-    var config : uploadPostCongig? {
-        didSet { print("config chosen") }
-    }
+    var config : uploadPostCongig? 
     private lazy var viewModel = UploadPostViewModel.init(config: config!)
     
     var user : User?

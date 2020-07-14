@@ -158,8 +158,8 @@
             filePath = "LADiaspora/Controllers/Main/FeedVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "198"
-            endingLineNumber = "198"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
             landmarkName = "handleReplyPost(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -176,8 +176,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
             endingLineNumber = "21"
-            landmarkName = "config"
-            landmarkType = "24">
+            landmarkName = "NewPostVC"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "63CFFECD-A527-4A15-8108-29FD04D796FC - f250016b7c14daf2"
