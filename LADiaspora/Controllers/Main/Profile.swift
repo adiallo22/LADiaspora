@@ -20,8 +20,6 @@ class Profile: UIViewController {
         }
     }
     
-    var x =  ["1", "2", "3"]
-    
     var tappedUser : User?
     
     override func viewWillAppear(_ animated: Bool) {
@@ -95,10 +93,9 @@ extension Profile : UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-        //cell.post = posts[indexPath.row]
-//        cell?.textLabel?.text = x[indexPath.row]
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.postCell) as! PostTVC
+        cell.post = posts[indexPath.row]
+        return cell
     }
 }
 
