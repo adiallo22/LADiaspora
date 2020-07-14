@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 
+private let loginSB = "Login"
+
 class SignupVC: UIViewController, UIPickerViewDelegate {
 
     @IBOutlet weak var profileImageButton: UIButton!
@@ -58,9 +60,7 @@ class SignupVC: UIViewController, UIPickerViewDelegate {
                     if error != nil {
                         self.setTheError(withError: error!.localizedDescription)
                     } else {
-                        self.presentingViewController?.dismiss(animated: true, completion: nil)
-//                        self.changeRoot()
-//                        dismissCurrentControllerAndShowTab()
+                        self.dismissCurrentControllerAndShowTab()
                     }
                 }
             }
@@ -114,19 +114,10 @@ extension SignupVC {
         errorLabel.alpha = 1
     }
     
-    func changeRoot() {
-        let main : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = main.instantiateViewController(withIdentifier: "MainTabBarVC") as! MainTabBar
-        self.navigationController?.pushViewController(viewController, animated: true)
-    }
-    
-    //since we have changed the root view controller to be the tab instead of login, we need to dismiss this controller
     func dismissCurrentControllerAndShowTab() {
-        //hold the single window and have access to the root which is tab
-        guard let window = UIApplication.shared.windows.first(where: {$0.isKeyWindow}) else { return }
-        guard let mainTab = window.rootViewController as? MainTabBar else { return }
-        //recheck the status after user enter credentials.
-        mainTab.checkUserLogStatus()
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let loginvc = main.instantiateViewController(identifier: loginSB) as! LoginVC
+        loginvc.pop = true
         self.dismiss(animated: true, completion: nil)
     }
     

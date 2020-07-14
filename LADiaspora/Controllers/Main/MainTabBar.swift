@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 
+private let loginSB = "Login"
+
 class MainTabBar: UITabBarController {
     
     var user : User? {
@@ -36,21 +38,16 @@ extension MainTabBar {
             DispatchQueue.main.async {
                 self.changeRootToLogin()
             }
-            //print("no current user")
         } else {
-            //print("a user is logged in")
             fetchUserInfo()
         }
     }
     
     func changeRootToLogin() {
-        let backToLogin : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = backToLogin.instantiateViewController(withIdentifier: "Login") as! LoginVC
-        viewController.modalPresentationStyle = .fullScreen
-        present(viewController, animated: false, completion: nil)
-        //        guard let window = UIApplication.shared.windows.first(where: {$0.isKeyWindow}) else { return }
-        //        window.rootViewController = viewController
-        //        window.makeKeyAndVisible()
+        let main : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginvc = main.instantiateViewController(withIdentifier: loginSB) as! LoginVC
+        loginvc.modalPresentationStyle = .fullScreen
+        present(loginvc, animated: false, completion: nil)
         
     }
     
@@ -70,7 +67,8 @@ extension MainTabBar {
     
     func fetchUserInfo() {
         guard let uid = Auth.auth().currentUser?.uid else { return }
-        UserService.shared.fetchUserInfo(uid: uid) { (user) in
+        UserService.shared.fetchUserInfo(uid: uid) { [weak self] user in
+            guard let self = self else { return }
             self.user = user
         }
         

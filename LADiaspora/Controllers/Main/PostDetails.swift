@@ -30,7 +30,7 @@ class PostDetails: UIViewController {
         //
         tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.estimatedSectionHeaderHeight = 250
-        tableView.estimatedRowHeight = 80
+        tableView.estimatedRowHeight = 130
         tableView.rowHeight = UITableView.automaticDimension
         
     }

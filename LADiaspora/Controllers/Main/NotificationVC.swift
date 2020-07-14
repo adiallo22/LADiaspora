@@ -68,6 +68,7 @@ extension NotificationVC {
     
     @objc func handleRefresh() {
         fetchNotifications()
+        refresh?.endRefreshing()
     }
     
     func openUserProfile(withUser user: User) {
@@ -123,10 +124,10 @@ extension NotificationVC {
         refresh?.beginRefreshing()
         NotificationService.shared.fetchNotifications { [weak self] notifications in
             guard let self = self else { return }
-            self.refresh?.endRefreshing()
             self.notifications = notifications
             self.checkFollowStatus(withNotifications: notifications)
         }
+        refresh?.endRefreshing()
     }
     
     fileprivate func checkFollowStatus(withNotifications notifications: [Notification]) {

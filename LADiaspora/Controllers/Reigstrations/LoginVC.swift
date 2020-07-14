@@ -24,6 +24,10 @@ class LoginVC: UIViewController {
         
     }
     
+    var pop : Bool? {
+        didSet { changeRoot() }
+    }
+    
     @IBAction func loginPressed(_ sender: UIButton) {
         guard let email = emailtf.text, let pwd = passwordtf.text else { return }
         signUserIn(with: email, and: pwd)
@@ -69,7 +73,7 @@ extension LoginVC {
         //hold the single window and have access to the root which is tab
         guard let window = UIApplication.shared.windows.first(where: {$0.isKeyWindow}) else { return }
         guard let mainTab = window.rootViewController as? MainTabBar else { return }
-        //recheck the status after user enter credentials.
+        //recheck the status after user enter credentials and fetch posts.
         mainTab.checkUserLogStatus()
         self.dismiss(animated: true, completion: nil)
     }
@@ -89,7 +93,6 @@ extension LoginVC {
                 if error != nil {
                     self.setError(with: error!.localizedDescription)
                 } else {
-                    //self.changeRoot()
                     self.dismissCurrentControllerAndShowTab()
                 }
             }
