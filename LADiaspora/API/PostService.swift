@@ -14,6 +14,8 @@ private let postReplies = Constants.References.db.child("post_replies")
 private let postLikes = Constants.References.db.child("post_likes")
 private let userLikes = Constants.References.db.child("user_likes")
 
+private let followersRef = Constants.References.db.child("followers")
+
 struct PostService {
     
     static let shared = PostService()
@@ -54,6 +56,21 @@ struct PostService {
         }
     }
     
+    func fetchPostOfFollowedUser(completion: @escaping([Post]) -> Void) {
+        var posts = [Post]()
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        followersRef.child(uid).observe(.childAdded) { snapshot in
+            let uid = snapshot.key
+            userPostRef.child(uid).observe(.childAdded) { snapshot in
+                let key = snapshot.key
+                self.fetchNotifiedPost(withPostID: key) { post in
+                    posts.insert(post, at: 0)
+                    completion(posts)
+                }
+            }
+        }
+    }
+    
     func fetchUserPost(withUser user : User, completion: @escaping([Post]) -> Void) {
         var posts = [Post]()
         userPostRef.child(user.uid).observe(.childAdded) { (snapshot) in
@@ -89,8 +106,11 @@ struct PostService {
     func fetchLikedPosts(fromUser user: User, completion: @escaping([Post]) -> Void) {
         var posts = [Post]()
         userLikes.child(user.uid).observe(.childAdded) { snapshot in
-            guard let value = snapshot.value else { return }
-            print(value)
+            let key = snapshot.key
+            self.fetchNotifiedPost(withPostID: key) { post in
+                posts.insert(post, at: 0)
+            }
+            completion(posts)
         }
     }
     

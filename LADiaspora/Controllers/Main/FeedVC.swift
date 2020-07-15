@@ -34,7 +34,8 @@ class FeedVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        fetchPosts()
+//        fetchPosts()
+        fetchPostOfFollowedUser()
     }
     
     private var refresh : UIRefreshControl?
@@ -77,13 +78,20 @@ extension FeedVC {
         navigationItem.leftBarButtonItem?.customView = profileIMGView
     }
     
-    func fetchPosts() {
-        refresh?.beginRefreshing()
-        PostService.shared.fetchPost { [weak self] posts in
+//    func fetchPosts() {
+//        refresh?.beginRefreshing()
+//        PostService.shared.fetchPost { [weak self] posts in
+//            guard let self = self else { return }
+//            self.refresh?.endRefreshing()
+//            self.posts = posts
+//            self.persistLikePost(withPost: posts)
+//        }
+//    }
+    
+    func fetchPostOfFollowedUser() {
+        PostService.shared.fetchPostOfFollowedUser { [weak self] posts in
             guard let self = self else { return }
-            self.refresh?.endRefreshing()
             self.posts = posts
-            self.persistLikePost(withPost: posts)
         }
     }
     
@@ -110,7 +118,7 @@ extension FeedVC {
     }
     
     @objc func handleRefresh() {
-        fetchPosts()
+//        fetchPosts()
     }
     
 }

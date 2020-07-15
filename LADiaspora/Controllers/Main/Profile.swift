@@ -92,7 +92,7 @@ extension Profile {
     func fetchLikedPost() {
         guard let user = tappedUser else { return }
         PostService.shared.fetchLikedPosts(fromUser: user) { posts in
-            print(posts)
+            print("\(posts)")
         }
     }
 
