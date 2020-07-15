@@ -34,7 +34,6 @@ class FeedVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-//        fetchPosts()
         fetchPostOfFollowedUser()
     }
     
@@ -89,8 +88,10 @@ extension FeedVC {
 //    }
     
     func fetchPostOfFollowedUser() {
+        refresh?.beginRefreshing()
         PostService.shared.fetchPostOfFollowedUser { [weak self] posts in
             guard let self = self else { return }
+            self.refresh?.endRefreshing()
             self.posts = posts
         }
     }
@@ -118,7 +119,7 @@ extension FeedVC {
     }
     
     @objc func handleRefresh() {
-//        fetchPosts()
+        fetchPostOfFollowedUser()
     }
     
 }

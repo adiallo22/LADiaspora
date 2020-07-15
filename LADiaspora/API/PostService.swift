@@ -69,6 +69,13 @@ struct PostService {
                 }
             }
         }
+        userPostRef.child(uid).observe(.childAdded) { snapshot in
+            let key = snapshot.key
+            self.fetchNotifiedPost(withPostID: key) { post in
+                posts.insert(post, at: 0)
+                completion(posts)
+            }
+        }
     }
     
     func fetchUserPost(withUser user : User, completion: @escaping([Post]) -> Void) {
