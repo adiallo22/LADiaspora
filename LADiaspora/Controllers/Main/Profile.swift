@@ -12,12 +12,23 @@ class Profile: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var posts : [Post] = [] {
-        didSet {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+    var posts = [Post]()
+    var replies = [Post]()
+    var likes = [Post]()
+    
+    var pickedDataSource : [Post] {
+        switch option {
+        case .posts:
+            return posts
+        case .replies:
+            return replies
+        case .likes:
+            return likes
         }
+    }
+    
+    var option : FilterOptions = .posts {
+        didSet { tableView.reloadData() }
     }
     
     var tappedUser : User?
@@ -28,6 +39,7 @@ class Profile: UIViewController {
         fetchUserPost()
         checkIfUserIsFollwed()
         fetchUserStats()
+        fetchLikedPost()
     }
     
     override func viewDidLoad() {
@@ -53,7 +65,9 @@ extension Profile {
     func fetchUserPost() {
         guard let user = tappedUser else { return }
         PostService.shared.fetchUserPost(withUser: user) { [weak self] (posts) in
-            self?.posts = posts
+            guard let self = self else { return }
+            self.posts = posts
+            self.tableView.reloadData()
         }
     }
     
@@ -74,6 +88,13 @@ extension Profile {
             self?.tableView.reloadData()
         }
     }
+    
+    func fetchLikedPost() {
+        guard let user = tappedUser else { return }
+        PostService.shared.fetchLikedPosts(fromUser: user) { posts in
+            print(posts)
+        }
+    }
 
 }
 
@@ -82,7 +103,7 @@ extension Profile {
 
 extension Profile : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        return pickedDataSource.count
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -94,12 +115,18 @@ extension Profile : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.postCell) as! PostTVC
-        cell.post = posts[indexPath.row]
+        cell.post = pickedDataSource[indexPath.row]
         return cell
     }
 }
 
+//MARK: - HandleFollowUser
+
 extension Profile : HandleFollowUser {
+    
+    func delegateFilterPicked(_ option: FilterOptions) {
+        print(option)
+    }
     
     func followBtnTapped(_ to: ProfileHeaderCell) {
         guard let user = tappedUser else { return }

@@ -86,6 +86,14 @@ struct PostService {
         }
     }
     
+    func fetchLikedPosts(fromUser user: User, completion: @escaping([Post]) -> Void) {
+        var posts = [Post]()
+        userLikes.child(user.uid).observe(.childAdded) { snapshot in
+            guard let value = snapshot.value else { return }
+            print(value)
+        }
+    }
+    
     func likePost(of post: Post, completion: @escaping(Error?, DatabaseReference)->Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let likes = post.isLiked ? post.likes - 1 : post.likes + 1

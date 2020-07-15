@@ -8,8 +8,9 @@
 
 import UIKit
 
-protocol HandleFollowUser {
+protocol HandleFollowUser: class {
     func followBtnTapped(_ to: ProfileHeaderCell)
+    func delegateFilterPicked(_ option: FilterOptions)
 }
 
 class ProfileHeaderCell: UITableViewCell {
@@ -29,7 +30,7 @@ class ProfileHeaderCell: UITableViewCell {
     @IBOutlet weak var followers: UILabel!
     @IBOutlet weak var following: UILabel!
     
-    var followDelegate : HandleFollowUser?
+    weak var followDelegate : HandleFollowUser?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -112,10 +113,8 @@ extension ProfileHeaderCell: UICollectionViewDataSource, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        guard let cell = collectionView.cellForItem(at: indexPath) as? FilterCell else { return }
-//        UIView.animate(withDuration: 0.3) {
-//            cell.underLine.layer.frame.origin.x = cell.frame.origin.x
-//        }
+        guard let option = FilterOptions.init(rawValue: indexPath.row) else { return }
+        followDelegate?.delegateFilterPicked(option)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
