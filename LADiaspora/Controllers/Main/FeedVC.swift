@@ -91,8 +91,12 @@ extension FeedVC {
         refresh?.beginRefreshing()
         PostService.shared.fetchPostOfFollowedUser { [weak self] posts in
             guard let self = self else { return }
-            self.refresh?.endRefreshing()
             self.posts = posts
+            self.posts = self.posts.sorted { p0, p1 in
+                p0.timestamp < p1.timestamp
+            }
+            self.persistLikePost(withPost: posts)
+            self.refresh?.endRefreshing()
         }
     }
     
