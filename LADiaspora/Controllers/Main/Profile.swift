@@ -91,8 +91,9 @@ extension Profile {
     
     func fetchLikedPost() {
         guard let user = tappedUser else { return }
-        PostService.shared.fetchLikedPosts(fromUser: user) { posts in
-            print("\(posts)")
+        PostService.shared.fetchLikedPosts(fromUser: user) { [weak self] posts in
+            guard let self = self else { return }
+            self.likes = posts
         }
     }
 
@@ -135,14 +136,16 @@ extension Profile : HandleFollowUser {
         }
         if user.isFollowed == false {
             UserService.shared.followUser(uid: user.uid) { [weak self] (error, ref) in
-                self?.tappedUser?.isFollowed = true
-                NotificationService.shared.uploadNotification(withType: .follow, user: self?.tappedUser)
-                self?.tableView.reloadData()
+                guard let self = self else { return }
+                self.tappedUser?.isFollowed = true
+                NotificationService.shared.uploadNotification(withType: .follow, user: self.tappedUser)
+                self.tableView.reloadData()
             }
         } else {
             UserService.shared.unfollowUser(uid: user.uid) { [weak self] (error, ref) in
-                self?.tappedUser?.isFollowed = false
-                self?.tableView.reloadData()
+                guard let self = self else { return }
+                self.tappedUser?.isFollowed = false
+                self.tableView.reloadData()
             }
         }
     }

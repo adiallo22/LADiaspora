@@ -116,8 +116,8 @@ struct PostService {
             let key = snapshot.key
             self.fetchNotifiedPost(withPostID: key) { post in
                 posts.insert(post, at: 0)
+                completion(posts)
             }
-            completion(posts)
         }
     }
     
