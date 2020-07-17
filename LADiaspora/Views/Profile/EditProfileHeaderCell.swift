@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol EditProfileDelegate: class {
+    func passEditClicked(_ cell: EditProfileHeaderCell)
+}
+
 class EditProfileHeaderCell: UITableViewCell {
     
     @IBOutlet weak var profileIMG: UIImageView!
@@ -17,6 +21,8 @@ class EditProfileHeaderCell: UITableViewCell {
             configUI()
         }
     }
+    
+    weak var delegate : EditProfileDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +36,7 @@ class EditProfileHeaderCell: UITableViewCell {
     }
     
     @IBAction func changeSelected(_ sender: UIButton) {
-        print("selected..")
+        delegate?.passEditClicked(self)
     }
     
 }

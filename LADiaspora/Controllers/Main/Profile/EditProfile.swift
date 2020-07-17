@@ -43,6 +43,8 @@ extension EditProfile : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.editProfileHeaderCell) as! EditProfileHeaderCell
+        cell.user = self.user
+        cell.delegate = self
         return cell
     }
 }
@@ -65,6 +67,16 @@ extension EditProfile {
     
     @objc func doneEdition() {
         navigationController?.popViewController(animated: true)
+    }
+    
+}
+
+//MARK: - EditProfileDelegate
+
+extension EditProfile : EditProfileDelegate {
+    
+    func passEditClicked(_ cell: EditProfileHeaderCell) {
+        print("edited..")
     }
     
 }
