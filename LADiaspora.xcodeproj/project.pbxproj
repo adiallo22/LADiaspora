@@ -242,10 +242,10 @@
 				C0C176FB248D428500080FBC /* MainTabBar.swift */,
 				C0C176FD248D483300080FBC /* FeedVC.swift */,
 				C03A48C7249689FA005CA628 /* NewPostVC.swift */,
-				C0F7D5CC24C227A4004F9B6D /* EditProfile.swift */,
 				C0C176FF248D484300080FBC /* DiscoverVC.swift */,
 				C01BF9F924AA4DAF0096F2F3 /* PostDetails.swift */,
 				C01BF9E324A27A020096F2F3 /* Profile.swift */,
+				C0F7D5CC24C227A4004F9B6D /* EditProfile.swift */,
 				C0C17701248D486400080FBC /* NotificationVC.swift */,
 				C0C17703248D487600080FBC /* MessageVC.swift */,
 			);

@@ -22,10 +22,13 @@ class EditProfile: UIViewController {
 
         tableView.dataSource = self
         tableView.delegate = self
+        editNavBar()
         
     }
     
 }
+
+//MARK: - delegate and datasource
 
 extension EditProfile : UITableViewDataSource, UITableViewDelegate {
     
@@ -41,4 +44,26 @@ extension EditProfile : UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         return cell!
     }
+}
+
+//MARK: - navigationbar
+
+extension EditProfile {
+    
+    func editNavBar() {
+        navigationItem.title = "Edit Profile"
+        navigationController?.navigationBar.tintColor = .orange
+        navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .done, target: self, action: #selector(doneEdition))
+    }
+    
+}
+
+//MARK: - helpers
+
+extension EditProfile {
+    
+    @objc func doneEdition() {
+        navigationController?.popViewController(animated: true)
+    }
+    
 }
