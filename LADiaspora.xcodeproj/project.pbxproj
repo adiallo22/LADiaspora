@@ -47,6 +47,7 @@
 		C0C17715248FE03C00080FBC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0C17714248FE03B00080FBC /* GoogleService-Info.plist */; };
 		C0C17768249284DF00080FBC /* AuthCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C17767249284DF00080FBC /* AuthCredential.swift */; };
 		C0F7D5BA24BA8386004F9B6D /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7D5B924BA8386004F9B6D /* NotificationViewModel.swift */; };
+		C0F7D5CD24C227A4004F9B6D /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7D5CC24C227A4004F9B6D /* EditProfile.swift */; };
 		C35B6CA06AA0674202F5415D /* Pods_LADiaspora.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1286CBE5112122A6120A8F /* Pods_LADiaspora.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,7 @@
 		C0C17714248FE03B00080FBC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C0C17767249284DF00080FBC /* AuthCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCredential.swift; sourceTree = "<group>"; };
 		C0F7D5B924BA8386004F9B6D /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
+		C0F7D5CC24C227A4004F9B6D /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +242,7 @@
 				C0C176FB248D428500080FBC /* MainTabBar.swift */,
 				C0C176FD248D483300080FBC /* FeedVC.swift */,
 				C03A48C7249689FA005CA628 /* NewPostVC.swift */,
+				C0F7D5CC24C227A4004F9B6D /* EditProfile.swift */,
 				C0C176FF248D484300080FBC /* DiscoverVC.swift */,
 				C01BF9F924AA4DAF0096F2F3 /* PostDetails.swift */,
 				C01BF9E324A27A020096F2F3 /* Profile.swift */,
@@ -384,6 +387,7 @@
 				C0C17702248D486400080FBC /* NotificationVC.swift in Sources */,
 				C0B545AA24B6334E0098B073 /* Notification.swift in Sources */,
 				C01BF9F024A523F30096F2F3 /* AuthService.swift in Sources */,
+				C0F7D5CD24C227A4004F9B6D /* EditProfile.swift in Sources */,
 				C0C17700248D484300080FBC /* DiscoverVC.swift in Sources */,
 				C01BF9E624A3B3440096F2F3 /* ProfileHeaderCell.swift in Sources */,
 				C03A48C624966590005CA628 /* User.swift in Sources */,

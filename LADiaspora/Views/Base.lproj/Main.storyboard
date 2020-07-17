@@ -742,6 +742,46 @@
             </objects>
             <point key="canvasLocation" x="439.13043478260875" y="-2223.8839285714284"/>
         </scene>
+        <!--Edit Profile-->
+        <scene sceneID="C0b-hL-ljf">
+            <objects>
+                <viewController id="DgP-TB-H4r" customClass="EditProfile" customModule="LADiaspora" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PTX-IG-eK3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZSa-wO-5Wg">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Tgs-uZ-lXm">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tgs-uZ-lXm" id="fgf-aB-Swa">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ZSa-wO-5Wg" firstAttribute="leading" secondItem="2Q5-Pj-bJb" secondAttribute="leading" id="3CQ-tn-I5k"/>
+                            <constraint firstItem="ZSa-wO-5Wg" firstAttribute="top" secondItem="PTX-IG-eK3" secondAttribute="top" id="Jna-iv-VBf"/>
+                            <constraint firstAttribute="bottom" secondItem="ZSa-wO-5Wg" secondAttribute="bottom" id="VsV-xQ-2aI"/>
+                            <constraint firstItem="ZSa-wO-5Wg" firstAttribute="trailing" secondItem="2Q5-Pj-bJb" secondAttribute="trailing" id="oU0-Ru-rsJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2Q5-Pj-bJb"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="ZSa-wO-5Wg" id="gEZ-Rs-gjN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rlL-hG-dVS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1224.6376811594205" y="-2219.1964285714284"/>
+        </scene>
         <!--FeedVC-->
         <scene sceneID="Od1-ge-wtN">
             <objects>

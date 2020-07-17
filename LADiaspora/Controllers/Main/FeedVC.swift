@@ -93,9 +93,8 @@ extension FeedVC {
             guard let self = self else { return }
             self.posts = posts
             self.posts = self.posts.sorted { p0, p1 in
-                p0.timestamp < p1.timestamp
-            }
-            self.persistLikePost(withPost: posts)
+                p0.timestamp < p1.timestamp }
+            self.persistLikePost(withPost: self.posts)
             self.refresh?.endRefreshing()
         }
     }
