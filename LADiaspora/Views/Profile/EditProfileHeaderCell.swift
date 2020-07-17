@@ -10,13 +10,17 @@ import UIKit
 
 class EditProfileHeaderCell: UITableViewCell {
     
-    
     @IBOutlet weak var profileIMG: UIImageView!
+    
+    var user : User? {
+        didSet {
+            configUI()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = .orange
-        configUI()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -36,8 +40,10 @@ class EditProfileHeaderCell: UITableViewCell {
 extension EditProfileHeaderCell {
     
     func configUI() {
+        guard let user = user else { return }
+        guard let url = URL.init(string: user.profileURL) else { return }
         profileIMG.roundView()
-        profileIMG.backgroundColor = .white
+        profileIMG.sd_setImage(with: url, completed: nil)
     }
     
 }
