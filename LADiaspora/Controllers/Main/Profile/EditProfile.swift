@@ -22,7 +22,7 @@ class EditProfile: UIViewController {
 
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = 180
+        tableView.sectionHeaderHeight = 180
         editNavBar()
         
     }
@@ -38,13 +38,18 @@ extension EditProfile : UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return EditProfilOptions.allCases.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.editProfileHeaderCell) as! EditProfileHeaderCell
         cell.user = self.user
         cell.delegate = self
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.editDetaiCell) as! EditDetaiCell
         return cell
     }
 }
@@ -55,7 +60,7 @@ extension EditProfile {
     
     func editNavBar() {
         navigationItem.title = "Edit Profile"
-        navigationController?.navigationBar.backgroundColor = .orange
+        navigationController?.navigationBar.barTintColor = .orange
         navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .done, target: self, action: #selector(doneEdition))
     }
     

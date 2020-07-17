@@ -49,6 +49,8 @@
 		C0F7D5BA24BA8386004F9B6D /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7D5B924BA8386004F9B6D /* NotificationViewModel.swift */; };
 		C0F7D5CD24C227A4004F9B6D /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7D5CC24C227A4004F9B6D /* EditProfile.swift */; };
 		C0F7D5D024C22E0E004F9B6D /* EditProfileHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7D5CF24C22E0E004F9B6D /* EditProfileHeaderCell.swift */; };
+		C0F7D5D324C24146004F9B6D /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7D5D224C24146004F9B6D /* EditProfileViewModel.swift */; };
+		C0F7D5D524C2446B004F9B6D /* EditDetaiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7D5D424C2446B004F9B6D /* EditDetaiCell.swift */; };
 		C35B6CA06AA0674202F5415D /* Pods_LADiaspora.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1286CBE5112122A6120A8F /* Pods_LADiaspora.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +102,8 @@
 		C0F7D5B924BA8386004F9B6D /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		C0F7D5CC24C227A4004F9B6D /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		C0F7D5CF24C22E0E004F9B6D /* EditProfileHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileHeaderCell.swift; sourceTree = "<group>"; };
+		C0F7D5D224C24146004F9B6D /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		C0F7D5D424C2446B004F9B6D /* EditDetaiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDetaiCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,7 @@
 				C01BF9FD24ABABD70096F2F3 /* UploadPostViewModel.swift */,
 				C0694D8924B1198200534F89 /* ActionSheetViewModel.swift */,
 				C0F7D5B924BA8386004F9B6D /* NotificationViewModel.swift */,
+				C0F7D5D224C24146004F9B6D /* EditProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -258,6 +263,7 @@
 				C01BF9E524A3B3440096F2F3 /* ProfileHeaderCell.swift */,
 				C01BF9EB24A4D9030096F2F3 /* FilterCell.swift */,
 				C0F7D5CF24C22E0E004F9B6D /* EditProfileHeaderCell.swift */,
+				C0F7D5D424C2446B004F9B6D /* EditDetaiCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -422,6 +428,8 @@
 				C01BF9FE24ABABD70096F2F3 /* UploadPostViewModel.swift in Sources */,
 				C0C17704248D487600080FBC /* MessageVC.swift in Sources */,
 				C01BF9EC24A4D9030096F2F3 /* FilterCell.swift in Sources */,
+				C0F7D5D524C2446B004F9B6D /* EditDetaiCell.swift in Sources */,
+				C0F7D5D324C24146004F9B6D /* EditProfileViewModel.swift in Sources */,
 				C0C1770B248D6DDD00080FBC /* LoginVC.swift in Sources */,
 				C0C1770D248D6DF200080FBC /* SignupVC.swift in Sources */,
 				C0694D8A24B1198200534F89 /* ActionSheetViewModel.swift in Sources */,

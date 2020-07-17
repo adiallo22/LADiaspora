@@ -37,6 +37,7 @@ struct Constants {
         static let postCellHeader = "PostCellHeader"
         static let notificationCell = "NotificationCell"
         static let editProfileHeaderCell = "editProfileHeaderCell"
+        static let editDetaiCell = "editDetaiCell"
     }
     
 }
