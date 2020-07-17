@@ -10,16 +10,16 @@ import UIKit
 
 class EditProfile: UIViewController {
     
-    var user : User? {
-        didSet {
-            print("user to be modified is \(user?.username)")
-        }
-    }
+    var user : User?
+    
+    private let imagePicker = UIImagePickerController()
 
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configPicker()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.sectionHeaderHeight = 180
@@ -52,6 +52,11 @@ extension EditProfile : UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.editDetaiCell) as! EditDetaiCell
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let option = EditProfilOptions.init(rawValue: indexPath.row) else { return 0 }
+        return option == .bio ? 100 : 48
+    }
 }
 
 //MARK: - navigationbar
@@ -81,7 +86,23 @@ extension EditProfile {
 extension EditProfile : EditProfileDelegate {
     
     func passEditClicked(_ cell: EditProfileHeaderCell) {
-        print("edited..")
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+}
+
+//MARK: - image picker
+
+extension EditProfile : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        dismiss(animated: true, completion: nil)
+        print("picked..")
+    }
+    
+    func configPicker() {
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
     }
     
 }
