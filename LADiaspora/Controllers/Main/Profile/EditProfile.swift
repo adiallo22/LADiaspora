@@ -22,6 +22,7 @@ class EditProfile: UIViewController {
 
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.rowHeight = 180
         editNavBar()
         
     }
@@ -52,7 +53,7 @@ extension EditProfile {
     
     func editNavBar() {
         navigationItem.title = "Edit Profile"
-        navigationController?.navigationBar.tintColor = .orange
+        navigationController?.navigationBar.backgroundColor = .orange
         navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .done, target: self, action: #selector(doneEdition))
     }
     
