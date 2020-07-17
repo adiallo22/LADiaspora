@@ -8,6 +8,8 @@
 
 import UIKit
 
+private let editProfile = "EditProfile"
+
 class Profile: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -132,6 +134,7 @@ extension Profile : HandleFollowUser {
     func followBtnTapped(_ to: ProfileHeaderCell) {
         guard let user = tappedUser else { return }
         if user.isCurrentUser {
+            changeController(withUser: user)
             return 
         }
         if user.isFollowed == false {
@@ -148,6 +151,19 @@ extension Profile : HandleFollowUser {
                 self.tableView.reloadData()
             }
         }
+    }
+    
+}
+
+//MARK: - helpers
+
+extension Profile {
+    
+    func changeController(withUser user: User) {
+        let main = UIStoryboard.init(name: "Main", bundle: nil)
+        let editProfileVC = main.instantiateViewController(identifier: editProfile) as! EditProfile
+        editProfileVC.user = user
+        navigationController?.pushViewController(editProfileVC, animated: true)
     }
     
 }

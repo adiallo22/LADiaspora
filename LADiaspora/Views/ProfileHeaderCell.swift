@@ -51,18 +51,6 @@ class ProfileHeaderCell: UITableViewCell {
     
     @IBAction func followTapped(_ sender: UIButton) {
         followDelegate?.followBtnTapped(self)
-//        guard let user = user else { return }
-//        if user.isFollowed == false {
-//            UserService.shared.followUser(uid: user.uid) { [weak self] (error, ref) in
-//                self?.user?.isFollowed = true
-//                self?.followBtn.setTitle("Unfollow", for: .normal)
-//            }
-//        } else {
-//            UserService.shared.unfollowUser(uid: user.uid) { [weak self] (error, ref) in
-//                self?.user?.isFollowed = false
-//                self?.followBtn.setTitle("Follow", for: .normal)
-//            }
-//        }
     }
 
 }

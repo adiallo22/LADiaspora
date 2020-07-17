@@ -10,7 +10,11 @@ import UIKit
 
 class EditProfile: UIViewController {
     
-    var user : User?
+    var user : User? {
+        didSet {
+            print("user to be modified is \(user?.username)")
+        }
+    }
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -34,6 +38,7 @@ extension EditProfile : UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        return cell!
     }
 }
