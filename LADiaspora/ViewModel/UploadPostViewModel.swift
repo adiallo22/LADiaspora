@@ -30,7 +30,7 @@ struct UploadPostViewModel {
             actionButton = "Reply"
             placeholder = "Whats your reply"
             shouldShowReplyLabel = true
-            replyLabel = "replying to \(post.user.username)"
+            replyLabel = "replying to @\(post.user.username)"
         }
     }
     

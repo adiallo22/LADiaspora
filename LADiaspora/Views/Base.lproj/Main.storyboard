@@ -796,19 +796,31 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="103"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpk-LU-5AV">
-                                                    <rect key="frame" x="40" y="41" width="101" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jqi-M2-64L">
+                                                    <rect key="frame" x="20" y="34.5" width="79" height="34"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpk-LU-5AV">
+                                                            <rect key="frame" x="0.0" y="0.0" width="42" height="34"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4L4-uv-AcO">
+                                                            <rect key="frame" x="47" y="0.0" width="32" height="34"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="fpk-LU-5AV" firstAttribute="centerY" secondItem="6mi-is-lGm" secondAttribute="centerY" id="gah-K5-6XJ"/>
+                                                <constraint firstItem="jqi-M2-64L" firstAttribute="centerY" secondItem="6mi-is-lGm" secondAttribute="centerY" id="bWK-S5-aAj"/>
+                                                <constraint firstItem="jqi-M2-64L" firstAttribute="leading" secondItem="6mi-is-lGm" secondAttribute="leading" constant="20" id="d6t-Ia-jZq"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="optionLabel" destination="fpk-LU-5AV" id="fDP-Do-R5X"/>
+                                            <outlet property="tf" destination="4L4-uv-AcO" id="65v-bp-i6d"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

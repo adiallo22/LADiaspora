@@ -50,6 +50,8 @@ extension EditProfileHeaderCell {
         guard let url = URL.init(string: user.profileURL) else { return }
         profileIMG.roundView()
         profileIMG.sd_setImage(with: url, completed: nil)
+        profileIMG.layer.borderColor = .init(srgbRed: 1, green: 1, blue: 1, alpha: 1)
+        profileIMG.layer.borderWidth = 2
     }
     
 }

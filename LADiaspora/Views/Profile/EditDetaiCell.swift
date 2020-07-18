@@ -11,6 +11,7 @@ import UIKit
 class EditDetaiCell: UITableViewCell {
 
     @IBOutlet weak var optionLabel: UILabel!
+    @IBOutlet weak var tf: UITextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()

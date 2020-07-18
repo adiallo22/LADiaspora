@@ -65,7 +65,7 @@ extension EditProfile {
     
     func editNavBar() {
         navigationItem.title = "Edit Profile"
-        navigationController?.navigationBar.barTintColor = .orange
+        navigationController?.navigationBar.backgroundColor = .orange
         navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .done, target: self, action: #selector(doneEdition))
     }
     

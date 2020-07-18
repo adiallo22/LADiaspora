@@ -140,6 +140,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		C07E360C24C360890095D128 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				C03A48CF2497C985005CA628 /* PostTVC.swift */,
+				C01BF9FB24AA692B0096F2F3 /* PostDetailsHeaderCell.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
 		C0C176D5248D3F7A00080FBC = {
 			isa = PBXGroup;
 			children = (
@@ -191,8 +200,7 @@
 			children = (
 				C0C176E7248D3F7A00080FBC /* Main.storyboard */,
 				C0F7D5CE24C22DD9004F9B6D /* Profile */,
-				C03A48CF2497C985005CA628 /* PostTVC.swift */,
-				C01BF9FB24AA692B0096F2F3 /* PostDetailsHeaderCell.swift */,
+				C07E360C24C360890095D128 /* Post */,
 				C01BFA0224AE61F30096F2F3 /* ActionSheetCell.swift */,
 				C01BF9F524A939C40096F2F3 /* DiscoverUserCell.swift */,
 				C0B545B024B6514D0098B073 /* NotificationCell.swift */,
