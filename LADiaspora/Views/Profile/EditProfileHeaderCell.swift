@@ -22,6 +22,15 @@ class EditProfileHeaderCell: UITableViewCell {
         }
     }
     
+//    init(user: User) {
+//        self.user = user
+//        super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "editProfileHeaderCell")
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+    
     weak var delegate : EditProfileDelegate?
     
     override func awakeFromNib() {

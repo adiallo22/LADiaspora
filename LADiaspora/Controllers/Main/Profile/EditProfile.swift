@@ -12,7 +12,11 @@ class EditProfile: UIViewController {
     
     var user : User?
     
+    private lazy var header = HeaderViewEdit.init(user: user!)
+    
     private let imagePicker = UIImagePickerController()
+    
+//    private var newImage : UIImage? }
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,9 +24,7 @@ class EditProfile: UIViewController {
         super.viewDidLoad()
 
         configPicker()
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.sectionHeaderHeight = 180
+        configTableView()
         editNavBar()
         
     }
@@ -41,12 +43,12 @@ extension EditProfile : UITableViewDataSource, UITableViewDelegate {
         return EditProfilOptions.allCases.count
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.editProfileHeaderCell) as! EditProfileHeaderCell
-        cell.user = self.user
-        cell.delegate = self
-        return cell
-    }
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.editProfileHeaderCell) as! EditProfileHeaderCell
+//        cell.user = self.user
+//        cell.delegate = self
+//        return cell
+//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.editDetaiCell) as! EditDetaiCell
@@ -79,6 +81,14 @@ extension EditProfile {
         navigationController?.popViewController(animated: true)
     }
     
+    func configTableView() {
+        header.frame = CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 180)
+        tableView.tableHeaderView = header
+        tableView.dataSource = self
+        tableView.delegate = self
+//        tableView.sectionHeaderHeight = 180
+    }
+    
 }
 
 //MARK: - EditProfileDelegate
@@ -96,8 +106,9 @@ extension EditProfile : EditProfileDelegate {
 extension EditProfile : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let img = info[.editedImage] as? UIImage else { return }
+//        self.newImage = img
         dismiss(animated: true, completion: nil)
-        print("picked..")
     }
     
     func configPicker() {
