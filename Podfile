@@ -13,4 +13,5 @@ pod 'Firebase/Firestore'
 pod 'Firebase/Database'
 pod 'Firebase/Storage'
 pod 'SDWebImage', '~> 5.0'
+pod 'SnapKit'
 end
