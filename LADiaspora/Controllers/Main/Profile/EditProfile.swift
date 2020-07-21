@@ -16,7 +16,11 @@ class EditProfile: UIViewController {
     
     private let imagePicker = UIImagePickerController()
     
-//    private var newImage : UIImage? }
+    private var newImage : UIImage? {
+        didSet {
+            header.profileIMG.image = newImage
+        }
+    }
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,6 +30,7 @@ class EditProfile: UIViewController {
         configPicker()
         configTableView()
         editNavBar()
+        header.delegate = self
         
     }
     
@@ -95,7 +100,7 @@ extension EditProfile {
 
 extension EditProfile : EditProfileDelegate {
     
-    func passEditClicked(_ cell: EditProfileHeaderCell) {
+    func passEditClicked() {
         present(imagePicker, animated: true, completion: nil)
     }
     
@@ -107,7 +112,7 @@ extension EditProfile : UIImagePickerControllerDelegate, UINavigationControllerD
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let img = info[.editedImage] as? UIImage else { return }
-//        self.newImage = img
+        self.newImage = img
         dismiss(animated: true, completion: nil)
     }
     

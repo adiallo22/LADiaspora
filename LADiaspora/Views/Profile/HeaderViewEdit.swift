@@ -7,10 +7,17 @@
 //
 
 import UIKit
+import SnapKit
+
+protocol EditProfileDelegate: class {
+    func passEditClicked()
+}
 
 class HeaderViewEdit : UIView {
     
     private let user : User
+    
+    weak var delegate : EditProfileDelegate?
     
     let profileIMG : UIImageView = {
        let view = UIImageView()
@@ -18,7 +25,6 @@ class HeaderViewEdit : UIView {
         view.clipsToBounds = true
         view.layer.borderWidth = 3
         view.layer.borderColor = UIColor.white.cgColor
-        view.backgroundColor = .orange
         return view
     }()
     
@@ -37,6 +43,7 @@ class HeaderViewEdit : UIView {
         self.user = user
         super.init(frame: .zero)
         backgroundColor = .orange
+        configUI()
     }
     
     required init?(coder: NSCoder) {
@@ -45,17 +52,31 @@ class HeaderViewEdit : UIView {
     
     //MARK: -  helpers
     
-    func configUI() {
-        profileIMG.roundView()
-        profileIMG.frame.size.width = 100
-        profileIMG.frame.size.height = 100
+    fileprivate func configUI() {
         addSubview(profileIMG)
+        profileIMG.snp.makeConstraints { make in
+            make.width.equalTo(90)
+            make.height.equalTo(90)
+            make.centerY.equalTo(self.snp.centerY).offset(-16)
+            make.centerX.equalTo(self.snp.centerX)
+            
+        }
+        profileIMG.layer.cornerRadius = profileIMG.frame.width / 2.0
+        profileIMG.layer.masksToBounds = true
+        guard let url = URL.init(string: user.profileURL) else { return }
+        profileIMG.sd_setImage(with: url, completed: nil)
+        //
         addSubview(cButton)
-//        cButton.cen
+        cButton.snp.makeConstraints { make in
+            make.bottom.equalTo(profileIMG).offset(20)
+            make.centerX.equalTo(self.snp.centerX)
+        }
+        
     }
     
     @objc func changeProfileTapped() {
-        print("clicked..")
+        delegate?.passEditClicked()
+//        print("clicked..")
     }
     
 }
