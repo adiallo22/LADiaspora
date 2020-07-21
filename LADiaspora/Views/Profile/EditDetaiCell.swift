@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol EditDelegate {
+protocol EditDelegate : class {
     func didFinishEditingText(_ cell: EditDetaiCell)
 }
 
@@ -16,6 +16,8 @@ class EditDetaiCell: UITableViewCell {
 
     @IBOutlet weak var optionLabel: UILabel!
     @IBOutlet weak var tf: UITextField!
+    
+    weak var delegate : EditDelegate?
     
 //    var option : option
     
@@ -41,8 +43,7 @@ extension EditDetaiCell {
     }
     
     @objc func didFinishEdit() {
-        print(tf.text)
-        print("finished edititing")
+        delegate?.didFinishEditingText(self)
     }
     
 }
