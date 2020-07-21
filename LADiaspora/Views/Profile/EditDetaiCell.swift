@@ -8,14 +8,20 @@
 
 import UIKit
 
+protocol EditDelegate {
+    func didFinishEditingText(_ cell: EditDetaiCell)
+}
+
 class EditDetaiCell: UITableViewCell {
 
     @IBOutlet weak var optionLabel: UILabel!
     @IBOutlet weak var tf: UITextField!
     
+//    var option : option
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        editTextField()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -24,4 +30,19 @@ class EditDetaiCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+}
+
+//MARK: - helpers
+
+extension EditDetaiCell {
+    
+    func editTextField() {
+        tf.addTarget(self, action: #selector(didFinishEdit), for: .editingDidEnd)
+    }
+    
+    @objc func didFinishEdit() {
+        print(tf.text)
+        print("finished edititing")
+    }
+    
 }

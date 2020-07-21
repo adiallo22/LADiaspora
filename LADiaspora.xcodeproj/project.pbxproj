@@ -49,7 +49,6 @@
 		C0C17768249284DF00080FBC /* AuthCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C17767249284DF00080FBC /* AuthCredential.swift */; };
 		C0F7D5BA24BA8386004F9B6D /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7D5B924BA8386004F9B6D /* NotificationViewModel.swift */; };
 		C0F7D5CD24C227A4004F9B6D /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7D5CC24C227A4004F9B6D /* EditProfile.swift */; };
-		C0F7D5D024C22E0E004F9B6D /* EditProfileHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7D5CF24C22E0E004F9B6D /* EditProfileHeaderCell.swift */; };
 		C0F7D5D324C24146004F9B6D /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7D5D224C24146004F9B6D /* EditProfileViewModel.swift */; };
 		C0F7D5D524C2446B004F9B6D /* EditDetaiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7D5D424C2446B004F9B6D /* EditDetaiCell.swift */; };
 		C35B6CA06AA0674202F5415D /* Pods_LADiaspora.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1286CBE5112122A6120A8F /* Pods_LADiaspora.framework */; };
@@ -103,7 +102,6 @@
 		C0C17767249284DF00080FBC /* AuthCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCredential.swift; sourceTree = "<group>"; };
 		C0F7D5B924BA8386004F9B6D /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		C0F7D5CC24C227A4004F9B6D /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
-		C0F7D5CF24C22E0E004F9B6D /* EditProfileHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileHeaderCell.swift; sourceTree = "<group>"; };
 		C0F7D5D224C24146004F9B6D /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		C0F7D5D424C2446B004F9B6D /* EditDetaiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDetaiCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -272,7 +270,6 @@
 			children = (
 				C01BF9E524A3B3440096F2F3 /* ProfileHeaderCell.swift */,
 				C01BF9EB24A4D9030096F2F3 /* FilterCell.swift */,
-				C0F7D5CF24C22E0E004F9B6D /* EditProfileHeaderCell.swift */,
 				C0F7D5D424C2446B004F9B6D /* EditDetaiCell.swift */,
 				C07E360D24C5F0310095D128 /* HeaderViewEdit.swift */,
 			);
@@ -433,7 +430,6 @@
 				C0C176FC248D428500080FBC /* MainTabBar.swift in Sources */,
 				C01BFA0124AE1D950096F2F3 /* ActionSheet.swift in Sources */,
 				C01BF9E424A27A020096F2F3 /* Profile.swift in Sources */,
-				C0F7D5D024C22E0E004F9B6D /* EditProfileHeaderCell.swift in Sources */,
 				C01BF9F624A939C50096F2F3 /* DiscoverUserCell.swift in Sources */,
 				C03A48CA2496CCE8005CA628 /* PostService.swift in Sources */,
 				C0C17768249284DF00080FBC /* AuthCredential.swift in Sources */,

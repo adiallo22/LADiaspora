@@ -34,6 +34,11 @@ class EditProfile: UIViewController {
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        header.backgroundColor = .clear
+    }
+    
 }
 
 //MARK: - delegate and datasource
@@ -41,19 +46,12 @@ class EditProfile: UIViewController {
 extension EditProfile : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("")
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return EditProfilOptions.allCases.count
     }
-    
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.editProfileHeaderCell) as! EditProfileHeaderCell
-//        cell.user = self.user
-//        cell.delegate = self
-//        return cell
-//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.editDetaiCell) as! EditDetaiCell
@@ -91,7 +89,6 @@ extension EditProfile {
         tableView.tableHeaderView = header
         tableView.dataSource = self
         tableView.delegate = self
-//        tableView.sectionHeaderHeight = 180
     }
     
 }
