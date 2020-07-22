@@ -67,6 +67,10 @@ struct ProfileHeaderVM {
         return URL.init(string: user.profileURL)!
     }
     
+    var bio : String {
+        return user.bio
+    }
+    
     init(user: User) {
         self.user = user
     }

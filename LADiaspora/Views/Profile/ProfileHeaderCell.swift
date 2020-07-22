@@ -80,6 +80,7 @@ extension ProfileHeaderCell {
         profileIMG.sd_setImage(with: viewModel.url, completed: nil)
         fullnametf.text = viewModel.fullname
         usernametf.text = viewModel.username
+        biotf.text = viewModel.bio
     }
     
 }
