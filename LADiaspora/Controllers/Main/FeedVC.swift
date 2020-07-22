@@ -19,7 +19,7 @@ class FeedVC: UIViewController {
     
     var user : User? {
         didSet {
-//            invokeUserProfileIMG()
+            invokeUserProfileIMG()
         }
     }
     

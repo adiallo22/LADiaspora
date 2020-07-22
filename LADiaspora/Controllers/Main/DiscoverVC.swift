@@ -108,7 +108,7 @@ extension DiscoverVC : UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let searched = searchController.searchBar.text?.lowercased() else { return }
-        usersFiltered = users.filter({ (user) -> Bool in
+        usersFiltered = users.filter({ user in
             return user.username.contains(searched) || user.fullname.contains(searched)
         })
     }

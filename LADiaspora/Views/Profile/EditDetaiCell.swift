@@ -19,7 +19,11 @@ class EditDetaiCell: UITableViewCell {
     
     weak var delegate : EditDelegate?
     
-//    var option : option
+    var option : EditProfilOptions? {
+        didSet {
+            configUI()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,6 +48,10 @@ extension EditDetaiCell {
     
     @objc func didFinishEdit() {
         delegate?.didFinishEditingText(self)
+    }
+    
+    func configUI() {
+        print("viewmodel must be set here..")
     }
     
 }

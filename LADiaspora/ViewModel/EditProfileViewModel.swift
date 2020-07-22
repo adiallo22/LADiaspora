@@ -26,3 +26,41 @@ enum EditProfilOptions: Int, CaseIterable {
     }
     
 }
+
+//MARK: - <#section heading#>
+
+struct EditProfileViewModel {
+    
+    private let user : User
+    
+    var option : EditProfilOptions
+    
+    var titleText : String {
+        return option.description
+    }
+    
+    var optionVal : String? {
+        switch option {
+        case .fullname:
+            return user.fullname
+        case .username:
+            return user.username
+        case .bio:
+            return "bio"
+        }
+    }
+    
+//    var hideTextField : Bool {
+//        return option == .bio
+//    }
+//
+//    var hideTextView : Bool {
+//        return option != .bio
+//    }
+    
+    init(user: User, option: EditProfilOptions) {
+        self.user = user
+        self.option = option
+    }
+    
+}

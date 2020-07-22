@@ -20,6 +20,7 @@ struct User {
     var isCurrentUser : Bool {
         return Auth.auth().currentUser?.uid == uid
     }
+    var bio : String
     
     init(uid: String, values: [String:Any]) {
         self.uid = uid
@@ -27,6 +28,7 @@ struct User {
         self.email = values["email"] as? String ?? ""
         self.profileURL = values["profileURL"] as? String ?? ""
         self.username = values["username"] as? String ?? ""
+        self.bio = values["bio"] as? String ?? ""
     }
     
 }

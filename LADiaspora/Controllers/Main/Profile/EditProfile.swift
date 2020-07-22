@@ -56,6 +56,8 @@ extension EditProfile : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.editDetaiCell) as! EditDetaiCell
         cell.delegate = self
+        guard let option = EditProfilOptions.init(rawValue: indexPath.row) else { return cell }
+        cell.option = option
         return cell
     }
     
