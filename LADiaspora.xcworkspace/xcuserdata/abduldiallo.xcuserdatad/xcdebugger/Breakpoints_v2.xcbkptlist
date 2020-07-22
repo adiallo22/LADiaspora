@@ -320,5 +320,129 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5F6B7A4A-1B98-4262-A468-EF293381BE24"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LADiaspora/Views/Profile/EditDetaiCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "option"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "5F6B7A4A-1B98-4262-A468-EF293381BE24 - ea7d54a80475c922"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LADiaspora.EditDetaiCell.option.getter : Swift.Optional&lt;LADiaspora.EditProfilOptions&gt;"
+                  moduleName = "LADiaspora"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abduldiallo/Desktop/LADiaspora/LADiaspora/Views/Profile/EditDetaiCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "107">
+               </Location>
+               <Location
+                  uuid = "5F6B7A4A-1B98-4262-A468-EF293381BE24 - c05ff3ae37a3b92e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LADiaspora.EditDetaiCell.option.setter : Swift.Optional&lt;LADiaspora.EditProfilOptions&gt;"
+                  moduleName = "LADiaspora"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abduldiallo/Desktop/LADiaspora/LADiaspora/Views/Profile/EditDetaiCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "243">
+               </Location>
+               <Location
+                  uuid = "5F6B7A4A-1B98-4262-A468-EF293381BE24 - 87685c7f36d5bd3d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LADiaspora.EditDetaiCell.option.modify : Swift.Optional&lt;LADiaspora.EditProfilOptions&gt;"
+                  moduleName = "LADiaspora"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abduldiallo/Desktop/LADiaspora/LADiaspora/Views/Profile/EditDetaiCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  uuid = "5F6B7A4A-1B98-4262-A468-EF293381BE24 - bc4a115edebd6048"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LADiaspora.EditDetaiCell.option.modify : Swift.Optional&lt;LADiaspora.EditProfilOptions&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "LADiaspora"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abduldiallo/Desktop/LADiaspora/LADiaspora/Views/Profile/EditDetaiCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "19">
+               </Location>
+               <Location
+                  uuid = "5F6B7A4A-1B98-4262-A468-EF293381BE24 - 7a31c992c32287dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LADiaspora.EditDetaiCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; LADiaspora.EditDetaiCell"
+                  moduleName = "LADiaspora"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abduldiallo/Desktop/LADiaspora/LADiaspora/Views/Profile/EditDetaiCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "659">
+               </Location>
+               <Location
+                  uuid = "5F6B7A4A-1B98-4262-A468-EF293381BE24 - 8880534f38e9d6c3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LADiaspora.EditDetaiCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;LADiaspora.EditDetaiCell&gt;"
+                  moduleName = "LADiaspora"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abduldiallo/Desktop/LADiaspora/LADiaspora/Views/Profile/EditDetaiCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "600">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "659C37A8-FB72-49A8-B086-0F11DAA5CE5D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LADiaspora/Views/Profile/EditDetaiCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "configUI()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

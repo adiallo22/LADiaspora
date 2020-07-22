@@ -21,15 +21,7 @@ class EditDetaiCell: UITableViewCell {
     
     var option : EditProfilOptions? {
         didSet {
-//            configUI()
-            optionLabel.text = option?.description
-            switch option {
-            case .fullname: tf.text = user?.fullname
-                case .username: tf.text = user?.username
-                case .bio: tf.text = user?.bio
-            case .none:
-                return 
-            }
+            configUI()
         }
     }
     
@@ -64,7 +56,7 @@ extension EditDetaiCell {
         guard let option = option else { return }
         guard let user = user else { return }
         let viewModel = EditProfileViewModel.init(user: user, option: option)
-        optionLabel.text = viewModel.optionVal
+        optionLabel.text = viewModel.titleText
         tf.text = viewModel.optionVal
     }
     
