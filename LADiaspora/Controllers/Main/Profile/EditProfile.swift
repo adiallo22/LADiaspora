@@ -57,6 +57,7 @@ extension EditProfile : UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.editDetaiCell) as! EditDetaiCell
         cell.delegate = self
         guard let option = EditProfilOptions.init(rawValue: indexPath.row) else { return cell }
+        cell.user = user
         cell.option = option
         return cell
     }
@@ -128,6 +129,7 @@ extension EditProfile : UIImagePickerControllerDelegate, UINavigationControllerD
 extension EditProfile : EditDelegate {
     
     func didFinishEditingText(_ cell: EditDetaiCell) {
+        
         print("finished editing... \(cell.tf.text!)")
     }
     

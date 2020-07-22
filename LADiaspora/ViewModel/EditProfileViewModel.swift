@@ -46,7 +46,7 @@ struct EditProfileViewModel {
         case .username:
             return user.username
         case .bio:
-            return "bio"
+            return user.bio
         }
     }
     

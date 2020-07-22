@@ -44,10 +44,12 @@ struct AuthService {
                         print(error?.localizedDescription)
                     } else {
                         let uid = result?.user.uid
-                        let values = ["full name":fullname,
-                                      "email":email,
-                                      "username":username.lowercased(),
-                                      "profileURL":profileURL]
+                        let values = [
+                            "full name":fullname,
+                            "email":email,
+                            "username":username.lowercased(),
+                            "profileURL":profileURL
+                        ]
                         //reference to database and upload values
                         let reference = Constants.References.db.child("users").child("\(uid!)")
                         reference.updateChildValues(values, withCompletionBlock: completion)

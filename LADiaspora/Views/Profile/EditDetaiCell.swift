@@ -21,9 +21,19 @@ class EditDetaiCell: UITableViewCell {
     
     var option : EditProfilOptions? {
         didSet {
-            configUI()
+//            configUI()
+            optionLabel.text = option?.description
+            switch option {
+            case .fullname: tf.text = user?.fullname
+                case .username: tf.text = user?.username
+                case .bio: tf.text = user?.bio
+            case .none:
+                return 
+            }
         }
     }
+    
+    var user : User?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,7 +61,11 @@ extension EditDetaiCell {
     }
     
     func configUI() {
-        print("viewmodel must be set here..")
+        guard let option = option else { return }
+        guard let user = user else { return }
+        let viewModel = EditProfileViewModel.init(user: user, option: option)
+        optionLabel.text = viewModel.optionVal
+        tf.text = viewModel.optionVal
     }
     
 }
