@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol FinishedEditDelegate : class {
+    func controller(_is: EditProfile, withUser user: User)
+}
+
 class EditProfile: UIViewController {
     
     var user : User?
@@ -21,6 +25,8 @@ class EditProfile: UIViewController {
             header.profileIMG.image = newImage
         }
     }
+    
+    weak var delegate : FinishedEditDelegate?
     
     private var userInfoHasChanged: Bool = false
 
@@ -104,8 +110,9 @@ extension EditProfile {
             if err != nil {
                 print(err!.localizedDescription)
             } else {
-                print("sucess..")
-                self?.navigationController?.popViewController(animated: true)
+                guard let self = self else { return }
+                self.delegate?.controller(_is: self, withUser: user)
+                self.navigationController?.popViewController(animated: true)
             }
         }
     }
