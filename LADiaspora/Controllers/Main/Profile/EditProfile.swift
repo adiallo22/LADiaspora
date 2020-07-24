@@ -21,6 +21,8 @@ class EditProfile: UIViewController {
             header.profileIMG.image = newImage
         }
     }
+    
+    private var userInfoHasChanged: Bool = false
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -31,6 +33,7 @@ class EditProfile: UIViewController {
         configTableView()
         editNavBar()
         header.delegate = self
+        navigationItem.rightBarButtonItem?.isEnabled = false
         
     }
     
@@ -141,7 +144,8 @@ extension EditProfile : UIImagePickerControllerDelegate, UINavigationControllerD
 extension EditProfile : EditDelegate {
     
     func didFinishEditingText(_ cell: EditDetaiCell) {
-        
+        userInfoHasChanged = true
+        navigationItem.rightBarButtonItem?.isEnabled = true
         print("finished editing... \(cell.tf.text!)")
     }
     
