@@ -163,7 +163,18 @@ extension Profile {
         let main = UIStoryboard.init(name: "Main", bundle: nil)
         let editProfileVC = main.instantiateViewController(identifier: editProfile) as! EditProfile
         editProfileVC.user = user
+        editProfileVC.delegate = self
         navigationController?.pushViewController(editProfileVC, animated: true)
+    }
+    
+}
+
+//MARK: - EditProfileDelegate
+
+extension Profile : FinishedEditDelegate {
+    
+    func controller(_is: EditProfile, withUser user: User) {
+        print("finished..")
     }
     
 }
