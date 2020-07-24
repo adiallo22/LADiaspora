@@ -85,7 +85,7 @@ extension EditProfile {
 extension EditProfile {
     
     @objc func doneEdition() {
-        navigationController?.popViewController(animated: true)
+        updateUserProfile()
     }
     
     func configTableView() {
@@ -93,6 +93,18 @@ extension EditProfile {
         tableView.tableHeaderView = header
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    func updateUserProfile() {
+        guard let user = user else { return }
+        UserService.shared.saveUserProfileData(user: user) { [weak self] err, ref in
+            if err != nil {
+                print(err!.localizedDescription)
+            } else {
+                print("sucess..")
+                self?.navigationController?.popViewController(animated: true)
+            }
+        }
     }
     
 }
