@@ -10,6 +10,8 @@ import SDWebImage
 import Firebase
 import UIKit
 
+private let imageReference = Constants.References.imageDB.child("profile_images")
+
 struct AuthService {
     
     static let shared = AuthService()
@@ -31,7 +33,7 @@ struct AuthService {
         let fullname = authCredential.fullname
         let pwd = authCredential.password
         //
-        let imageReference = Constants.References.imageDB.child("profile_images").child(NSUUID().uuidString)
+        imageReference.child(NSUUID().uuidString)
         guard let imageData = authCredential.profileIMG.jpegData(compressionQuality: 0.5) else { return }
         imageReference.putData(imageData, metadata: nil) { (meta, error) in
             imageReference.downloadURL { (url, error) in

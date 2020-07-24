@@ -174,7 +174,7 @@ extension Profile {
 extension Profile : FinishedEditDelegate {
     
     func controller(_is: EditProfile, withUser user: User) {
-        print("finished..")
+        tableView.reloadData()
     }
     
 }

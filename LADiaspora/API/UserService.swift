@@ -85,4 +85,32 @@ struct UserService {
         ref.child(uid).updateChildValues(values, withCompletionBlock: completion)
     }
     
+    func updateProfileIMG(withImage image: UIImage, completion: @escaping(Result<URL, Error>)->Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let fileName = NSUUID().uuidString
+        guard let img = image.jpegData(compressionQuality: 0.3) else { return }
+        let reference = Constants.References.imageDB.child("profile_images").child(fileName)
+        reference.putData(img, metadata: nil) { (meta, err) in
+            if err != nil {
+                completion(.failure(err!))
+            } else {
+                reference.downloadURL { (url, err) in
+                    if err != nil {
+                        completion(.failure(err!))
+                    } else {
+                        guard let imageURL = url?.absoluteURL else { return }
+                        let values = ["profileURL":imageURL]
+                        ref.updateChildValues(values) { (err, refer) in
+                            if err != nil {
+                                completion(.failure(err!))
+                            } else {
+                                completion(.success(imageURL))
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
 }
