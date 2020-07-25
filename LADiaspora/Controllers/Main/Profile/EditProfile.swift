@@ -43,7 +43,6 @@ class EditProfile: UIViewController {
         configTableView()
         editNavBar()
         header.delegate = self
-        navigationItem.rightBarButtonItem?.isEnabled = false
         
     }
     
@@ -101,6 +100,8 @@ extension EditProfile {
 extension EditProfile {
     
     @objc func doneEdition() {
+        view.endEditing(true)
+        guard userInfoHasChanged || userProfileHasChanged else { return }
         updateUserProfile()
     }
     
@@ -197,7 +198,6 @@ extension EditProfile : EditDelegate {
     
     func didFinishEditingText(_ cell: EditDetaiCell) {
         userInfoHasChanged = true
-        navigationItem.rightBarButtonItem?.isEnabled = true
         switch cell.option {
         case .fullname:
             self.user?.fullname = cell.tf.text ?? ""
