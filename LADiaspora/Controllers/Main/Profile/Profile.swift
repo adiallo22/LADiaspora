@@ -174,6 +174,7 @@ extension Profile {
 extension Profile : FinishedEditDelegate {
     
     func controller(_is: EditProfile, withUser user: User, andURL url: URL?) {
+        self.tappedUser?.profileURL = String(describing: url!)
         tableView.reloadData()
     }
     

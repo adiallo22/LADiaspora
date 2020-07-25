@@ -75,17 +75,29 @@ extension FeedVC {
         profileIMGView.layer.masksToBounds = true
         profileIMGView.sd_setImage(with: url, completed: nil)
         navigationItem.leftBarButtonItem?.customView = profileIMGView
+        navigationItem.leftBarButtonItem?.action = #selector(openProfile)
     }
     
-//    func fetchPosts() {
-//        refresh?.beginRefreshing()
-//        PostService.shared.fetchPost { [weak self] posts in
-//            guard let self = self else { return }
-//            self.refresh?.endRefreshing()
-//            self.posts = posts
-//            self.persistLikePost(withPost: posts)
-//        }
-//    }
+    @objc func openProfile() {
+        print("go to profile..")
+    }
+    
+    func refreshTable() {
+        refresh = UIRefreshControl()
+        refresh?.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        tableView.refreshControl = refresh
+    }
+    
+    @objc func handleRefresh() {
+        fetchPostOfFollowedUser()
+    }
+    
+}
+
+    
+//MARK: - API
+
+extension FeedVC {
     
     func fetchPostOfFollowedUser() {
         refresh?.beginRefreshing()
@@ -114,18 +126,8 @@ extension FeedVC {
             }
         }
     }
-    
-    func refreshTable() {
-        refresh = UIRefreshControl()
-        refresh?.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
-        tableView.refreshControl = refresh
-    }
-    
-    @objc func handleRefresh() {
-        fetchPostOfFollowedUser()
-    }
-    
 }
+
 
 //MARK: - segues
 
