@@ -9,7 +9,7 @@
 import UIKit
 
 protocol FinishedEditDelegate : class {
-    func controller(_is: EditProfile, withUser user: User)
+    func controller(_is: EditProfile, withUser user: User, andURL url: URL?)
 }
 
 class EditProfile: UIViewController {
@@ -29,6 +29,10 @@ class EditProfile: UIViewController {
     weak var delegate : FinishedEditDelegate?
     
     private var userInfoHasChanged: Bool = false
+    
+    private var userProfileHasChanged: Bool {
+        return newImage != nil
+    }
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -49,6 +53,7 @@ class EditProfile: UIViewController {
     }
     
 }
+
 
 //MARK: - delegate and datasource
 
@@ -77,6 +82,7 @@ extension EditProfile : UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+
 //MARK: - navigationbar
 
 extension EditProfile {
@@ -88,6 +94,7 @@ extension EditProfile {
     }
     
 }
+
 
 //MARK: - helpers
 
@@ -103,21 +110,57 @@ extension EditProfile {
         tableView.dataSource = self
         tableView.delegate = self
     }
+
+}
+
+
+//MARK: - API
+
+extension EditProfile {
     
-    func updateUserProfile() {
+    func updateUserINFO() {
         guard let user = user else { return }
         UserService.shared.saveUserProfileData(user: user) { [weak self] (err, ref) in
             if err != nil {
                 print(err!.localizedDescription)
             } else {
                 guard let self = self else { return }
-                self.delegate?.controller(_is: self, withUser: user)
+                self.delegate?.controller(_is: self, withUser: user, andURL: nil)
                 self.navigationController?.popViewController(animated: true)
             }
         }
     }
     
+    func updateUserIMG() {
+        guard let image = newImage else { return }
+        guard let user = user else { return }
+        UserService.shared.updateProfileIMG(withImage: image) { [weak self] (result) in
+            switch result {
+            case .success(let url):
+                guard let self = self else { return }
+                self.delegate?.controller(_is: self, withUser: user, andURL: url)
+                self.navigationController?.popViewController(animated: true)
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+    
+    func updateUserProfile() {
+        if userProfileHasChanged && userInfoHasChanged {
+            updateUserIMG()
+            updateUserINFO()
+        }
+        if userProfileHasChanged && !userInfoHasChanged {
+            updateUserIMG()
+        }
+        if !userProfileHasChanged && userInfoHasChanged {
+            updateUserINFO()
+        }
+    }
+    
 }
+
 
 //MARK: - EditProfileDelegate
 
@@ -128,6 +171,7 @@ extension EditProfile : EditProfileDelegate {
     }
     
 }
+
 
 //MARK: - image picker
 
@@ -145,6 +189,7 @@ extension EditProfile : UIImagePickerControllerDelegate, UINavigationControllerD
     }
     
 }
+
 
 //MARK: - EditDelegate
 

@@ -173,7 +173,7 @@ extension Profile {
 
 extension Profile : FinishedEditDelegate {
     
-    func controller(_is: EditProfile, withUser user: User) {
+    func controller(_is: EditProfile, withUser user: User, andURL url: URL?) {
         tableView.reloadData()
     }
     

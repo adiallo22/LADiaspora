@@ -99,7 +99,7 @@ struct UserService {
                         completion(.failure(err!))
                     } else {
                         guard let imageURL = url?.absoluteURL else { return }
-                        let values = ["profileURL":imageURL]
+                        let values = ["profileURL":"\(imageURL)"]
                         ref.updateChildValues(values) { (err, refer) in
                             if err != nil {
                                 completion(.failure(err!))
