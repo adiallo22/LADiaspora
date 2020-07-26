@@ -25,7 +25,7 @@ class FeedVC: UIViewController {
     
     var profileUser : User?
     
-    var posts = [Post]() {
+    private var posts = [Post]() {
         didSet { self.tableView.reloadData() }
     }
 
@@ -60,13 +60,13 @@ class FeedVC: UIViewController {
 
 extension FeedVC {
     
-    func configureUI() {
+    fileprivate func configureUI() {
         navigationItem.title = Constants.Titles.home
         newPostButton.setNewPostButton()
         refreshTable()
     }
     
-    func invokeUserProfileIMG() {
+    fileprivate func invokeUserProfileIMG() {
         guard let imageURL = user?.profileURL else { return }
         guard let url = URL.init(string: imageURL) else { return }
         let profileIMGView = UIImageView.init()
@@ -82,7 +82,7 @@ extension FeedVC {
         print("go to profile..")
     }
     
-    func refreshTable() {
+    fileprivate func refreshTable() {
         refresh = UIRefreshControl()
         refresh?.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
         tableView.refreshControl = refresh
@@ -99,7 +99,7 @@ extension FeedVC {
 
 extension FeedVC {
     
-    func fetchPostOfFollowedUser() {
+    fileprivate func fetchPostOfFollowedUser() {
         refresh?.beginRefreshing()
         PostService.shared.fetchPostOfFollowedUser { [weak self] posts in
             guard let self = self else { return }
@@ -111,11 +111,11 @@ extension FeedVC {
         }
     }
     
-    func persistLikePost(withPost posts: [Post]) {
+    fileprivate func persistLikePost(withPost posts: [Post]) {
         persistLikes(withPosts: posts)
     }
     
-    func persistLikes(withPosts posts: [Post]) {
+    fileprivate func persistLikes(withPosts posts: [Post]) {
         //retrieve every post with their indexes
         for (i, post) in posts.enumerated() {
             PostService.shared.checkIfUserLiked(post: post) { [weak self] isLiked in
@@ -150,6 +150,8 @@ extension FeedVC {
     
 }
 
+
+
 //MARK: - delegate and datasource
 
 extension FeedVC : UITableViewDelegate, UITableViewDataSource {
@@ -176,6 +178,8 @@ extension FeedVC : UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+
+
 
 //MARK: - HandPostDelegate
 

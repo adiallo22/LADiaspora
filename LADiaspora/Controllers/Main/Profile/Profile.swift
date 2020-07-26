@@ -60,11 +60,11 @@ class Profile: UIViewController {
 }
 
 
-//MARK: - api calls
+//MARK: - API
 
 extension Profile {
     
-    func fetchUserPost() {
+    fileprivate func fetchUserPost() {
         guard let user = tappedUser else { return }
         PostService.shared.fetchUserPost(withUser: user) { [weak self] (posts) in
             guard let self = self else { return }
@@ -73,7 +73,7 @@ extension Profile {
         }
     }
     
-    func checkIfUserIsFollwed() {
+    fileprivate func checkIfUserIsFollwed() {
         guard let user = tappedUser else { return }
         UserService.shared.isUserFollowedOrNot(uid: user.uid) { [weak self] isFollow in
             guard let self = self else { return }
@@ -83,7 +83,7 @@ extension Profile {
         }
     }
     
-    func fetchUserStats() {
+    fileprivate func fetchUserStats() {
         guard let user = tappedUser else { return }
         UserService.shared.fetchUserStats(uid: user.uid) { [weak self] stats in
             self?.tappedUser?.stats = stats
@@ -91,7 +91,7 @@ extension Profile {
         }
     }
     
-    func fetchLikedPost() {
+    fileprivate func fetchLikedPost() {
         guard let user = tappedUser else { return }
         PostService.shared.fetchLikedPosts(fromUser: user) { [weak self] posts in
             guard let self = self else { return }
@@ -105,6 +105,7 @@ extension Profile {
 //MARK: - delegate and data source
 
 extension Profile : UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pickedDataSource.count
     }
@@ -122,6 +123,7 @@ extension Profile : UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 }
+
 
 //MARK: - HandleFollowUser
 
@@ -155,11 +157,12 @@ extension Profile : HandleFollowUser {
     
 }
 
+
 //MARK: - helpers
 
 extension Profile {
     
-    func changeController(withUser user: User) {
+    fileprivate func changeController(withUser user: User) {
         let main = UIStoryboard.init(name: "Main", bundle: nil)
         let editProfileVC = main.instantiateViewController(identifier: editProfile) as! EditProfile
         editProfileVC.user = user

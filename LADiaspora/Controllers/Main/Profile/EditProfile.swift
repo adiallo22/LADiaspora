@@ -54,6 +54,7 @@ class EditProfile: UIViewController {
 }
 
 
+
 //MARK: - delegate and datasource
 
 extension EditProfile : UITableViewDataSource, UITableViewDelegate {
@@ -82,17 +83,19 @@ extension EditProfile : UITableViewDataSource, UITableViewDelegate {
 }
 
 
+
 //MARK: - navigationbar
 
 extension EditProfile {
     
-    func editNavBar() {
+    fileprivate func editNavBar() {
         navigationItem.title = "Edit Profile"
         navigationController?.navigationBar.backgroundColor = .orange
         navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .done, target: self, action: #selector(doneEdition))
     }
     
 }
+
 
 
 //MARK: - helpers
@@ -105,7 +108,7 @@ extension EditProfile {
         updateUserProfile()
     }
     
-    func configTableView() {
+    fileprivate func configTableView() {
         header.frame = CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 180)
         tableView.tableHeaderView = header
         tableView.dataSource = self
@@ -115,11 +118,12 @@ extension EditProfile {
 }
 
 
+
 //MARK: - API
 
 extension EditProfile {
     
-    func updateUserINFO() {
+    fileprivate func updateUserINFO() {
         guard let user = user else { return }
         UserService.shared.saveUserProfileData(user: user) { [weak self] (err, ref) in
             if err != nil {
@@ -132,7 +136,7 @@ extension EditProfile {
         }
     }
     
-    func updateUserIMG() {
+    fileprivate func updateUserIMG() {
         guard let image = newImage else { return }
         guard let user = user else { return }
         UserService.shared.updateProfileIMG(withImage: image) { [weak self] (result) in
@@ -147,7 +151,7 @@ extension EditProfile {
         }
     }
     
-    func updateUserProfile() {
+    fileprivate func updateUserProfile() {
         if userProfileHasChanged && userInfoHasChanged {
             updateUserIMG()
             updateUserINFO()
@@ -163,6 +167,7 @@ extension EditProfile {
 }
 
 
+
 //MARK: - EditProfileDelegate
 
 extension EditProfile : EditProfileDelegate {
@@ -172,6 +177,7 @@ extension EditProfile : EditProfileDelegate {
     }
     
 }
+
 
 
 //MARK: - image picker
@@ -190,6 +196,7 @@ extension EditProfile : UIImagePickerControllerDelegate, UINavigationControllerD
     }
     
 }
+
 
 
 //MARK: - EditDelegate
